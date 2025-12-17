@@ -437,7 +437,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
           <Button
             variant="outline"
             onClick={onBack}
-            className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 px-6"
+            className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 px-6 dark:border-orange-600 dark:text-orange-400 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             タイトル一覧へ戻る
@@ -445,26 +445,26 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
         )}
         <Button
           variant="outline"
-          className="border-2 border-gray-400 bg-white hover:bg-gray-50 px-6 ml-auto"
+          className="border-2 border-gray-400 bg-white hover:bg-gray-50 px-6 ml-auto dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
         >
           条件をクリア
         </Button>
       </div>
 
       {/* Section 1: 検索方法 */}
-      <Card className="border-2 border-orange-200 bg-orange-50/30">
+      <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-700">
         <div className="p-4">
           <div className="mb-4">
             <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">検索方法</span>
           </div>
           <RadioGroup value={searchMethod} onValueChange={setSearchMethod} className="flex gap-4">
-            <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white">
-              <RadioGroupItem value="number" id="number" className="border-2 border-black" />
-              <Label htmlFor="number" className="cursor-pointer text-sm">番号を入力して検索</Label>
+            <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white dark:bg-slate-800 dark:border-slate-600">
+              <RadioGroupItem value="number" id="number" className="border-2 border-black dark:border-slate-400 dark:text-orange-500" />
+              <Label htmlFor="number" className="cursor-pointer text-sm dark:text-slate-200">番号を入力して検索</Label>
             </div>
-            <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white">
-              <RadioGroupItem value="condition" id="condition" className="border-2 border-black" />
-              <Label htmlFor="condition" className="cursor-pointer text-sm">条件を入力して検索</Label>
+            <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white dark:bg-slate-800 dark:border-slate-600">
+              <RadioGroupItem value="condition" id="condition" className="border-2 border-black dark:border-slate-400 dark:text-orange-500" />
+              <Label htmlFor="condition" className="cursor-pointer text-sm dark:text-slate-200">条件を入力して検索</Label>
             </div>
           </RadioGroup>
         </div>
@@ -475,7 +475,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
         // 番号を入力して検索 UI - Same format as 条件を入力して検索
         <div className="space-y-4">
           {/* タイトル指定 Section */}
-          <Card className="border-2 border-orange-200 bg-orange-50/30">
+          <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-700">
             <div className="p-4">
               <div className="mb-4">
                 <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">タイトル指定</span>
@@ -484,9 +484,9 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
               {/* Header */}
               <div className="flex items-center gap-4 mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs">用途:</span>
+                  <span className="text-xs dark:text-slate-300">用途:</span>
                   <Select defaultValue="patent">
-                    <SelectTrigger className="bg-white border border-gray-300 h-7 w-24 text-xs">
+                    <SelectTrigger className="bg-white border border-gray-300 h-7 w-24 text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -497,10 +497,10 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   </Select>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs">検索済み件数: {totalSelectedCount} 件</span>
+                  <span className="text-xs dark:text-slate-300">検索済み件数: {totalSelectedCount} 件</span>
                   <Button
                     size="sm"
-                    className="h-7 px-3 text-xs bg-gray-600 hover:bg-gray-700"
+                    className="h-7 px-3 text-xs bg-gray-600 hover:bg-gray-700 dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-slate-200"
                     onClick={handleConfirmSelection}
                   >
                     確認
@@ -508,16 +508,16 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                 </div>
               </div>
 
-              <div className="text-xs text-gray-600 mb-3">
+              <div className="text-xs text-gray-600 mb-3 dark:text-slate-400">
                 ※確認した範囲をまず確定してください。からのタイトルから選んでください。
               </div>
 
               {/* Table */}
-              <Card className="border-2 border-gray-300 bg-white overflow-hidden">
+              <Card className="border-2 border-gray-300 bg-white overflow-hidden dark:bg-slate-900 dark:border-slate-600">
                 <Table>
                   <TableHeader>
-                    <TableRow className="bg-gray-100 hover:bg-gray-100">
-                      <TableHead className="w-[60px] border-r text-xs text-center">
+                    <TableRow className="bg-gray-100 hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-800">
+                      <TableHead className="w-[60px] border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">
                         <div className="flex flex-col items-center gap-1">
                           <Checkbox
                             checked={selectedTitles.length === searchResults.length && searchResults.length > 0}
@@ -526,27 +526,27 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                           <span className="text-[9px]">全ON/OFF</span>
                         </div>
                       </TableHead>
-                      <TableHead className="w-[80px] border-r text-xs text-center">No.</TableHead>
-                      <TableHead className="border-r text-xs">保存データタイトル</TableHead>
-                      <TableHead className="w-[130px] border-r text-xs">データ件数</TableHead>
-                      <TableHead className="w-[120px] border-r text-xs">部署名</TableHead>
-                      <TableHead className="w-[130px] text-xs">主担当者</TableHead>
+                      <TableHead className="w-[80px] border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">No.</TableHead>
+                      <TableHead className="border-r text-xs dark:border-slate-700 dark:text-slate-300">保存データタイトル</TableHead>
+                      <TableHead className="w-[130px] border-r text-xs dark:border-slate-700 dark:text-slate-300">データ件数</TableHead>
+                      <TableHead className="w-[120px] border-r text-xs dark:border-slate-700 dark:text-slate-300">部署名</TableHead>
+                      <TableHead className="w-[130px] text-xs dark:text-slate-300">主担当者</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {searchResults.map((result) => (
-                      <TableRow key={result.id} className="hover:bg-gray-50">
-                        <TableCell className="border-r text-center">
+                      <TableRow key={result.id} className="hover:bg-gray-50 dark:hover:bg-slate-800">
+                        <TableCell className="border-r text-center dark:border-slate-700">
                           <Checkbox
                             checked={selectedTitles.includes(result.id)}
                             onCheckedChange={(checked: boolean | 'indeterminate') => handleSelectTitle(result.id, typeof checked === 'boolean' ? checked : false)}
                           />
                         </TableCell>
-                        <TableCell className="border-r text-xs text-center">{result.no}</TableCell>
-                        <TableCell className="border-r text-xs">{result.title}</TableCell>
-                        <TableCell className="border-r text-xs">{result.dataCount}</TableCell>
-                        <TableCell className="border-r text-xs">{result.department}</TableCell>
-                        <TableCell className="text-xs">{result.responsible}</TableCell>
+                        <TableCell className="border-r text-xs text-center dark:border-slate-700 dark:text-slate-200">{result.no}</TableCell>
+                        <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-200">{result.title}</TableCell>
+                        <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-200">{result.dataCount}</TableCell>
+                        <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-200">{result.department}</TableCell>
+                        <TableCell className="text-xs dark:text-slate-200">{result.responsible}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -556,7 +556,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
           </Card>
 
           {/* 番号入力 Section */}
-          <Card className="border-2 border-orange-200 bg-orange-50/30">
+          <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-700">
             <div className="p-4">
               <div className="mb-4">
                 <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">番号入力</span>
@@ -564,9 +564,9 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
               <div className="space-y-4">
                 <div className="flex gap-4">
                   <div className="w-[200px]">
-                    <Label className="text-sm mb-2 block">番号区分</Label>
+                    <Label className="text-sm mb-2 block dark:text-slate-200">番号区分</Label>
                     <Select value={numberType} onValueChange={setNumberType}>
-                      <SelectTrigger className="bg-white border-2 border-gray-300">
+                      <SelectTrigger className="bg-white border-2 border-gray-300 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -582,7 +582,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   <div className="flex-1">
                     <Label className="text-sm mb-2 block invisible">入力</Label>
                     <Textarea
-                      className="min-h-[100px] bg-white border-2 border-gray-300 text-sm"
+                      className="min-h-[100px] bg-white border-2 border-gray-300 text-sm dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                       placeholder="特開2025-040365"
                       value={numberInput}
                       onChange={(e) => setNumberInput(e.target.value)}
@@ -590,15 +590,15 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   </div>
 
                   <div className="w-[200px]">
-                    <Label className="text-sm mb-2 block">検索オプション</Label>
+                    <Label className="text-sm mb-2 block dark:text-slate-200">検索オプション</Label>
                     <RadioGroup value={searchOption} onValueChange={setSearchOption} className="space-y-2">
-                      <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white">
-                        <RadioGroupItem value="exact" id="exact" className="border-2 border-black" />
-                        <Label htmlFor="exact" className="cursor-pointer text-sm">完全一致</Label>
+                      <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white dark:bg-slate-800 dark:border-slate-600">
+                        <RadioGroupItem value="exact" id="exact" className="border-2 border-black dark:border-slate-400 dark:text-orange-500" />
+                        <Label htmlFor="exact" className="cursor-pointer text-sm dark:text-slate-200">完全一致</Label>
                       </div>
-                      <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white">
-                        <RadioGroupItem value="partial" id="partial" className="border-2 border-black" />
-                        <Label htmlFor="partial" className="cursor-pointer text-sm">部分一致</Label>
+                      <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white dark:bg-slate-800 dark:border-slate-600">
+                        <RadioGroupItem value="partial" id="partial" className="border-2 border-black dark:border-slate-400 dark:text-orange-500" />
+                        <Label htmlFor="partial" className="cursor-pointer text-sm dark:text-slate-200">部分一致</Label>
                       </div>
                     </RadioGroup>
                   </div>
@@ -608,7 +608,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                 <div className="flex items-center gap-3 pt-2">
                   <Button
                     onClick={handleCountCheck}
-                    className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white px-6"
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-6 dark:bg-orange-600 dark:hover:bg-orange-700"
                   >
                     件数チェック
                   </Button>
@@ -616,10 +616,10 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                     <Input
                       value={patentCount > 0 ? patentCount : ''}
                       readOnly
-                      className="w-24 text-center border-2 border-gray-300"
+                      className="w-24 text-center border-2 border-gray-300 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                       placeholder="0"
                     />
-                    <span className="text-sm">件</span>
+                    <span className="text-sm dark:text-slate-200">件</span>
                   </div>
                 </div>
               </div>
@@ -630,7 +630,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
         // 条件を入力して検索 UI
         <div className="space-y-4">
           {/* タイトル指定 Section */}
-          <Card className="border-2 border-orange-200 bg-orange-50/30">
+          <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-700">
             <div className="p-4">
               <div className="mb-4">
                 <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">タイトル指定</span>
@@ -639,9 +639,9 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
               {/* Header */}
               <div className="flex items-center gap-4 mb-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs">用途:</span>
+                  <span className="text-xs dark:text-slate-300">用途:</span>
                   <Select defaultValue="patent">
-                    <SelectTrigger className="bg-white border border-gray-300 h-7 w-24 text-xs">
+                    <SelectTrigger className="bg-white border border-gray-300 h-7 w-24 text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -652,10 +652,10 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   </Select>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs">検索済み件数：{totalSelectedCount} 件</span>
+                  <span className="text-xs dark:text-slate-300">検索済み件数：{totalSelectedCount} 件</span>
                   <Button
                     size="sm"
-                    className="h-7 px-3 text-xs bg-gray-600 hover:bg-gray-700"
+                    className="h-7 px-3 text-xs bg-gray-600 hover:bg-gray-700 dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-slate-200"
                     onClick={handleConfirmSelection}
                   >
                     確認
@@ -663,16 +663,16 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                 </div>
               </div>
 
-              <div className="text-xs text-gray-600 mb-3">
+              <div className="text-xs text-gray-600 mb-3 dark:text-slate-400">
                 ※確認した範囲をまず確定してください。からのタイトルから選んでください。
               </div>
 
               {/* Table */}
-              <Card className="border-2 border-gray-300 bg-white overflow-hidden">
+              <Card className="border-2 border-gray-300 bg-white overflow-hidden dark:bg-slate-900 dark:border-slate-600">
                 <Table>
                   <TableHeader>
-                    <TableRow className="bg-gray-100 hover:bg-gray-100">
-                      <TableHead className="w-[60px] border-r text-xs text-center">
+                    <TableRow className="bg-gray-100 hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-800">
+                      <TableHead className="w-[60px] border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">
                         <div className="flex flex-col items-center gap-1">
                           <Checkbox
                             checked={selectedTitles.length === searchResults.length && searchResults.length > 0}
@@ -681,27 +681,27 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                           <span className="text-[9px]">全ON/OFF</span>
                         </div>
                       </TableHead>
-                      <TableHead className="w-[80px] border-r text-xs text-center">No.</TableHead>
-                      <TableHead className="border-r text-xs">保存データタイトル</TableHead>
-                      <TableHead className="w-[130px] border-r text-xs">データ件数</TableHead>
-                      <TableHead className="w-[120px] border-r text-xs">部署名</TableHead>
-                      <TableHead className="w-[130px] text-xs">主担当者</TableHead>
+                      <TableHead className="w-[80px] border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">No.</TableHead>
+                      <TableHead className="border-r text-xs dark:border-slate-700 dark:text-slate-300">保存データタイトル</TableHead>
+                      <TableHead className="w-[130px] border-r text-xs dark:border-slate-700 dark:text-slate-300">データ件数</TableHead>
+                      <TableHead className="w-[120px] border-r text-xs dark:border-slate-700 dark:text-slate-300">部署名</TableHead>
+                      <TableHead className="w-[130px] text-xs dark:text-slate-300">主担当者</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {searchResults.map((result) => (
-                      <TableRow key={result.id} className="hover:bg-gray-50">
-                        <TableCell className="border-r text-center">
+                      <TableRow key={result.id} className="hover:bg-gray-50 dark:hover:bg-slate-800">
+                        <TableCell className="border-r text-center dark:border-slate-700">
                           <Checkbox
                             checked={selectedTitles.includes(result.id)}
                             onCheckedChange={(checked: boolean | 'indeterminate') => handleSelectTitle(result.id, typeof checked === 'boolean' ? checked : false)}
                           />
                         </TableCell>
-                        <TableCell className="border-r text-xs text-center">{result.no}</TableCell>
-                        <TableCell className="border-r text-xs">{result.title}</TableCell>
-                        <TableCell className="border-r text-xs">{result.dataCount}</TableCell>
-                        <TableCell className="border-r text-xs">{result.department}</TableCell>
-                        <TableCell className="text-xs">{result.responsible}</TableCell>
+                        <TableCell className="border-r text-xs text-center dark:border-slate-700 dark:text-slate-200">{result.no}</TableCell>
+                        <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-200">{result.title}</TableCell>
+                        <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-200">{result.dataCount}</TableCell>
+                        <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-200">{result.department}</TableCell>
+                        <TableCell className="text-xs dark:text-slate-200">{result.responsible}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -711,7 +711,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
           </Card>
 
           {/* 名称かリスト Section */}
-          <Card className="border-2 border-orange-200 bg-orange-50/30">
+          <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-700">
             <div className="p-4">
               <div className="mb-4">
                 <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">名称かリスト</span>
@@ -720,10 +720,10 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
               {/* Input Row */}
               <div className="flex items-end gap-2 mb-4">
                 <div className="flex-1">
-                  <Label className="text-xs mb-1 block">検索名称</Label>
+                  <Label className="text-xs mb-1 block dark:text-slate-200">検索名称</Label>
                   <div className="flex gap-2">
                     <Select value={searchNameField} onValueChange={setSearchNameField}>
-                      <SelectTrigger className="bg-white border border-gray-300 h-8 w-[180px] text-xs">
+                      <SelectTrigger className="bg-white border border-gray-300 h-8 w-[180px] text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -736,13 +736,13 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                       </SelectContent>
                     </Select>
                     <Input
-                      className="bg-white border border-gray-300 h-8 text-xs flex-1"
+                      className="bg-white border border-gray-300 h-8 text-xs flex-1 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                       value={searchNameValue}
                       onChange={(e) => setSearchNameValue(e.target.value)}
                     />
                     <Button
                       size="sm"
-                      className="h-8 px-4 bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white"
+                      className="h-8 px-4 bg-orange-500 hover:bg-orange-600 text-white dark:bg-orange-600 dark:hover:bg-orange-700"
                       onClick={handleAddHistory}
                     >
                       追加
@@ -751,23 +751,23 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                 </div>
               </div>
 
-              <div className="text-xs text-gray-600 mb-3">
+              <div className="text-xs text-gray-600 mb-3 dark:text-slate-400">
                 ※履歴かリストでクリックして編集元に履歴を追加してください。
               </div>
 
               {/* History Table - Updated with new column names */}
-              <div className="border-2 border-gray-300 bg-white rounded overflow-hidden">
+              <div className="border-2 border-gray-300 bg-white rounded overflow-hidden dark:bg-slate-900 dark:border-slate-600">
                 <Table>
                   <TableHeader>
-                    <TableRow className="bg-gray-100 hover:bg-gray-100">
-                      <TableHead className="w-[80px] border-r text-xs text-center">選択</TableHead>
-                      <TableHead className="w-[150px] border-r text-xs">項目</TableHead>
-                      <TableHead className="border-r text-xs">条件</TableHead>
-                      <TableHead className="w-[80px] text-xs text-center">
+                    <TableRow className="bg-gray-100 hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-800">
+                      <TableHead className="w-[80px] border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">選択</TableHead>
+                      <TableHead className="w-[150px] border-r text-xs dark:border-slate-700 dark:text-slate-300">項目</TableHead>
+                      <TableHead className="border-r text-xs dark:border-slate-700 dark:text-slate-300">条件</TableHead>
+                      <TableHead className="w-[80px] text-xs text-center dark:text-slate-300">
                         <Button
                           variant="link"
                           size="sm"
-                          className="h-auto p-0 text-xs text-blue-600"
+                          className="h-auto p-0 text-xs text-blue-600 dark:text-blue-400"
                           onClick={handleClearAllHistory}
                         >
                           全削除
@@ -777,24 +777,24 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   </TableHeader>
                   <TableBody>
                     {historyItems.map((item) => (
-                      <TableRow key={item.id} className="hover:bg-gray-50">
-                        <TableCell className="border-r text-xs text-center">
+                      <TableRow key={item.id} className="hover:bg-gray-50 dark:hover:bg-slate-800">
+                        <TableCell className="border-r text-xs text-center dark:border-slate-700">
                           <Button
                             variant="link"
                             size="sm"
-                            className="h-auto p-0 text-xs text-blue-600 hover:underline"
+                            className="h-auto p-0 text-xs text-blue-600 hover:underline dark:text-blue-400"
                             onClick={() => handleHistoryClick(item.id)}
                           >
                             {item.id}
                           </Button>
                         </TableCell>
-                        <TableCell className="border-r text-xs">{item.name}</TableCell>
-                        <TableCell className="border-r text-xs">{item.value}</TableCell>
+                        <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-200">{item.name}</TableCell>
+                        <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-200">{item.value}</TableCell>
                         <TableCell className="text-center">
                           <Button
                             variant="link"
                             size="sm"
-                            className="h-auto p-0 text-xs text-blue-600"
+                            className="h-auto p-0 text-xs text-blue-600 dark:text-blue-400"
                             onClick={() => handleDeleteHistory(item.id)}
                           >
                             削除
@@ -809,7 +809,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
           </Card>
 
           {/* 検索式 Section */}
-          <Card className="border-2 border-orange-200 bg-orange-50/30">
+          <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-700">
             <div className="p-4">
               <div className="mb-4">
                 <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">検索式</span>
@@ -819,14 +819,14 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                 <Input
                   value={searchExpression}
                   onChange={(e) => setSearchExpression(e.target.value)}
-                  className="bg-white border border-gray-300 h-8 text-xs"
+                  className="bg-white border border-gray-300 h-8 text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                 />
 
                 <div className="flex gap-2">
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
                     onClick={() => setSearchExpression('')}
                   >
                     Clear
@@ -834,7 +834,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
                     onClick={() => handleAddToExpression('[')}
                   >
                     [
@@ -842,7 +842,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
                     onClick={() => handleAddToExpression(']')}
                   >
                     ]
@@ -850,7 +850,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
                     onClick={() => handleAddToExpression('×')}
                   >
                     ×
@@ -858,7 +858,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
                     onClick={() => handleAddToExpression('+')}
                   >
                     +
@@ -866,7 +866,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
                     onClick={() => handleAddToExpression('Not')}
                   >
                     Not
@@ -877,7 +877,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                 <div className="flex items-center gap-3 pt-2">
                   <Button
                     onClick={handleCountCheck}
-                    className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white px-6"
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-6 dark:bg-orange-600 dark:hover:bg-orange-700"
                   >
                     件数チェック
                   </Button>
@@ -885,10 +885,10 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                     <Input
                       value={patentCount > 0 ? patentCount : ''}
                       readOnly
-                      className="w-24 text-center border-2 border-gray-300"
+                      className="w-24 text-center border-2 border-gray-300 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                       placeholder="0"
                     />
-                    <span className="text-sm">件</span>
+                    <span className="text-sm dark:text-slate-200">件</span>
                   </div>
                 </div>
               </div>
@@ -898,25 +898,25 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
       )}
 
       {/* Bottom Action Buttons */}
-      <div className="flex gap-3 justify-center pt-4 border-t-2 border-gray-200">
+      <div className="flex gap-3 justify-center pt-4 border-t-2 border-gray-200 dark:border-slate-700">
         <Button
           variant="outline"
           onClick={() => setShowDetailDialog(true)}
-          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px]"
+          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px] dark:bg-slate-800 dark:border-orange-600 dark:text-orange-300 dark:hover:bg-slate-700 dark:from-slate-800 dark:to-slate-800"
         >
           案件詳細
         </Button>
         <Button
           variant="outline"
           onClick={() => setShowListDialog(true)}
-          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px]"
+          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px] dark:bg-slate-800 dark:border-orange-600 dark:text-orange-300 dark:hover:bg-slate-700 dark:from-slate-800 dark:to-slate-800"
         >
           案件一覧
         </Button>
         <Button
           variant="outline"
           onClick={handleExport}
-          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px]"
+          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px] dark:bg-slate-800 dark:border-orange-600 dark:text-orange-300 dark:hover:bg-slate-700 dark:from-slate-800 dark:to-slate-800"
         >
           出力
         </Button>
@@ -924,14 +924,14 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
 
       {/* Patent Detail Dialog */}
       <Dialog open={showDetailDialog} onOpenChange={setShowDetailDialog}>
-        <DialogContent className="max-w-5xl max-h-[90vh]">
-          <DialogHeader className="border-b pb-4">
+        <DialogContent className="max-w-5xl max-h-[90vh] dark:bg-slate-900 dark:border-slate-700">
+          <DialogHeader className="border-b pb-4 dark:border-slate-700">
             <div className="flex justify-between items-center">
               <DialogTitle className="flex items-center gap-2">
                 <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
                   書誌・明細書
                 </span>
-                <span className="text-sm text-gray-500 ml-2">
+                <span className="text-sm text-gray-500 ml-2 dark:text-slate-400">
                   ({currentDetailIndex + 1} / {rawPatents.length})
                 </span>
               </DialogTitle>
@@ -941,6 +941,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   size="sm"
                   onClick={handlePrevPatent}
                   disabled={currentDetailIndex === 0}
+                  className="dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
                 >
                   前へ
                 </Button>
@@ -949,6 +950,7 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
                   size="sm"
                   onClick={handleNextPatent}
                   disabled={currentDetailIndex === rawPatents.length - 1}
+                  className="dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
                 >
                   次へ
                 </Button>
@@ -962,97 +964,97 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
           <ScrollArea className="max-h-[calc(90vh-120px)] pr-4">
             <div className="space-y-4">
               {/* Basic Info Section */}
-              <div className="grid grid-cols-2 gap-4 p-4 bg-orange-50/30 rounded border border-orange-200">
+              <div className="grid grid-cols-2 gap-4 p-4 bg-orange-50/30 rounded border border-orange-200 dark:bg-slate-800 dark:border-slate-700">
                 <div>
-                  <Label className="text-xs text-gray-600">タイトルコード</Label>
-                  <p className="text-sm mt-1">{patentDetail.titleCode}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">タイトルコード</Label>
+                  <p className="text-sm mt-1 dark:text-slate-200">{patentDetail.titleCode}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-gray-600">タイトル名</Label>
-                  <p className="text-sm mt-1">{patentDetail.titleName}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">タイトル名</Label>
+                  <p className="text-sm mt-1 dark:text-slate-200">{patentDetail.titleName}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-gray-600">公開・公表番号</Label>
-                  <p className="text-sm mt-1">{patentDetail.publicationNo}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">公開・公表番号</Label>
+                  <p className="text-sm mt-1 dark:text-slate-200">{patentDetail.publicationNo}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-gray-600">登録番号</Label>
-                  <p className="text-sm mt-1">{patentDetail.registrationNo}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">登録番号</Label>
+                  <p className="text-sm mt-1 dark:text-slate-200">{patentDetail.registrationNo}</p>
                 </div>
                 <div className="col-span-2">
-                  <Label className="text-xs text-gray-600">権利者･出願人名</Label>
-                  <p className="text-sm mt-1">{patentDetail.applicant}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">権利者･出願人名</Label>
+                  <p className="text-sm mt-1 dark:text-slate-200">{patentDetail.applicant}</p>
                 </div>
               </div>
 
               {/* Invention Name */}
-              <div className="p-4 bg-white rounded border border-gray-200">
+              <div className="p-4 bg-white rounded border border-gray-200 dark:bg-slate-800 dark:border-slate-700">
                 <div className="flex items-center gap-2 mb-2">
-                  <Button size="sm" variant="outline" className="h-6 px-2 text-xs">送信</Button>
-                  <Label className="text-sm">発明の名称</Label>
+                  <Button size="sm" variant="outline" className="h-6 px-2 text-xs dark:bg-slate-700 dark:border-slate-600 dark:text-slate-200">送信</Button>
+                  <Label className="text-sm dark:text-slate-200">発明の名称</Label>
                 </div>
-                <p className="text-sm">{patentDetail.inventionName}</p>
+                <p className="text-sm dark:text-slate-200">{patentDetail.inventionName}</p>
               </div>
 
               {/* Abstract */}
-              <div className="p-4 bg-white rounded border border-gray-200">
+              <div className="p-4 bg-white rounded border border-gray-200 dark:bg-slate-800 dark:border-slate-700">
                 <div className="flex items-center gap-2 mb-2">
-                  <Button size="sm" variant="outline" className="h-6 px-2 text-xs">送信</Button>
-                  <Label className="text-sm">要約</Label>
+                  <Button size="sm" variant="outline" className="h-6 px-2 text-xs dark:bg-slate-700 dark:border-slate-600 dark:text-slate-200">送信</Button>
+                  <Label className="text-sm dark:text-slate-200">要約</Label>
                 </div>
-                <div className="text-xs whitespace-pre-wrap bg-gray-50 p-3 rounded">
+                <div className="text-xs whitespace-pre-wrap bg-gray-50 p-3 rounded dark:bg-slate-900 dark:text-slate-200">
                   {patentDetail.abstract}
                 </div>
               </div>
 
               {/* Claims */}
-              <div className="p-4 bg-white rounded border border-gray-200">
+              <div className="p-4 bg-white rounded border border-gray-200 dark:bg-slate-800 dark:border-slate-700">
                 <div className="flex items-center gap-2 mb-2">
-                  <Button size="sm" variant="outline" className="h-6 px-2 text-xs">送信</Button>
-                  <Label className="text-sm">請求の範囲</Label>
+                  <Button size="sm" variant="outline" className="h-6 px-2 text-xs dark:bg-slate-700 dark:border-slate-600 dark:text-slate-200">送信</Button>
+                  <Label className="text-sm dark:text-slate-200">請求の範囲</Label>
                 </div>
-                <div className="text-xs whitespace-pre-wrap bg-gray-50 p-3 rounded max-h-60 overflow-y-auto">
+                <div className="text-xs whitespace-pre-wrap bg-gray-50 p-3 rounded max-h-60 overflow-y-auto dark:bg-slate-900 dark:text-slate-200">
                   {patentDetail.claims}
                 </div>
               </div>
 
               {/* Additional Details */}
-              <div className="grid grid-cols-2 gap-4 p-4 bg-orange-50/30 rounded border border-orange-200">
+              <div className="grid grid-cols-2 gap-4 p-4 bg-orange-50/30 rounded border border-orange-200 dark:bg-slate-800 dark:border-slate-700">
                 <div>
-                  <Label className="text-xs text-gray-600">発明者名</Label>
-                  <p className="text-xs mt-1">{patentDetail.inventor}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">発明者名</Label>
+                  <p className="text-xs mt-1 dark:text-slate-200">{patentDetail.inventor}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-gray-600">IPC</Label>
-                  <p className="text-xs mt-1">{patentDetail.ipc}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">IPC</Label>
+                  <p className="text-xs mt-1 dark:text-slate-200">{patentDetail.ipc}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-gray-600">出願番号</Label>
-                  <p className="text-xs mt-1">{patentDetail.applicationNo}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">出願番号</Label>
+                  <p className="text-xs mt-1 dark:text-slate-200">{patentDetail.applicationNo}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-gray-600">出願日</Label>
-                  <p className="text-xs mt-1">{patentDetail.applicationDate}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">出願日</Label>
+                  <p className="text-xs mt-1 dark:text-slate-200">{patentDetail.applicationDate}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-gray-600">公開・公表日</Label>
-                  <p className="text-xs mt-1">{patentDetail.publicationDate}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">公開・公表日</Label>
+                  <p className="text-xs mt-1 dark:text-slate-200">{patentDetail.publicationDate}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-gray-600">登録日</Label>
-                  <p className="text-xs mt-1">{patentDetail.registrationDate}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">登録日</Label>
+                  <p className="text-xs mt-1 dark:text-slate-200">{patentDetail.registrationDate}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-gray-600">FI</Label>
-                  <p className="text-xs mt-1">{patentDetail.fi}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">FI</Label>
+                  <p className="text-xs mt-1 dark:text-slate-200">{patentDetail.fi}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-gray-600">Fターム</Label>
-                  <p className="text-xs mt-1">{patentDetail.fTerm}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">Fターム</Label>
+                  <p className="text-xs mt-1 dark:text-slate-200">{patentDetail.fTerm}</p>
                 </div>
                 <div>
-                  <Label className="text-xs text-gray-600">公報種別</Label>
-                  <p className="text-xs mt-1">{patentDetail.publicationType}</p>
+                  <Label className="text-xs text-gray-600 dark:text-slate-400">公報種別</Label>
+                  <p className="text-xs mt-1 dark:text-slate-200">{patentDetail.publicationType}</p>
                 </div>
               </div>
             </div>
@@ -1062,13 +1064,13 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
 
       {/* Patent List Dialog */}
       <Dialog open={showListDialog} onOpenChange={setShowListDialog}>
-        <DialogContent className="max-w-[95vw] max-h-[90vh] p-0">
-          <DialogHeader className="border-b pb-3 px-4 pt-4">
+        <DialogContent className="max-w-[95vw] max-h-[90vh] p-0 dark:bg-slate-900 dark:border-slate-800">
+          <DialogHeader className="border-b pb-3 px-4 pt-4 dark:border-slate-700">
             <DialogTitle className="flex items-center gap-2">
               <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
                 案件一覧
               </span>
-              <span className="text-sm text-gray-500">({patentListData.length}件)</span>
+              <span className="text-sm text-gray-500 dark:text-slate-400">({patentListData.length}件)</span>
             </DialogTitle>
             <DialogDescription className="sr-only">
               検索結果の特許案件一覧を表示します
@@ -1076,47 +1078,47 @@ export function TitleSearchForm({ onBack }: TitleSearchFormProps) {
           </DialogHeader>
 
           <div className="overflow-auto px-4 pb-4">
-            <Table className="border border-gray-300">
+            <Table className="border border-gray-300 dark:border-slate-700">
               <TableHeader>
-                <TableRow className="bg-orange-100 hover:bg-orange-100">
-                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2">文献番号</TableHead>
-                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2">出願番号</TableHead>
-                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2">出願日</TableHead>
-                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2">公知日</TableHead>
-                  <TableHead className="border-r text-xs px-3 py-2">発明の名称</TableHead>
-                  <TableHead className="border-r text-xs px-3 py-2">出願人/権利者</TableHead>
-                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2">公開番号</TableHead>
-                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2">公告番号</TableHead>
-                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2">登録番号</TableHead>
-                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2">審判番号</TableHead>
-                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2">その他</TableHead>
-                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2">ステージ</TableHead>
-                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2">イベント</TableHead>
-                  <TableHead className="text-xs px-3 py-2">文献URL</TableHead>
+                <TableRow className="bg-orange-100 hover:bg-orange-100 dark:bg-slate-800 dark:hover:bg-slate-800">
+                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-300">文献番号</TableHead>
+                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-300">出願番号</TableHead>
+                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-300">出願日</TableHead>
+                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-300">公知日</TableHead>
+                  <TableHead className="border-r text-xs px-3 py-2 dark:border-slate-700 dark:text-slate-300">発明の名称</TableHead>
+                  <TableHead className="border-r text-xs px-3 py-2 dark:border-slate-700 dark:text-slate-300">出願人/権利者</TableHead>
+                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-300">公開番号</TableHead>
+                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-300">公告番号</TableHead>
+                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-300">登録番号</TableHead>
+                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-300">審判番号</TableHead>
+                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-300">その他</TableHead>
+                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-300">ステージ</TableHead>
+                  <TableHead className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-300">イベント</TableHead>
+                  <TableHead className="text-xs px-3 py-2 dark:text-slate-300">文献URL</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {patentListData.map((patent, index) => (
                   <TableRow
                     key={index}
-                    className="hover:bg-orange-50 cursor-pointer"
+                    className="hover:bg-orange-50 cursor-pointer dark:hover:bg-slate-800"
                     onClick={() => handleRowClick(patent)}
                   >
-                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2">{patent.documentNo}</TableCell>
-                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2">{patent.applicationNo}</TableCell>
-                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2">{patent.applicationDate}</TableCell>
-                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2">{patent.publicationDate}</TableCell>
-                    <TableCell className="border-r text-xs px-3 py-2">{patent.inventionName}</TableCell>
-                    <TableCell className="border-r text-xs px-3 py-2">{patent.applicant}</TableCell>
-                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2">{patent.publicationNo}</TableCell>
-                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2">{patent.announcementNo}</TableCell>
-                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2">{patent.registrationNo}</TableCell>
-                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2">{patent.trialNo}</TableCell>
-                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2">{patent.other}</TableCell>
-                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2">{patent.stage}</TableCell>
-                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2">{patent.event}</TableCell>
+                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.documentNo}</TableCell>
+                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.applicationNo}</TableCell>
+                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.applicationDate}</TableCell>
+                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.publicationDate}</TableCell>
+                    <TableCell className="border-r text-xs px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.inventionName}</TableCell>
+                    <TableCell className="border-r text-xs px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.applicant}</TableCell>
+                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.publicationNo}</TableCell>
+                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.announcementNo}</TableCell>
+                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.registrationNo}</TableCell>
+                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.trialNo}</TableCell>
+                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.other}</TableCell>
+                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.stage}</TableCell>
+                    <TableCell className="border-r text-xs whitespace-nowrap px-3 py-2 dark:border-slate-700 dark:text-slate-200">{patent.event}</TableCell>
                     <TableCell className="text-xs px-3 py-2">
-                      <a href={patent.documentUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline break-all">
+                      <a href={patent.documentUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline break-all dark:text-blue-400">
                         {patent.documentUrl}
                       </a>
                     </TableCell>

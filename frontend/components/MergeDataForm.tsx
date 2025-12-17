@@ -206,7 +206,7 @@ export function MergeDataForm({ onBack }: MergeDataFormProps) {
           <Button
             variant="outline"
             onClick={onBack}
-            className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 px-6"
+            className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 px-6 dark:border-orange-600 dark:text-orange-400 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             タイトル一覧へ戻る
@@ -215,12 +215,12 @@ export function MergeDataForm({ onBack }: MergeDataFormProps) {
       </div>
 
       {/* Info Text */}
-      <div className="text-sm text-gray-700">
+      <div className="text-sm text-gray-700 dark:text-slate-300">
         特許タイトルのマージが可能です。
       </div>
 
       {/* Section 1: マージ */}
-      <Card className="border-2 border-orange-200 bg-orange-50/30">
+      <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-700">
         <div className="p-4">
           <div className="mb-4">
             <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">①マージ</span>
@@ -229,24 +229,24 @@ export function MergeDataForm({ onBack }: MergeDataFormProps) {
           <div className="space-y-4">
             {/* データタイトル名 */}
             <div>
-              <Label className="text-sm mb-2 block">
-                データタイトル名<span className="text-red-500 ml-1">(必須)</span>
+              <Label className="text-sm mb-2 block dark:text-slate-200">
+                データタイトル名<span className="text-red-500 ml-1 dark:text-red-400">(必須)</span>
               </Label>
               <Input
                 value={mergeTitle}
                 onChange={(e) => setMergeTitle(e.target.value)}
-                className="bg-white border-2 border-gray-300"
+                className="bg-white border-2 border-gray-300 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                 placeholder="マージ後のタイトル名を入力"
               />
             </div>
 
             {/* 部門 */}
             <div>
-              <Label className="text-sm mb-2 block">
-                部門<span className="text-red-500 ml-1">(必須)</span>
+              <Label className="text-sm mb-2 block dark:text-slate-200">
+                部門<span className="text-red-500 ml-1 dark:text-red-400">(必須)</span>
               </Label>
               <Select value={department} onValueChange={setDepartment}>
-                <SelectTrigger className="bg-white border-2 border-gray-300">
+                <SelectTrigger className="bg-white border-2 border-gray-300 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                   <SelectValue placeholder="部門選択" />
                 </SelectTrigger>
                 <SelectContent>
@@ -262,22 +262,22 @@ export function MergeDataForm({ onBack }: MergeDataFormProps) {
       </Card>
 
       {/* Section 2: マージタイトル選択 */}
-      <Card className="border-2 border-orange-200 bg-orange-50/30">
+      <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-700">
         <div className="p-4">
           <div className="mb-4">
             <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">②マージタイトル選択</span>
           </div>
 
-          <div className="text-xs text-gray-600 mb-3">
+          <div className="text-xs text-gray-600 mb-3 dark:text-slate-400">
             (主評価のタイトルはマージ対象外です)
           </div>
 
           {/* Table */}
-          <Card className="border-2 border-gray-300 bg-white overflow-hidden mb-4">
+          <Card className="border-2 border-gray-300 bg-white overflow-hidden mb-4 dark:bg-slate-900 dark:border-slate-600">
             <Table>
               <TableHeader>
-                <TableRow className="bg-gray-100 hover:bg-gray-100">
-                  <TableHead className="w-[100px] border-r text-xs text-center">
+                <TableRow className="bg-gray-100 hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-800">
+                  <TableHead className="w-[100px] border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">
                     <div className="flex items-center justify-center gap-1">
                       <Checkbox
                         checked={selectedEvaluations.length === evaluationData.length && evaluationData.length > 0}
@@ -286,21 +286,21 @@ export function MergeDataForm({ onBack }: MergeDataFormProps) {
                       <span className="ml-1">全ON／OFF</span>
                     </div>
                   </TableHead>
-                  <TableHead className="w-[120px] border-r text-xs text-center">No.</TableHead>
-                  <TableHead className="text-xs">タイトル名</TableHead>
+                  <TableHead className="w-[120px] border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">No.</TableHead>
+                  <TableHead className="text-xs dark:text-slate-300">タイトル名</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {titleData.map((title) => (
-                  <TableRow key={title.no} className="hover:bg-gray-50">
-                    <TableCell className="border-r text-center">
+                  <TableRow key={title.no} className="hover:bg-gray-50 dark:hover:bg-slate-800">
+                    <TableCell className="border-r text-center dark:border-slate-700">
                       <Checkbox
                         checked={selectedTitles.includes(title.id)}
                         onCheckedChange={(checked: boolean | 'indeterminate') => handleSelectTitle(title.id, typeof checked === 'boolean' ? checked : false)}
                       />
                     </TableCell>
-                    <TableCell className="border-r text-xs text-center">{title.no}</TableCell>
-                    <TableCell className="text-xs">{title.title}</TableCell>
+                    <TableCell className="border-r text-xs text-center dark:border-slate-700 dark:text-slate-200">{title.no}</TableCell>
+                    <TableCell className="text-xs dark:text-slate-200">{title.title}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -311,7 +311,7 @@ export function MergeDataForm({ onBack }: MergeDataFormProps) {
           <div className="flex justify-start">
             <Button
               onClick={handleSelectTitles}
-              className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white px-8"
+              className="bg-orange-500 hover:bg-orange-600 text-white px-8 dark:bg-orange-600 dark:hover:bg-orange-700"
             >
               チェックしたタイトルを選択
             </Button>
@@ -321,18 +321,18 @@ export function MergeDataForm({ onBack }: MergeDataFormProps) {
 
       {/* Section 3: 抽出条件 */}
       {showExtractionCondition && (
-        <Card className="border-2 border-orange-200 bg-blue-50/30">
+        <Card className="border-2 border-orange-200 bg-blue-50/30 dark:bg-slate-900 dark:border-slate-700">
           <div className="p-4">
             <div className="mb-4">
               <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">③マージデータの抽出条件</span>
             </div>
             <div className="space-y-4">
               {/* Table */}
-              <Card className="border-2 border-gray-300 bg-white overflow-hidden">
+              <Card className="border-2 border-gray-300 bg-white overflow-hidden dark:bg-slate-900 dark:border-slate-600">
                 <Table>
                   <TableHeader>
-                    <TableRow className="bg-gray-50 hover:bg-gray-50">
-                      <TableHead className="w-[120px] border-r text-xs text-center">
+                    <TableRow className="bg-gray-50 hover:bg-gray-50 dark:bg-slate-800 dark:hover:bg-slate-800">
+                      <TableHead className="w-[120px] border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">
                         <div className="flex items-center justify-center gap-1">
                           <Checkbox
                             checked={selectedEvaluations.length === evaluationData.length && evaluationData.length > 0}
@@ -341,21 +341,21 @@ export function MergeDataForm({ onBack }: MergeDataFormProps) {
                           <span className="ml-1">全ON／OFF</span>
                         </div>
                       </TableHead>
-                      <TableHead className="border-r text-xs text-center">評価記号</TableHead>
-                      <TableHead className="text-xs text-center">項目名</TableHead>
+                      <TableHead className="border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">評価記号</TableHead>
+                      <TableHead className="text-xs text-center dark:text-slate-300">項目名</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {evaluationData.map((evaluation) => (
-                      <TableRow key={evaluation.id} className="hover:bg-gray-50">
-                        <TableCell className="border-r text-center">
+                      <TableRow key={evaluation.id} className="hover:bg-gray-50 dark:hover:bg-slate-800">
+                        <TableCell className="border-r text-center dark:border-slate-700">
                           <Checkbox
                             checked={selectedEvaluations.includes(evaluation.id)}
                             onCheckedChange={(checked: boolean | 'indeterminate') => handleSelectEvaluation(evaluation.id, typeof checked === 'boolean' ? checked : false)}
                           />
                         </TableCell>
-                        <TableCell className="border-r text-xs text-center">{evaluation.code}</TableCell>
-                        <TableCell className="text-xs">{evaluation.itemName}</TableCell>
+                        <TableCell className="border-r text-xs text-center dark:border-slate-700 dark:text-slate-200">{evaluation.code}</TableCell>
+                        <TableCell className="text-xs dark:text-slate-200">{evaluation.itemName}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
@@ -371,7 +371,7 @@ export function MergeDataForm({ onBack }: MergeDataFormProps) {
         <div className="flex justify-end">
           <Button
             onClick={handleMerge}
-            className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white px-8"
+            className="bg-orange-500 hover:bg-orange-600 text-white px-8 dark:bg-orange-600 dark:hover:bg-orange-700"
           >
             保存データマージの実行
           </Button>

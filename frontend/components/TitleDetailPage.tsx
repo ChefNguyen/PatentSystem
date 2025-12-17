@@ -401,20 +401,20 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-yellow-50 overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-yellow-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 overflow-x-hidden">
 
 
       <div className="container mx-auto px-6 py-6">
         {/* Unified Header Card */}
-        <div className="bg-white rounded-xl shadow-sm border border-orange-100 p-6 mb-6">
+        <div className="bg-white rounded-xl shadow-sm border border-orange-100 p-6 mb-6 dark:bg-slate-900 dark:border-slate-800">
           {/* Title Section */}
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-orange-100 rounded-lg">
+            <div className="p-2 bg-orange-100 rounded-lg dark:bg-slate-800">
               <Lightbulb className="w-6 h-6 text-orange-600" />
             </div>
             <div>
-              <span className="text-sm font-medium text-gray-500 block mb-0.5">保存タイトル No.{titleNo}</span>
-              <h1 className="text-2xl font-bold text-gray-900 tracking-tight">{titleName}</h1>
+              <span className="text-sm font-medium text-gray-500 block mb-0.5 dark:text-slate-400">保存タイトル No.{titleNo}</span>
+              <h1 className="text-2xl font-bold text-gray-900 tracking-tight dark:text-slate-100">{titleName}</h1>
             </div>
           </div>
 
@@ -428,7 +428,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                   placeholder="出願人・権利者名で検索..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-9 h-9 text-sm border-gray-300 focus:border-orange-500 focus:ring-orange-500"
+                  className="pl-9 h-9 text-sm border-gray-300 focus:border-orange-500 focus:ring-orange-500 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200"
                 />
               </div>
             </div>
@@ -441,7 +441,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                   size="sm"
                   variant="ghost"
                   onClick={() => setFilterType('all')}
-                  className={`rounded-full px-4 ${filterType === 'all' ? 'bg-orange-100 text-orange-700 font-bold' : 'text-gray-600 hover:bg-gray-100'}`}
+                  className={`rounded-full px-4 ${filterType === 'all' ? 'bg-orange-100 text-orange-700 font-bold dark:bg-orange-900 dark:text-orange-200' : 'text-gray-600 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-800'}`}
                 >
                   全件
                 </Button>
@@ -449,7 +449,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                   size="sm"
                   variant="ghost"
                   onClick={() => setFilterType('progress')}
-                  className={`rounded-full px-4 ${filterType === 'progress' ? 'bg-orange-100 text-orange-700 font-bold' : 'text-gray-600 hover:bg-gray-100'}`}
+                  className={`rounded-full px-4 ${filterType === 'progress' ? 'bg-orange-100 text-orange-700 font-bold dark:bg-orange-900 dark:text-orange-200' : 'text-gray-600 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-800'}`}
                 >
                   進捗率(％)
                 </Button>
@@ -457,20 +457,20 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                   size="sm"
                   variant="ghost"
                   onClick={() => setFilterType('unevaluated')}
-                  className={`rounded-full px-4 ${filterType === 'unevaluated' ? 'bg-orange-100 text-orange-700 font-bold' : 'text-gray-600 hover:bg-gray-100'}`}
+                  className={`rounded-full px-4 ${filterType === 'unevaluated' ? 'bg-orange-100 text-orange-700 font-bold dark:bg-orange-900 dark:text-orange-200' : 'text-gray-600 hover:bg-gray-100 dark:text-slate-400 dark:hover:bg-slate-800'}`}
                 >
                   未評価(件)
                 </Button>
 
-                <div className="h-6 w-px bg-gray-200 mx-2"></div>
+                <div className="h-6 w-px bg-gray-200 mx-2 dark:bg-slate-700"></div>
 
                 {/* Group 2: Date Filter */}
-                <div className="bg-gray-100/50 p-1 rounded-lg flex items-center gap-1">
+                <div className="bg-gray-100/50 p-1 rounded-lg flex items-center gap-1 dark:bg-slate-800/50">
                   <Button
                     size="sm"
                     variant="ghost"
                     onClick={() => setDateFilter('application')}
-                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'application' ? 'bg-white text-orange-700 shadow-sm font-medium' : 'text-gray-500 hover:text-gray-900'}`}
+                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'application' ? 'bg-white text-orange-700 shadow-sm font-medium dark:bg-slate-700 dark:text-orange-200' : 'text-gray-500 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'}`}
                   >
                     出願日
                   </Button>
@@ -478,7 +478,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                     size="sm"
                     variant="ghost"
                     onClick={() => setDateFilter('publication')}
-                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'publication' ? 'bg-white text-orange-700 shadow-sm font-medium' : 'text-gray-500 hover:text-gray-900'}`}
+                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'publication' ? 'bg-white text-orange-700 shadow-sm font-medium dark:bg-slate-700 dark:text-orange-200' : 'text-gray-500 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'}`}
                   >
                     公開日
                   </Button>
@@ -486,7 +486,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                     size="sm"
                     variant="ghost"
                     onClick={() => setDateFilter('registration')}
-                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'registration' ? 'bg-white text-orange-700 shadow-sm font-medium' : 'text-gray-500 hover:text-gray-900'}`}
+                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'registration' ? 'bg-white text-orange-700 shadow-sm font-medium dark:bg-slate-700 dark:text-orange-200' : 'text-gray-500 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'}`}
                   >
                     登録日
                   </Button>
@@ -494,7 +494,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                     size="sm"
                     variant="ghost"
                     onClick={() => setDateFilter('registration-gazette')}
-                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'registration-gazette' ? 'bg-white text-orange-700 shadow-sm font-medium' : 'text-gray-500 hover:text-gray-900'}`}
+                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'registration-gazette' ? 'bg-white text-orange-700 shadow-sm font-medium dark:bg-slate-700 dark:text-orange-200' : 'text-gray-500 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'}`}
                   >
                     登録公報
                   </Button>
@@ -502,7 +502,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                     size="sm"
                     variant="ghost"
                     onClick={() => setDateFilter('announcement')}
-                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'announcement' ? 'bg-white text-orange-700 shadow-sm font-medium' : 'text-gray-500 hover:text-gray-900'}`}
+                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'announcement' ? 'bg-white text-orange-700 shadow-sm font-medium dark:bg-slate-700 dark:text-orange-200' : 'text-gray-500 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'}`}
                   >
                     公告日
                   </Button>
@@ -510,21 +510,21 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                     size="sm"
                     variant="ghost"
                     onClick={() => setDateFilter('gazette')}
-                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'gazette' ? 'bg-white text-orange-700 shadow-sm font-medium' : 'text-gray-500 hover:text-gray-900'}`}
+                    className={`rounded-md h-7 px-3 text-xs ${dateFilter === 'gazette' ? 'bg-white text-orange-700 shadow-sm font-medium dark:bg-slate-700 dark:text-orange-200' : 'text-gray-500 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'}`}
                   >
                     公報発行
                   </Button>
                 </div>
 
-                <div className="h-6 w-px bg-gray-200 mx-2"></div>
+                <div className="h-6 w-px bg-gray-200 mx-2 dark:bg-slate-700"></div>
 
                 {/* Group 3: Period Filter */}
-                <div className="bg-gray-100/50 p-1 rounded-lg flex items-center gap-1">
+                <div className="bg-gray-100/50 p-1 rounded-lg flex items-center gap-1 dark:bg-slate-800/50">
                   <Button
                     size="sm"
                     variant="ghost"
                     onClick={() => setPeriodFilter('year')}
-                    className={`rounded-md h-7 px-3 text-xs ${periodFilter === 'year' ? 'bg-white text-orange-700 shadow-sm font-medium' : 'text-gray-500 hover:text-gray-900'}`}
+                    className={`rounded-md h-7 px-3 text-xs ${periodFilter === 'year' ? 'bg-white text-orange-700 shadow-sm font-medium dark:bg-slate-700 dark:text-orange-200' : 'text-gray-500 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'}`}
                   >
                     年別
                   </Button>
@@ -532,7 +532,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                     size="sm"
                     variant="ghost"
                     onClick={() => setPeriodFilter('month')}
-                    className={`rounded-md h-7 px-3 text-xs ${periodFilter === 'month' ? 'bg-white text-orange-700 shadow-sm font-medium' : 'text-gray-500 hover:text-gray-900'}`}
+                    className={`rounded-md h-7 px-3 text-xs ${periodFilter === 'month' ? 'bg-white text-orange-700 shadow-sm font-medium dark:bg-slate-700 dark:text-orange-200' : 'text-gray-500 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'}`}
                   >
                     月別
                   </Button>
@@ -540,7 +540,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                     size="sm"
                     variant="ghost"
                     onClick={() => setPeriodFilter('week')}
-                    className={`rounded-md h-7 px-3 text-xs ${periodFilter === 'week' ? 'bg-white text-orange-700 shadow-sm font-medium' : 'text-gray-500 hover:text-gray-900'}`}
+                    className={`rounded-md h-7 px-3 text-xs ${periodFilter === 'week' ? 'bg-white text-orange-700 shadow-sm font-medium dark:bg-slate-700 dark:text-orange-200' : 'text-gray-500 hover:text-gray-900 dark:text-slate-400 dark:hover:text-slate-200'}`}
                   >
                     週別
                   </Button>
@@ -552,35 +552,35 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                   variant="outline"
                   size="sm"
                   onClick={onBack}
-                  className="text-sm h-8 transition-all duration-200 text-orange-600 border-orange-200 hover:bg-orange-100 hover:border-orange-300"
+                  className="text-sm h-8 transition-all duration-200 text-orange-600 border-orange-200 hover:bg-orange-100 hover:border-orange-300 dark:text-orange-400 dark:border-orange-800 dark:hover:bg-orange-900/30"
                 >
                   <ArrowLeft className="w-4 h-4 mr-1" />
                   タイトル一覧へ戻る
                 </Button>
-                <div className="w-px h-5 bg-gray-300"></div>
+                <div className="w-px h-5 bg-gray-300 dark:bg-slate-700"></div>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="text-sm h-8 transition-all duration-200 text-green-600 border-green-200 hover:bg-green-100 hover:border-green-300"
+                  className="text-sm h-8 transition-all duration-200 text-green-600 border-green-200 hover:bg-green-100 hover:border-green-300 dark:text-green-400 dark:border-green-800 dark:hover:bg-green-900/30"
                   onClick={handleExportCSV}
                 >
                   <Download className="w-4 h-4 mr-1" />
                   CSV出力
                 </Button>
-                <div className="w-px h-5 bg-gray-300"></div>
+                <div className="w-px h-5 bg-gray-300 dark:bg-slate-700"></div>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="text-sm h-8 transition-all duration-200 text-blue-600 border-blue-200 hover:bg-blue-100 hover:border-blue-300"
+                  className="text-sm h-8 transition-all duration-200 text-blue-600 border-blue-200 hover:bg-blue-100 hover:border-blue-300 dark:text-blue-400 dark:border-blue-800 dark:hover:bg-blue-900/30"
                 >
                   <RefreshCw className="w-4 h-4 mr-1" />
                   更新
                 </Button>
-                <div className="w-px h-5 bg-gray-300"></div>
+                <div className="w-px h-5 bg-gray-300 dark:bg-slate-700"></div>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="text-sm h-8 transition-all duration-200 text-yellow-600 border-yellow-200 hover:bg-yellow-100 hover:border-yellow-300"
+                  className="text-sm h-8 transition-all duration-200 text-yellow-600 border-yellow-200 hover:bg-yellow-100 hover:border-yellow-300 dark:text-yellow-400 dark:border-yellow-800 dark:hover:bg-yellow-900/30"
                   onClick={() => setIsAssignmentDialogOpen(true)}
                 >
                   <Users className="w-4 h-4 mr-1" />
@@ -595,13 +595,13 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
         {/* Main Content */}
 
         {/* Main Table Area */}
-        <div className="bg-white rounded-lg shadow-sm border">
+        <div className="bg-white rounded-lg shadow-sm border dark:bg-slate-900 dark:border-slate-800">
           {/* Matrix Table - Horizontal Scroll Only */}
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
-                <TableRow className="bg-gray-100">
-                  <TableHead className="text-center w-12 sticky left-0 bg-gray-100 z-10 border-r">
+                <TableRow className="bg-gray-100 dark:bg-slate-800">
+                  <TableHead className="text-center w-12 sticky left-0 bg-gray-100 z-10 border-r dark:bg-slate-800 dark:border-slate-700">
                     <input
                       type="checkbox"
                       className="w-4 h-4 cursor-pointer"
@@ -609,23 +609,23 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                       onChange={handleSelectAll}
                     />
                   </TableHead>
-                  <TableHead className="w-[300px] min-w-[300px] max-w-[300px] bg-gray-100 border-r border-gray-300" style={{ position: 'sticky', left: '48px', zIndex: 10 }}>
+                  <TableHead className="w-[300px] min-w-[300px] max-w-[300px] bg-gray-100 border-r border-gray-300 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300" style={{ position: 'sticky', left: '48px', zIndex: 10 }}>
                     出願人・権利者名
                   </TableHead>
-                  <TableHead className="text-center w-20 bg-gray-100 border-r">
-                    <span className="text-sm">全件</span>
+                  <TableHead className="text-center w-20 bg-gray-100 border-r dark:bg-slate-800 dark:border-slate-700">
+                    <span className="text-sm dark:text-slate-300">全件</span>
                   </TableHead>
-                  <TableHead className="text-center w-16 bg-gray-100 border-r">
-                    <span className="text-sm">未評価</span>
+                  <TableHead className="text-center w-16 bg-gray-100 border-r dark:bg-slate-800 dark:border-slate-700">
+                    <span className="text-sm dark:text-slate-300">未評価</span>
                   </TableHead>
-                  <TableHead className="text-center w-16 bg-gray-100 border-r">
-                    <span className="text-xs">日付未設定</span>
+                  <TableHead className="text-center w-16 bg-gray-100 border-r dark:bg-slate-800 dark:border-slate-700">
+                    <span className="text-xs dark:text-slate-300">日付未設定</span>
                   </TableHead>
-                  <TableHead className="text-center w-16 bg-gray-100 border-r">
-                    <span className="text-xs">以前</span>
+                  <TableHead className="text-center w-16 bg-gray-100 border-r dark:bg-slate-800 dark:border-slate-700">
+                    <span className="text-xs dark:text-slate-300">以前</span>
                   </TableHead>
                   {dateColumns.map((year) => (
-                    <TableHead key={year} className="text-center w-12 bg-gray-100 border-r text-xs">
+                    <TableHead key={year} className="text-center w-12 bg-gray-100 border-r text-xs dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300">
                       {year}
                     </TableHead>
                   ))}
@@ -633,29 +633,29 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
               </TableHeader>
               <TableBody>
                 {/* Summary Row - 全件 */}
-                <TableRow className="bg-blue-50">
-                  <TableCell className="sticky left-0 bg-blue-50 text-center border-r">
+                <TableRow className="bg-blue-50 dark:bg-blue-900/20">
+                  <TableCell className="sticky left-0 bg-blue-50 text-center border-r dark:bg-blue-900/20 dark:border-slate-700">
                     <input type="checkbox" className="w-4 h-4" disabled />
                   </TableCell>
-                  <TableCell className="bg-blue-50 border-r border-blue-300" style={{ position: 'sticky', left: '48px', zIndex: 10 }}>
-                    <span className="text-sm font-semibold text-blue-900">全件</span>
+                  <TableCell className="bg-blue-50 border-r border-blue-300 dark:bg-blue-900/20 dark:border-slate-700" style={{ position: 'sticky', left: '48px', zIndex: 10 }}>
+                    <span className="text-sm font-semibold text-blue-900 dark:text-blue-300">全件</span>
                   </TableCell>
-                  <TableCell className="bg-blue-50 text-center border-r">
+                  <TableCell className="bg-blue-50 text-center border-r dark:bg-blue-900/20 dark:border-slate-700">
                     <button
-                      className="text-blue-600 hover:underline text-sm font-semibold"
+                      className="text-blue-600 hover:underline text-sm font-semibold dark:text-blue-400"
                       onClick={() => onViewPatentDetails?.('全件', allPatents.length, { titleNo, titleName })}
                     >
                       {allPatents.length}
                     </button>
                   </TableCell>
-                  <TableCell className="bg-blue-50 text-center border-r">
-                    <span className="text-sm font-semibold">{allPatents.filter(p => p.evaluationStatus === '未評価').length}</span>
+                  <TableCell className="bg-blue-50 text-center border-r dark:bg-blue-900/20 dark:border-slate-700">
+                    <span className="text-sm font-semibold dark:text-slate-300">{allPatents.filter(p => p.evaluationStatus === '未評価').length}</span>
                   </TableCell>
                   <TableCell className={`text-center border-r ${(() => {
                     const count = patentData.reduce((sum, item) => sum + (item.counts?.['日付未設定']?.count || 0), 0);
                     const evaluated = patentData.reduce((sum, item) => sum + (item.counts?.['日付未設定']?.evaluated || 0), 0);
-                    if (count > 0 && count === evaluated) return 'bg-orange-100 font-bold text-orange-900';
-                    return 'bg-blue-50';
+                    if (count > 0 && count === evaluated) return 'bg-orange-100 font-bold text-orange-900 dark:bg-orange-900/40 dark:text-orange-200';
+                    return 'bg-blue-50 dark:bg-blue-900/20';
                   })()}`}
                     style={(() => {
                       const count = patentData.reduce((sum, item) => sum + (item.counts?.['日付未設定']?.count || 0), 0);
@@ -667,7 +667,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                       const count = patentData.reduce((sum, item) => sum + (item.counts?.['日付未設定']?.count || 0), 0);
                       return count > 0 ? (
                         <button
-                          className="text-blue-600 hover:underline text-xs font-semibold"
+                          className="text-blue-600 hover:underline text-xs font-semibold dark:text-blue-400"
                           onClick={() => onViewPatentDetails?.(
                             '全件',
                             count,
@@ -685,8 +685,8 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                   <TableCell className={`text-center border-r ${(() => {
                     const count = patentData.reduce((sum, item) => sum + (item.counts?.['以前']?.count || 0), 0);
                     const evaluated = patentData.reduce((sum, item) => sum + (item.counts?.['以前']?.evaluated || 0), 0);
-                    if (count > 0 && count === evaluated) return 'bg-orange-100 font-bold text-orange-900';
-                    return 'bg-blue-50';
+                    if (count > 0 && count === evaluated) return 'bg-orange-100 font-bold text-orange-900 dark:bg-orange-900/40 dark:text-orange-200';
+                    return 'bg-blue-50 dark:bg-blue-900/20';
                   })()}`}
                     style={(() => {
                       const count = patentData.reduce((sum, item) => sum + (item.counts?.['以前']?.count || 0), 0);
@@ -698,7 +698,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                       const count = patentData.reduce((sum, item) => sum + (item.counts?.['以前']?.count || 0), 0);
                       return count > 0 ? (
                         <button
-                          className="text-blue-600 hover:underline text-xs font-semibold"
+                          className="text-blue-600 hover:underline text-xs font-semibold dark:text-blue-400"
                           onClick={() => onViewPatentDetails?.(
                             '全件',
                             count,
@@ -719,11 +719,11 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                     const isFullyEvaluated = total > 0 && total === totalEvaluated;
                     const isPartiallyEvaluated = total > 0 && totalEvaluated > 0;
 
-                    let cellClass = "text-center border-r";
+                    let cellClass = "text-center border-r dark:border-slate-700";
                     if (isFullyEvaluated) {
-                      cellClass += " bg-orange-100 font-bold text-orange-900";
+                      cellClass += " bg-orange-100 font-bold text-orange-900 dark:bg-orange-900/40 dark:text-orange-200";
                     } else {
-                      cellClass += " bg-blue-50";
+                      cellClass += " bg-blue-50 dark:bg-blue-900/20";
                     }
 
                     const style = isFullyEvaluated ? { backgroundColor: '#ffedd5' } : // orange-100
@@ -733,7 +733,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                       <TableCell key={col} className={cellClass} style={style}>
                         {total > 0 ? (
                           <button
-                            className="text-blue-600 hover:underline text-xs font-semibold"
+                            className="text-blue-600 hover:underline text-xs font-semibold dark:text-blue-400"
                             onClick={() => onViewPatentDetails?.(
                               '全件',
                               total,
@@ -754,10 +754,10 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                 {patentData.map((item) => (
                   <TableRow
                     key={item.id}
-                    className={`group hover:bg-orange-50 transition-colors ${selectedRows.includes(item.id) ? 'bg-blue-50' : ''
+                    className={`group hover:bg-orange-50 transition-colors dark:hover:bg-slate-800 ${selectedRows.includes(item.id) ? 'bg-blue-50 dark:bg-blue-900/20' : ''
                       }`}
                   >
-                    <TableCell className={`sticky left-0 text-center border-r transition-colors ${selectedRows.includes(item.id) ? 'bg-blue-50' : 'bg-white group-hover:bg-orange-50'}`}>
+                    <TableCell className={`sticky left-0 text-center border-r transition-colors dark:border-slate-700 ${selectedRows.includes(item.id) ? 'bg-blue-50 dark:bg-blue-900/20' : 'bg-white group-hover:bg-orange-50 dark:bg-slate-900 dark:group-hover:bg-slate-800'}`}>
                       <input
                         type="checkbox"
                         className="w-4 h-4 cursor-pointer"
@@ -770,33 +770,33 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                         position: 'sticky',
                         left: '48px',
                       }}
-                      className={`transition-colors border-r border-gray-300 max-w-[300px] ${selectedRows.includes(item.id) ? 'bg-blue-50' : 'bg-white group-hover:bg-orange-50'}`}
+                      className={`transition-colors border-r border-gray-300 max-w-[300px] dark:border-slate-700 ${selectedRows.includes(item.id) ? 'bg-blue-50 dark:bg-blue-900/20' : 'bg-white group-hover:bg-orange-50 dark:bg-slate-900 dark:group-hover:bg-slate-800'}`}
                     >
                       <div className="truncate" title={item.company}>
-                        <span className="text-sm">{item.company}</span>
+                        <span className="text-sm dark:text-slate-300">{item.company}</span>
                       </div>
                     </TableCell>
-                    <TableCell className="group-hover:bg-orange-50 text-center border-r transition-colors">
+                    <TableCell className="group-hover:bg-orange-50 text-center border-r transition-colors dark:group-hover:bg-slate-800 dark:border-slate-700">
                       <button
-                        className="text-blue-600 hover:underline text-sm"
+                        className="text-blue-600 hover:underline text-sm dark:text-blue-400"
                         onClick={() => onViewPatentDetails?.(item.company, item.total, { titleNo, titleName })}
                       >
                         {item.total}
                       </button>
                     </TableCell>
-                    <TableCell className="group-hover:bg-orange-50 text-center border-r transition-colors">
-                      <span className="text-sm">{item.unEvaluated || 0}</span>
+                    <TableCell className="group-hover:bg-orange-50 text-center border-r transition-colors dark:group-hover:bg-slate-800 dark:border-slate-700">
+                      <span className="text-sm dark:text-slate-300">{item.unEvaluated || 0}</span>
                     </TableCell>
-                    <TableCell className={`group-hover:bg-orange-50 text-center border-r transition-colors ${(() => {
+                    <TableCell className={`group-hover:bg-orange-50 text-center border-r transition-colors dark:group-hover:bg-slate-800 dark:border-slate-700 ${(() => {
                       const count = item.counts?.['日付未設定']?.count || 0;
                       const evaluated = item.counts?.['日付未設定']?.evaluated || 0;
-                      if (count > 0 && count === evaluated) return 'bg-orange-100 group-hover:bg-orange-200 font-bold text-orange-900';
-                      return 'group-hover:bg-orange-50';
+                      if (count > 0 && count === evaluated) return 'bg-orange-100 group-hover:bg-orange-200 font-bold text-orange-900 dark:bg-orange-900/40 dark:group-hover:bg-orange-900/60 dark:text-orange-200';
+                      return 'group-hover:bg-orange-50 dark:group-hover:bg-slate-800';
                     })()}`}
                       style={{}}>
                       {item.counts?.['日付未設定']?.count > 0 ? (
                         <button
-                          className="text-blue-600 hover:underline text-xs"
+                          className="text-blue-600 hover:underline text-xs dark:text-blue-400"
                           onClick={() => onViewPatentDetails?.(
                             item.company,
                             item.counts?.['日付未設定']?.count,
@@ -810,16 +810,16 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                         <span className="text-xs text-gray-400">-</span>
                       )}
                     </TableCell>
-                    <TableCell className={`group-hover:bg-orange-50 text-center border-r transition-colors ${(() => {
+                    <TableCell className={`group-hover:bg-orange-50 text-center border-r transition-colors dark:group-hover:bg-slate-800 dark:border-slate-700 ${(() => {
                       const count = item.counts?.['以前']?.count || 0;
                       const evaluated = item.counts?.['以前']?.evaluated || 0;
-                      if (count > 0 && count === evaluated) return 'bg-orange-100 group-hover:bg-orange-200 font-bold text-orange-900';
-                      return 'group-hover:bg-orange-50';
+                      if (count > 0 && count === evaluated) return 'bg-orange-100 group-hover:bg-orange-200 font-bold text-orange-900 dark:bg-orange-900/40 dark:group-hover:bg-orange-900/60 dark:text-orange-200';
+                      return 'group-hover:bg-orange-50 dark:group-hover:bg-slate-800';
                     })()}`}
                       style={{}}>
                       {item.counts?.['以前']?.count > 0 ? (
                         <button
-                          className="text-blue-600 hover:underline text-xs"
+                          className="text-blue-600 hover:underline text-xs dark:text-blue-400"
                           onClick={() => onViewPatentDetails?.(
                             item.company,
                             item.counts?.['以前']?.count,
@@ -841,11 +841,11 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                         const isPartiallyEvaluated = count > 0 && evaluated > 0;
                         const isFullyEvaluated = count > 0 && evaluated === count;
 
-                        let cellClass = "text-center border-r transition-colors";
+                        let cellClass = "text-center border-r transition-colors dark:border-slate-700";
                         if (isFullyEvaluated) {
-                          cellClass += " bg-orange-100 group-hover:bg-orange-200 font-bold text-orange-900";
+                          cellClass += " bg-orange-100 group-hover:bg-orange-200 font-bold text-orange-900 dark:bg-orange-900/40 dark:group-hover:bg-orange-900/60 dark:text-orange-200";
                         } else {
-                          cellClass += " group-hover:bg-orange-50";
+                          cellClass += " group-hover:bg-orange-50 dark:group-hover:bg-slate-800";
                         }
 
                         const style = undefined;
@@ -858,7 +858,7 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
                           >
                             {count > 0 ? (
                               <button
-                                className="text-blue-600 hover:underline text-xs"
+                                className="text-blue-600 hover:underline text-xs dark:text-blue-400"
                                 onClick={() => onViewPatentDetails?.(
                                   item.company,
                                   count,
@@ -882,22 +882,22 @@ export function TitleDetailPage({ titleNo, titleName, titleId, onBack, onViewPat
           </div>
 
           {/* Table Footer */}
-          <div className="border-t px-4 py-3 bg-gray-50">
-            <div className="flex items-center justify-between text-sm text-gray-600">
+          <div className="border-t px-4 py-3 bg-gray-50 dark:bg-slate-800 dark:border-slate-700">
+            <div className="flex items-center justify-between text-sm text-gray-600 dark:text-slate-300">
               <div>表示: {patentData.length} 件 / 全 {allPatents.length} 件</div>
               <div className="flex items-center gap-2">
                 <span>ページ 1 / {Math.ceil(patentData.length / 20)}</span>
                 <div className="flex gap-1">
-                  <Button size="sm" variant="outline" className="h-7 w-7 p-0">
+                  <Button size="sm" variant="outline" className="h-7 w-7 p-0 dark:bg-slate-700 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-600">
                     «
                   </Button>
-                  <Button size="sm" variant="outline" className="h-7 w-7 p-0">
+                  <Button size="sm" variant="outline" className="h-7 w-7 p-0 dark:bg-slate-700 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-600">
                     ‹
                   </Button>
-                  <Button size="sm" variant="outline" className="h-7 w-7 p-0">
+                  <Button size="sm" variant="outline" className="h-7 w-7 p-0 dark:bg-slate-700 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-600">
                     ›
                   </Button>
-                  <Button size="sm" variant="outline" className="h-7 w-7 p-0">
+                  <Button size="sm" variant="outline" className="h-7 w-7 p-0 dark:bg-slate-700 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-600">
                     »
                   </Button>
                 </div>

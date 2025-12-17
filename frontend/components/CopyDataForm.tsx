@@ -111,21 +111,21 @@ export function CopyDataForm({ onClose }: CopyDataFormProps) {
   };
 
   return (
-    <DialogContent className="max-w-4xl">
-      <DialogHeader className="flex flex-row items-center justify-between border-b pb-4">
+    <DialogContent className="max-w-4xl dark:bg-slate-900 dark:border-slate-800">
+      <DialogHeader className="flex flex-row items-center justify-between border-b pb-4 dark:border-slate-700">
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-1">
             <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent text-xl">特許ナビ</span>
           </div>
           <span className="text-gray-400">|</span>
-          <DialogTitle className="text-base">保存データのコピー</DialogTitle>
+          <DialogTitle className="text-base dark:text-slate-200">保存データのコピー</DialogTitle>
         </div>
         <DialogDescription className="sr-only">
           保存データをコピーします
         </DialogDescription>
         <Button
           variant="link"
-          className="text-blue-500 hover:text-blue-700"
+          className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
           onClick={onClose}
         >
           閉じる
@@ -135,9 +135,9 @@ export function CopyDataForm({ onClose }: CopyDataFormProps) {
       <div className="space-y-6 py-6">
         {/* Source Title Selection */}
         <div className="space-y-2">
-          <Label htmlFor="sourceTitle">コピー元タイトル</Label>
+          <Label htmlFor="sourceTitle" className="dark:text-slate-200">コピー元タイトル</Label>
           <Select value={sourceTitle} onValueChange={setSourceTitle}>
-            <SelectTrigger id="sourceTitle" className="w-full border-2 border-orange-200 focus:border-orange-400">
+            <SelectTrigger id="sourceTitle" className="w-full border-2 border-orange-200 focus:border-orange-400 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:focus:border-orange-500">
               <SelectValue placeholder="一選択一" />
             </SelectTrigger>
             <SelectContent>
@@ -159,7 +159,7 @@ export function CopyDataForm({ onClose }: CopyDataFormProps) {
               disabled={true} // Always checked and disabled
               onCheckedChange={(checked: boolean | 'indeterminate') => setCopyBasicInfo(typeof checked === 'boolean' ? checked : false)}
             />
-            <Label htmlFor="copyBasicInfo" className="cursor-pointer">
+            <Label htmlFor="copyBasicInfo" className="cursor-pointer dark:text-slate-200">
               保存タイトルの基本情報をコピーする
             </Label>
           </div>
@@ -169,7 +169,7 @@ export function CopyDataForm({ onClose }: CopyDataFormProps) {
               checked={copyProjectData}
               onCheckedChange={(checked: boolean | 'indeterminate') => setCopyProjectData(typeof checked === 'boolean' ? checked : false)}
             />
-            <Label htmlFor="copyProjectData" className="cursor-pointer">
+            <Label htmlFor="copyProjectData" className="cursor-pointer dark:text-slate-200">
               案件データもコピーする
             </Label>
           </div>
@@ -177,9 +177,9 @@ export function CopyDataForm({ onClose }: CopyDataFormProps) {
 
         {/* Copy Count */}
         <div className="flex items-center gap-2">
-          <Label htmlFor="copyCount">コピー数</Label>
+          <Label htmlFor="copyCount" className="dark:text-slate-200">コピー数</Label>
           <Select value={copyCount} onValueChange={setCopyCount}>
-            <SelectTrigger id="copyCount" className="w-20 border-2">
+            <SelectTrigger id="copyCount" className="w-20 border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -190,14 +190,14 @@ export function CopyDataForm({ onClose }: CopyDataFormProps) {
               ))}
             </SelectContent>
           </Select>
-          <span>個</span>
+          <span className="dark:text-slate-200">個</span>
         </div>
 
         {/* Execute Button */}
         <div className="flex justify-center pt-4">
           <Button
             onClick={handleCopyExecute}
-            className="px-12 bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white border-0"
+            className="px-12 bg-orange-500 hover:bg-orange-600 text-white border-0 dark:bg-orange-600 dark:hover:bg-orange-700"
           >
             {isLoading ? '処理中...' : 'コピー実行'}
           </Button>

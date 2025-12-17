@@ -45,7 +45,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 relative overflow-hidden dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -93,7 +93,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md relative z-10"
       >
-        <Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-md">
+        <Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-md dark:bg-slate-900/90 dark:border dark:border-slate-800">
           <CardHeader className="space-y-4 pb-8">
             <motion.div
               className="flex items-center gap-4 mb-4"
@@ -106,7 +106,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               </div>
               <h2 className="text-3xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">特許ナビ</h2>
             </motion.div>
-            <CardTitle className="text-2xl">ログイン</CardTitle>
+            <CardTitle className="text-2xl dark:text-white">ログイン</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -123,7 +123,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
               )}
 
               <div className="space-y-2">
-                <Label htmlFor="username" className="flex items-center gap-2">
+                <Label htmlFor="username" className="flex items-center gap-2 dark:text-slate-200">
                   <User className="w-4 h-4" />
                   ユーザー名
                 </Label>
@@ -131,12 +131,12 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   id="username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  className="h-12 border-2 focus:border-amber-500 transition-all duration-200 focus:scale-[1.01]"
+                  className="h-12 border-2 focus:border-amber-500 transition-all duration-200 focus:scale-[1.01] dark:bg-slate-800 dark:border-slate-700 dark:text-white"
                   placeholder="ユーザー名を入力"
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="password" className="flex items-center gap-2">
+                <Label htmlFor="password" className="flex items-center gap-2 dark:text-slate-200">
                   <Lock className="w-4 h-4" />
                   パスワード
                 </Label>
@@ -146,7 +146,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="h-12 border-2 focus:border-amber-500 pr-12 transition-all duration-200 focus:scale-[1.01]"
+                    className="h-12 border-2 focus:border-amber-500 pr-12 transition-all duration-200 focus:scale-[1.01] dark:bg-slate-800 dark:border-slate-700 dark:text-white"
                     placeholder="パスワードを入力"
                   />
                   <button

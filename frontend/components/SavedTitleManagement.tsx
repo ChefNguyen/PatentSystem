@@ -469,7 +469,7 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
           <Button
             variant="outline"
             onClick={onBack}
-            className="border-2"
+            className="border-2 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             一覧に戻る
@@ -482,9 +482,9 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
 
       {/* Warning message */}
       {showWarning && (
-        <Alert className="bg-yellow-50 border-yellow-300">
-          <AlertCircle className="h-4 w-4 text-yellow-600" />
-          <AlertDescription className="text-yellow-800">
+        <Alert className="bg-yellow-50 border-yellow-300 dark:bg-yellow-900/20 dark:border-yellow-800">
+          <AlertCircle className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
+          <AlertDescription className="text-yellow-800 dark:text-yellow-300">
             タイトルの基本情報を設定します。
           </AlertDescription>
         </Alert>
@@ -496,12 +496,12 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <AlertCircle className="w-5 h-5 text-orange-500" />
-          <span className="text-lg">保存されたタイトルの基本情報を編集します。</span>
+          <span className="text-lg dark:text-slate-200">保存されたタイトルの基本情報を編集します。</span>
         </div>
         <div className="flex gap-2">
           <Button
             onClick={handleSubmit}
-            className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white"
+            className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white dark:bg-slate-800 dark:border-orange-600 dark:text-orange-300 dark:hover:bg-slate-700"
           >
             保存
           </Button>
@@ -509,11 +509,11 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
       </div>
 
       {/* Section 1: Title Name (Required) */}
-      <Card className="border-2 border-orange-200 bg-orange-50/30">
+      <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-700">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2">
             <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">必須</span>
-            <span>1.保存データタイトル名</span>
+            <span className="dark:text-slate-200">1.保存データタイトル名</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -521,9 +521,9 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
             {/* Row 1: Data Type and Mark Type */}
             <div className="flex gap-4 items-end">
               <div className="flex-1">
-                <Label htmlFor="dataType">データ種別</Label>
+                <Label htmlFor="dataType" className="dark:text-slate-200">データ種別</Label>
                 <Select value={dataType} onValueChange={setDataType} disabled={!canEdit}>
-                  <SelectTrigger id="dataType" className="border-2">
+                  <SelectTrigger id="dataType" className="border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                     <SelectValue placeholder="一選択してください" />
                   </SelectTrigger>
                   <SelectContent>
@@ -536,12 +536,12 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
                 </Select>
               </div>
               <div className="flex-1">
-                <Label htmlFor="markType">マーク</Label>
+                <Label htmlFor="markType" className="dark:text-slate-200">マーク</Label>
                 <ColorSelect
                   id="markType"
                   value={markType}
                   onValueChange={setMarkType}
-                  className="border-2"
+                  className="border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                   disabled={!canEdit}
                 />
               </div>
@@ -550,18 +550,18 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
             {/* Row 2: Title Name and Parent Title */}
             <div className="flex gap-4 items-end">
               <div className="flex-1">
-                <Label htmlFor="titleName">タイトル名</Label>
+                <Label htmlFor="titleName" className="dark:text-slate-200">タイトル名</Label>
                 <Input
                   id="titleName"
                   value={titleName}
                   onChange={(e) => setTitleName(e.target.value)}
                   placeholder="タイトル名を入力してください"
-                  className="border-2"
+                  className="border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                   disabled={!canEdit}
                 />
               </div>
               <div className="flex-1">
-                <Label htmlFor="parentTitle">上位階層タイトル</Label>
+                <Label htmlFor="parentTitle" className="dark:text-slate-200">上位階層タイトル</Label>
                 {titleData ? (
                   <Input
                     value={(() => {
@@ -584,17 +584,17 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
                       return parentTitle ? String(parentTitle) : 'なし';
                     })()}
                     disabled
-                    className="border-2 bg-gray-100 text-gray-500"
+                    className="border-2 bg-gray-100 text-gray-500 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-400"
                   />
                 ) : (
                   <Select
                     value={String(parentTitle)}
-                    onValueChange={(value) => {
+                    onValueChange={(value: string) => {
                       console.log('📝 Parent title changed to:', value);
                       setParentTitle(value);
                     }}
                   >
-                    <SelectTrigger id="parentTitle" className="border-2">
+                    <SelectTrigger id="parentTitle" className="border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                       <SelectValue placeholder="一選択してください" />
                     </SelectTrigger>
                     <SelectContent>
@@ -615,13 +615,13 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
             {/* Row 3: Save Date */}
             <div className="flex gap-4 items-end">
               <div className="flex-1">
-                <Label htmlFor="saveDate">保存年月</Label>
+                <Label htmlFor="saveDate" className="dark:text-slate-200">保存年月</Label>
                 <Input
                   id="saveDate"
                   value={saveDate}
                   onChange={(e) => setSaveDate(e.target.value)}
                   placeholder="（入力形式：YYYY/MM）"
-                  className="border-2"
+                  className="border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                   disabled={!canEdit}
                 />
               </div>
@@ -631,7 +631,7 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
             </div>
 
             {/* Evaluation display permission */}
-            <div className="space-y-3 pt-2 border-t border-gray-200">
+            <div className="space-y-3 pt-2 border-t border-gray-200 dark:border-slate-700">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <Checkbox
@@ -642,7 +642,7 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
                       if (checked) setAllowEvaluation(false);
                     }}
                   />
-                  <Label htmlFor="disallow-eval" className="cursor-pointer">
+                  <Label htmlFor="disallow-eval" className="cursor-pointer dark:text-slate-200">
                     他タイトルからの評価の表示を許可しない
                   </Label>
                 </div>
@@ -655,7 +655,7 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
                       if (checked) setDisallowEvaluation(false);
                     }}
                   />
-                  <Label htmlFor="allow-eval" className="cursor-pointer">
+                  <Label htmlFor="allow-eval" className="cursor-pointer dark:text-slate-200">
                     許可する
                   </Label>
                 </div>
@@ -666,17 +666,17 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
       </Card>
 
       {/* Section 2: User Management Settings */}
-      <Card>
+      <Card className="dark:bg-slate-900 dark:border-slate-700">
         <CardHeader className="pb-4">
-          <CardTitle className="font-bold">2.利用者管理設定</CardTitle>
-          <p className="text-sm text-gray-600 mt-2">
+          <CardTitle className="font-bold dark:text-slate-200">2.利用者管理設定</CardTitle>
+          <p className="text-sm text-gray-600 mt-2 dark:text-slate-400">
             このタイトルで評価を行える人を設定できます。管理者のユーザーは必須対象です。<br />
             管理者のみ登録できる設定となります。評価済みになった人は削除されても保存されます。<br />
             削除者検定はシステムの中の削除評価・公開評価の登録は削除しません。
           </p>
         </CardHeader>
         <CardContent>
-          <div className="mb-4 text-sm text-center text-gray-500 border-2 border-gray-200 rounded p-2">
+          <div className="mb-4 text-sm text-center text-gray-500 border-2 border-gray-200 rounded p-2 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400">
             書籍が指定されていません
           </div>
 
@@ -686,23 +686,23 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
               size="sm"
               variant="outline"
               onClick={() => setShowDepartmentDialog(true)}
-              className="border-2"
+              className="border-2 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700"
             >
               部署で設定
             </Button>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+          <div className="border-2 border-gray-200 rounded-lg overflow-hidden dark:bg-slate-900 dark:border-slate-700">
             <Table>
               <TableHeader>
-                <TableRow className="bg-gradient-to-r from-orange-50 to-yellow-50">
-                  <TableHead>新規</TableHead>
-                  <TableHead>氏名</TableHead>
-                  <TableHead>ユーザID</TableHead>
-                  <TableHead>権限</TableHead>
-                  <TableHead>部署名</TableHead>
-                  <TableHead>主担当</TableHead>
-                  <TableHead className="text-center">削除</TableHead>
+                <TableRow className="bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-slate-800 dark:to-slate-800">
+                  <TableHead className="dark:text-slate-300">新規</TableHead>
+                  <TableHead className="dark:text-slate-300">氏名</TableHead>
+                  <TableHead className="dark:text-slate-300">ユーザID</TableHead>
+                  <TableHead className="dark:text-slate-300">権限</TableHead>
+                  <TableHead className="dark:text-slate-300">部署名</TableHead>
+                  <TableHead className="dark:text-slate-300">主担当</TableHead>
+                  <TableHead className="text-center dark:text-slate-300">削除</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -714,21 +714,21 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
                     transition={{ delay: index * 0.05 }}
                   >
                     <TableCell>
-                      <Button size="sm" variant="outline" className="h-8">
+                      <Button size="sm" variant="outline" className="h-8 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                         新規
                       </Button>
                     </TableCell>
-                    <TableCell>{user.name}</TableCell>
+                    <TableCell className="dark:text-slate-200">{user.name}</TableCell>
                     <TableCell>
-                      <div className="flex items-center gap-1">
+                      <div className="flex items-center gap-1 dark:text-slate-200">
                         <span>{user.userId}</span>
                         <Button
                           size="sm"
                           variant="ghost"
-                          className="h-5 w-5 p-0"
+                          className="h-5 w-5 p-0 dark:hover:bg-slate-700"
                           onClick={() => handleOpenUserSearch(user.id)}
                         >
-                          <Search className="w-3 h-3" />
+                          <Search className="w-3 h-3 dark:text-slate-300" />
                         </Button>
                       </div>
                     </TableCell>
@@ -746,7 +746,7 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
                           }));
                         }}
                       >
-                        <SelectTrigger className="h-8 border-gray-300">
+                        <SelectTrigger className="h-8 border-gray-300 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -756,14 +756,14 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
                         </SelectContent>
                       </Select>
                     </TableCell>
-                    <TableCell>{user.dept}</TableCell>
+                    <TableCell className="dark:text-slate-200">{user.dept}</TableCell>
                     <TableCell className="text-center">
                       <div className="flex justify-center">
                         <button
                           onClick={() => handleToggleMain(user.id)}
                           className="focus:outline-none"
                         >
-                          <div className={`w-4 h-4 rounded-full border-2 ${user.isMain ? 'border-blue-500 bg-blue-500' : 'border-gray-300'} flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity`}>
+                          <div className={`w-4 h-4 rounded-full border-2 ${user.isMain ? 'border-blue-500 bg-blue-500' : 'border-gray-300 dark:border-slate-500'} flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity`}>
                             {user.isMain && <div className="w-2 h-2 rounded-full bg-white" />}
                           </div>
                         </button>
@@ -773,11 +773,11 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
                       <Button
                         size="sm"
                         variant="ghost"
-                        className="text-orange-500 hover:text-orange-700"
+                        className="text-orange-500 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300 dark:hover:bg-slate-700"
                         onClick={() => handleDeleteUser(user.id)}
                         disabled={user.isExisting && !isAdmin} // Disable delete for existing users unless admin
                       >
-                        <Trash2 className="w-4 h-4" />
+                        <Trash2 className="w-4 h-4 dark:text-orange-400" />
                       </Button>
                     </TableCell>
                   </MotionTableRow>
@@ -785,7 +785,7 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
               </TableBody>
             </Table>
           </div>
-          <Button size="sm" variant="outline" className="mt-4" onClick={handleAddEmptyRow}>
+          <Button size="sm" variant="outline" className="mt-4 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700" onClick={handleAddEmptyRow}>
             <Plus className="w-4 h-4 mr-1" />
             追加
           </Button>
@@ -794,21 +794,21 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
 
       {/* Department Dialog */}
       <Dialog open={showDepartmentDialog} onOpenChange={setShowDepartmentDialog}>
-        <DialogContent className="max-w-4xl">
-          <DialogHeader className="flex flex-row items-center justify-between border-b pb-4">
+        <DialogContent className="max-w-4xl dark:bg-slate-900 dark:border-slate-800">
+          <DialogHeader className="flex flex-row items-center justify-between border-b pb-4 dark:border-slate-700">
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1 bg-gradient-to-r from-orange-100 to-yellow-100 px-3 py-1 rounded">
+              <div className="flex items-center gap-1 bg-gradient-to-r from-orange-100 to-yellow-100 px-3 py-1 rounded dark:from-slate-800 dark:to-slate-800">
                 <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">特許ナビ</span>
               </div>
               <span className="text-gray-400">|</span>
-              <DialogTitle className="text-base">部署で設定</DialogTitle>
+              <DialogTitle className="text-base dark:text-slate-200">部署で設定</DialogTitle>
             </div>
             <DialogDescription className="sr-only">
               部署を選択してユーザーを設定します
             </DialogDescription>
             <Button
               variant="link"
-              className="text-blue-500 hover:text-blue-700"
+              className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
               onClick={() => setShowDepartmentDialog(false)}
             >
               閉じる
@@ -820,7 +820,7 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
               <Button
                 size="sm"
                 variant="outline"
-                className="border-2"
+                className="border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
                 onClick={handleExecuteSettings}
               >
                 設定を実行する
@@ -828,43 +828,43 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
               <Button
                 size="sm"
                 variant="ghost"
-                className="text-blue-500 hover:text-blue-700"
+                className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
               >
                 <span className="mr-2">🔄</span>
                 最新に更新
               </Button>
             </div>
 
-            <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+            <div className="border-2 border-gray-200 rounded-lg overflow-hidden dark:border-slate-700">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-gray-100">
-                    <TableHead className="w-20">表示順</TableHead>
-                    <TableHead className="w-32">No.</TableHead>
-                    <TableHead>部署名</TableHead>
-                    <TableHead>部署略称</TableHead>
-                    <TableHead className="text-right">ユーザー数</TableHead>
+                  <TableRow className="bg-gray-100 dark:bg-slate-800">
+                    <TableHead className="w-20 dark:text-slate-300">表示順</TableHead>
+                    <TableHead className="w-32 dark:text-slate-300">No.</TableHead>
+                    <TableHead className="dark:text-slate-300">部署名</TableHead>
+                    <TableHead className="dark:text-slate-300">部署略称</TableHead>
+                    <TableHead className="text-right dark:text-slate-300">ユーザー数</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {departments.length > 0 ? (
                     departments.map((dept) => (
-                      <TableRow key={dept.id} className="hover:bg-gray-50">
+                      <TableRow key={dept.id} className="hover:bg-gray-50 dark:hover:bg-slate-800">
                         <TableCell className="text-center">
                           <Checkbox
                             checked={selectedDepartments.includes(dept.id)}
                             onCheckedChange={(checked: boolean | 'indeterminate') => handleDepartmentSelect(dept.id, typeof checked === 'boolean' ? checked : false)}
                           />
                         </TableCell>
-                        <TableCell>{dept.no}</TableCell>
-                        <TableCell>{dept.name}</TableCell>
-                        <TableCell className="text-gray-400">{dept.abbr}</TableCell>
-                        <TableCell className="text-right">{dept.userCount}</TableCell>
+                        <TableCell className="dark:text-slate-200">{dept.no}</TableCell>
+                        <TableCell className="dark:text-slate-200">{dept.name}</TableCell>
+                        <TableCell className="text-gray-400 dark:text-slate-400">{dept.abbr}</TableCell>
+                        <TableCell className="text-right dark:text-slate-200">{dept.userCount}</TableCell>
                       </TableRow>
                     ))
                   ) : (
                     <TableRow>
-                      <TableCell colSpan={5} className="text-center text-gray-500 py-8">
+                      <TableCell colSpan={5} className="text-center text-gray-500 py-8 dark:text-slate-400">
                         要望が設定されていません
                       </TableCell>
                     </TableRow>
@@ -878,21 +878,21 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
 
       {/* User Search Dialog */}
       <Dialog open={showUserSearchDialog} onOpenChange={setShowUserSearchDialog}>
-        <DialogContent className="max-w-3xl max-h-[80vh] overflow-hidden flex flex-col">
-          <DialogHeader className="flex flex-row items-center justify-between border-b pb-4 shrink-0">
+        <DialogContent className="max-w-3xl max-h-[80vh] overflow-hidden flex flex-col dark:bg-slate-900 dark:border-slate-800">
+          <DialogHeader className="flex flex-row items-center justify-between border-b pb-4 shrink-0 dark:border-slate-700">
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1 bg-gradient-to-r from-orange-100 to-yellow-100 px-3 py-1 rounded">
+              <div className="flex items-center gap-1 bg-gradient-to-r from-orange-100 to-yellow-100 px-3 py-1 rounded dark:from-slate-800 dark:to-slate-800">
                 <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">特許ナビ</span>
               </div>
               <span className="text-gray-400">|</span>
-              <DialogTitle className="text-base">ユーザ指定補助</DialogTitle>
+              <DialogTitle className="text-base dark:text-slate-200">ユーザ指定補助</DialogTitle>
             </div>
             <DialogDescription className="sr-only">
               ユーザーを検索して追加します
             </DialogDescription>
             <Button
               variant="link"
-              className="text-blue-500 hover:text-blue-700"
+              className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
               onClick={() => setShowUserSearchDialog(false)}
             >
               閉じる
@@ -900,25 +900,25 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
           </DialogHeader>
 
           <div className="flex-1 overflow-auto">
-            <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+            <div className="border-2 border-gray-200 rounded-lg overflow-hidden dark:bg-slate-900 dark:border-slate-700">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-gray-100">
-                    <TableHead className="w-40">ユーザID</TableHead>
-                    <TableHead>氏名</TableHead>
-                    <TableHead className="w-48">部署</TableHead>
+                  <TableRow className="bg-gray-100 dark:bg-slate-800">
+                    <TableHead className="w-40 dark:text-slate-300">ユーザID</TableHead>
+                    <TableHead className="dark:text-slate-300">氏名</TableHead>
+                    <TableHead className="w-48 dark:text-slate-300">部署</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {allUsers.map((user, index) => (
                     <TableRow
                       key={index}
-                      className="hover:bg-gray-50 cursor-pointer"
+                      className="hover:bg-gray-50 cursor-pointer dark:hover:bg-slate-800"
                       onClick={() => handleSelectUserFromDialog(user)}
                     >
-                      <TableCell>{user.userId}</TableCell>
-                      <TableCell className="text-blue-600">{user.name}</TableCell>
-                      <TableCell>{user.dept}</TableCell>
+                      <TableCell className="dark:text-slate-200">{user.userId}</TableCell>
+                      <TableCell className="text-blue-600 dark:text-blue-400">{user.name}</TableCell>
+                      <TableCell className="dark:text-slate-200">{user.dept}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -930,21 +930,21 @@ export function SavedTitleManagement({ onBack, onSave, titleData }: SavedTitleMa
 
       {/* Permission Warning Dialog */}
       <Dialog open={showPermissionWarning} onOpenChange={setShowPermissionWarning}>
-        <DialogContent className="max-w-md border-2 border-orange-200">
-          <DialogHeader className="flex flex-row items-center gap-2 border-b border-orange-100 pb-2">
+        <DialogContent className="max-w-md border-2 border-orange-200 dark:bg-slate-900 dark:border-orange-800">
+          <DialogHeader className="flex flex-row items-center gap-2 border-b border-orange-100 pb-2 dark:border-slate-700">
             <AlertCircle className="h-6 w-6 text-orange-500" />
-            <DialogTitle className="text-lg text-orange-600">エラー</DialogTitle>
+            <DialogTitle className="text-lg text-orange-600 dark:text-orange-400">エラー</DialogTitle>
             <DialogDescription className="sr-only">
               権限エラー
             </DialogDescription>
           </DialogHeader>
           <div className="py-4">
-            <p className="text-gray-700 whitespace-pre-wrap">{permissionWarningMessage}</p>
+            <p className="text-gray-700 whitespace-pre-wrap dark:text-slate-200">{permissionWarningMessage}</p>
           </div>
           <DialogFooter>
             <Button
               onClick={() => setShowPermissionWarning(false)}
-              className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white border-0"
+              className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white border-0 dark:bg-slate-800 dark:border-orange-600 dark:text-orange-300 dark:hover:bg-slate-700"
             >
               閉じる
             </Button>

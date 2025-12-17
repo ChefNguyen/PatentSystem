@@ -411,7 +411,7 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
           <Button
             variant="outline"
             onClick={onBack}
-            className="border-2"
+            className="border-2 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             一覧に戻る
@@ -424,9 +424,9 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
 
       {/* Warning message */}
       {showWarning && (
-        <Alert className="bg-yellow-50 border-yellow-300">
-          <AlertCircle className="h-4 w-4 text-yellow-600" />
-          <AlertDescription className="text-yellow-800">
+        <Alert className="bg-yellow-50 border-yellow-300 dark:bg-yellow-900/20 dark:border-yellow-800">
+          <AlertCircle className="h-4 w-4 text-yellow-600 dark:text-yellow-400" />
+          <AlertDescription className="text-yellow-800 dark:text-yellow-300">
             タイトルの基本情報を設定します。
           </AlertDescription>
         </Alert>
@@ -436,12 +436,12 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <AlertCircle className="w-5 h-5 text-orange-500" />
-          <span className="text-lg">タイトルの基本情報を設定します。</span>
+          <span className="text-lg dark:text-slate-200">タイトルの基本情報を設定します。</span>
         </div>
         <div className="flex gap-2">
           <Button
             onClick={handleSubmit}
-            className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white"
+            className="bg-orange-500 hover:bg-orange-600 text-white dark:bg-orange-600 dark:hover:bg-orange-700"
           >
             保存
           </Button>
@@ -449,11 +449,11 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
       </div>
 
       {/* Section 1: Title Name (Required) */}
-      <Card className="border-2 border-orange-200 bg-orange-50/30">
+      <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-700">
         <CardHeader className="pb-4">
           <CardTitle className="flex items-center gap-2">
             <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">必須</span>
-            <span>1.保存データタイトル名</span>
+            <span className="dark:text-slate-200">1.保存データタイトル名</span>
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -461,9 +461,9 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
             {/* Row 1: Data Type and Mark Type */}
             <div className="flex gap-4 items-end">
               <div className="flex-1">
-                <Label htmlFor="dataType">データ種別</Label>
+                <Label htmlFor="dataType" className="dark:text-slate-200">データ種別</Label>
                 <Select value={dataType} onValueChange={setDataType}>
-                  <SelectTrigger id="dataType" className="border-2">
+                  <SelectTrigger id="dataType" className="border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                     <SelectValue placeholder="一選択してください" />
                   </SelectTrigger>
                   <SelectContent>
@@ -476,7 +476,7 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
                 </Select>
               </div>
               <div className="flex-1">
-                <Label htmlFor="markType">マーク</Label>
+                <Label htmlFor="markType" className="dark:text-slate-200">マーク</Label>
                 <ColorSelect
                   id="markType"
                   value={markType}
@@ -489,20 +489,20 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
             {/* Row 2: Title Name and Parent Title */}
             <div className="flex gap-4 items-end">
               <div className="flex-1">
-                <Label htmlFor="titleName">タイトル名</Label>
+                <Label htmlFor="titleName" className="dark:text-slate-200">タイトル名</Label>
                 <Input
                   id="titleName"
                   value={titleName}
                   onChange={(e) => setTitleName(e.target.value)}
                   placeholder="タイトル名を入力してください"
-                  className="border-2"
+                  className="border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                 />
               </div>
               <div className="flex-1">
-                <Label htmlFor="parentTitle">上位階層タイトル</Label>
+                <Label htmlFor="parentTitle" className="dark:text-slate-200">上位階層タイトル</Label>
                 <div className="flex gap-2">
                   <Select value={parentTitle} onValueChange={setParentTitle}>
-                    <SelectTrigger id="parentTitle" className="border-2 flex-1">
+                    <SelectTrigger id="parentTitle" className="border-2 flex-1 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                       <SelectValue placeholder="選択してください" />
                     </SelectTrigger>
                     <SelectContent>
@@ -526,13 +526,13 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
             {/* Row 3: Save Date */}
             <div className="flex gap-4 items-end">
               <div className="flex-1">
-                <Label htmlFor="saveDate">保存年月</Label>
+                <Label htmlFor="saveDate" className="dark:text-slate-200">保存年月</Label>
                 <Input
                   id="saveDate"
                   value={saveDate}
                   onChange={(e) => setSaveDate(e.target.value)}
                   placeholder="（入力形式：YYYY/MM）"
-                  className="border-2"
+                  className="border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                 />
               </div>
               <div className="flex-1">
@@ -541,7 +541,7 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
             </div>
 
             {/* Evaluation display permission */}
-            <div className="space-y-3 pt-2 border-t border-gray-200">
+            <div className="space-y-3 pt-2 border-t border-gray-200 dark:border-slate-700">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <Checkbox
@@ -552,7 +552,7 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
                       if (checked) setAllowEvaluation(false);
                     }}
                   />
-                  <Label htmlFor="disallow-eval" className="cursor-pointer">
+                  <Label htmlFor="disallow-eval" className="cursor-pointer dark:text-slate-200">
                     他タイトルからの評価の表示を許可しない
                   </Label>
                 </div>
@@ -565,7 +565,7 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
                       if (checked) setDisallowEvaluation(false);
                     }}
                   />
-                  <Label htmlFor="allow-eval" className="cursor-pointer">
+                  <Label htmlFor="allow-eval" className="cursor-pointer dark:text-slate-200">
                     許可する
                   </Label>
                 </div>
@@ -576,17 +576,17 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
       </Card>
 
       {/* Section 3: User Management Settings */}
-      <Card>
+      <Card className="dark:bg-slate-900 dark:border-slate-700">
         <CardHeader className="pb-4">
-          <CardTitle className="font-bold">2.利用者管理設定</CardTitle>
-          <p className="text-sm text-gray-600 mt-2">
+          <CardTitle className="font-bold dark:text-slate-200">2.利用者管理設定</CardTitle>
+          <p className="text-sm text-gray-600 mt-2 dark:text-slate-400">
             このタイトルで評価を行える人を設定できます。管理者のユーザーは必須対象です。<br />
             管理者のみ登録できる設定となります。評価済みになった人は削除されても保存されます。<br />
             削除者検定はシステムの中の削除評価・公開評価の登録は削除しません。
           </p>
         </CardHeader>
         <CardContent>
-          <div className="mb-4 text-sm text-center text-gray-500 border-2 border-gray-200 rounded p-2">
+          <div className="mb-4 text-sm text-center text-gray-500 border-2 border-gray-200 rounded p-2 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400">
             書籍が指定されていません
           </div>
 
@@ -596,53 +596,53 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
               size="sm"
               variant="outline"
               onClick={() => setShowDepartmentDialog(true)}
-              className="border-2"
+              className="border-2 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700"
             >
               部署で設定
             </Button>
           </div>
 
-          <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+          <div className="border-2 border-gray-200 rounded-lg overflow-hidden dark:border-slate-700">
             <Table>
               <TableHeader>
-                <TableRow className="bg-gradient-to-r from-orange-50 to-yellow-50">
-                  <TableHead>新規</TableHead>
-                  <TableHead>氏名</TableHead>
-                  <TableHead>ユーザID</TableHead>
-                  <TableHead>権限</TableHead>
-                  <TableHead>部署名</TableHead>
-                  <TableHead>主担当</TableHead>
-                  <TableHead className="text-center">削除</TableHead>
+                <TableRow className="bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-slate-800 dark:to-slate-800">
+                  <TableHead className="dark:text-slate-300">新規</TableHead>
+                  <TableHead className="dark:text-slate-300">氏名</TableHead>
+                  <TableHead className="dark:text-slate-300">ユーザID</TableHead>
+                  <TableHead className="dark:text-slate-300">権限</TableHead>
+                  <TableHead className="dark:text-slate-300">部署名</TableHead>
+                  <TableHead className="dark:text-slate-300">主担当</TableHead>
+                  <TableHead className="text-center dark:text-slate-300">削除</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {selectedUsers.map((user) => (
-                  <TableRow key={user.id}>
+                  <TableRow key={user.id} className="dark:hover:bg-slate-800">
                     <TableCell>
-                      <Button size="sm" variant="outline" className="h-8">
+                      <Button size="sm" variant="outline" className="h-8 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                         新規
                       </Button>
                     </TableCell>
-                    <TableCell>{user.name}</TableCell>
+                    <TableCell className="dark:text-slate-200">{user.name}</TableCell>
                     <TableCell>
-                      <div className="flex items-center gap-1">
+                      <div className="flex items-center gap-1 dark:text-slate-200">
                         <span>{user.userId}</span>
                         <Button
                           size="sm"
                           variant="ghost"
-                          className="h-5 w-5 p-0"
+                          className="h-5 w-5 p-0 dark:hover:bg-slate-700"
                           onClick={() => handleOpenUserSearch(user.id)}
                         >
-                          <Search className="w-3 h-3" />
+                          <Search className="w-3 h-3 dark:text-slate-300" />
                         </Button>
                       </div>
                     </TableCell>
                     <TableCell>
                       <Select
                         value={resolvePermission(user)}
-                        onValueChange={(value) => handlePermissionChange(user.id, value)}
+                        onValueChange={(value: string) => handlePermissionChange(user.id, value)}
                       >
-                        <SelectTrigger className="h-8 border-gray-300">
+                        <SelectTrigger className="h-8 border-gray-300 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -652,14 +652,14 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
                         </SelectContent>
                       </Select>
                     </TableCell>
-                    <TableCell>{user.dept}</TableCell>
+                    <TableCell className="dark:text-slate-200">{user.dept}</TableCell>
                     <TableCell className="text-center">
                       <div className="flex justify-center">
                         <button
                           onClick={() => handleToggleMain(user.id)}
                           className="focus:outline-none"
                         >
-                          <div className={`w-4 h-4 rounded-full border-2 ${user.isMain ? 'border-blue-500 bg-blue-500' : 'border-gray-300'} flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity`}>
+                          <div className={`w-4 h-4 rounded-full border-2 ${user.isMain ? 'border-blue-500 bg-blue-500' : 'border-gray-300 dark:border-slate-500'} flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity`}>
                             {user.isMain && <div className="w-2 h-2 rounded-full bg-white" />}
                           </div>
                         </button>
@@ -669,7 +669,7 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
                       <Button
                         size="sm"
                         variant="ghost"
-                        className="text-orange-500 hover:text-orange-700"
+                        className="text-orange-500 hover:text-orange-700 dark:text-orange-400 dark:hover:text-orange-300 dark:hover:bg-slate-700"
                         onClick={() => handleDeleteUser(user.id)}
                       >
                         <Trash2 className="w-4 h-4" />
@@ -680,7 +680,7 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
               </TableBody>
             </Table>
           </div>
-          <Button size="sm" variant="outline" className="mt-4" onClick={handleAddEmptyRow}>
+          <Button size="sm" variant="outline" className="mt-4 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700" onClick={handleAddEmptyRow}>
             <Plus className="w-4 h-4 mr-1" />
             追加
           </Button>
@@ -689,21 +689,21 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
 
       {/* Department Dialog */}
       <Dialog open={showDepartmentDialog} onOpenChange={setShowDepartmentDialog}>
-        <DialogContent className="max-w-4xl">
-          <DialogHeader className="flex flex-row items-center justify-between border-b pb-4">
+        <DialogContent className="max-w-4xl dark:bg-slate-900 dark:border-slate-800">
+          <DialogHeader className="flex flex-row items-center justify-between border-b pb-4 dark:border-slate-700">
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1 bg-gradient-to-r from-orange-100 to-yellow-100 px-3 py-1 rounded">
+              <div className="flex items-center gap-1 bg-gradient-to-r from-orange-100 to-yellow-100 px-3 py-1 rounded dark:from-slate-800 dark:to-slate-800">
                 <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">特許ナビ</span>
               </div>
               <span className="text-gray-400">|</span>
-              <DialogTitle className="text-base">部署で設定</DialogTitle>
+              <DialogTitle className="text-base dark:text-slate-200">部署で設定</DialogTitle>
             </div>
             <DialogDescription className="sr-only">
               部署を選択してユーザーを設定します
             </DialogDescription>
             <Button
               variant="link"
-              className="text-blue-500 hover:text-blue-700"
+              className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
               onClick={() => setShowDepartmentDialog(false)}
             >
               閉じる
@@ -715,7 +715,7 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
               <Button
                 size="sm"
                 variant="outline"
-                className="border-2"
+                className="border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
                 onClick={handleExecuteSettings}
               >
                 設定を実行する
@@ -723,38 +723,38 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
               <Button
                 size="sm"
                 variant="ghost"
-                className="text-blue-500 hover:text-blue-700"
+                className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
               >
                 <span className="mr-2">🔄</span>
                 最新に更新
               </Button>
             </div>
 
-            <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+            <div className="border-2 border-gray-200 rounded-lg overflow-hidden dark:border-slate-700">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-gray-100">
-                    <TableHead className="w-20">表示順</TableHead>
-                    <TableHead className="w-32">No.</TableHead>
-                    <TableHead>部署名</TableHead>
-                    <TableHead>部署略称</TableHead>
-                    <TableHead className="text-right">ユーザー数</TableHead>
+                  <TableRow className="bg-gray-100 dark:bg-slate-800">
+                    <TableHead className="w-20 dark:text-slate-300">表示順</TableHead>
+                    <TableHead className="w-32 dark:text-slate-300">No.</TableHead>
+                    <TableHead className="dark:text-slate-300">部署名</TableHead>
+                    <TableHead className="dark:text-slate-300">部署略称</TableHead>
+                    <TableHead className="text-right dark:text-slate-300">ユーザー数</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {departments.length > 0 ? (
                     departments.map((dept) => (
-                      <TableRow key={dept.id} className="hover:bg-gray-50">
+                      <TableRow key={dept.id} className="hover:bg-gray-50 dark:hover:bg-slate-800">
                         <TableCell className="text-center">
                           <Checkbox
                             checked={selectedDepartments.includes(dept.id)}
                             onCheckedChange={(checked: boolean | 'indeterminate') => handleDepartmentSelect(dept.id, typeof checked === 'boolean' ? checked : false)}
                           />
                         </TableCell>
-                        <TableCell>{dept.no}</TableCell>
-                        <TableCell>{dept.name}</TableCell>
-                        <TableCell className="text-gray-400">{dept.abbr}</TableCell>
-                        <TableCell className="text-right">{dept.userCount}</TableCell>
+                        <TableCell className="dark:text-slate-200">{dept.no}</TableCell>
+                        <TableCell className="dark:text-slate-200">{dept.name}</TableCell>
+                        <TableCell className="text-gray-400 dark:text-slate-400">{dept.abbr}</TableCell>
+                        <TableCell className="text-right dark:text-slate-200">{dept.userCount}</TableCell>
                       </TableRow>
                     ))
                   ) : (
@@ -773,21 +773,21 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
 
       {/* User Search Dialog */}
       <Dialog open={showUserSearchDialog} onOpenChange={setShowUserSearchDialog}>
-        <DialogContent className="max-w-3xl max-h-[80vh] overflow-hidden flex flex-col">
-          <DialogHeader className="flex flex-row items-center justify-between border-b pb-4 shrink-0">
+        <DialogContent className="max-w-3xl max-h-[80vh] overflow-hidden flex flex-col dark:bg-slate-900 dark:border-slate-800">
+          <DialogHeader className="flex flex-row items-center justify-between border-b pb-4 shrink-0 dark:border-slate-700">
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1 bg-gradient-to-r from-orange-100 to-yellow-100 px-3 py-1 rounded">
+              <div className="flex items-center gap-1 bg-gradient-to-r from-orange-100 to-yellow-100 px-3 py-1 rounded dark:from-slate-800 dark:to-slate-800">
                 <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">特許ナビ</span>
               </div>
               <span className="text-gray-400">|</span>
-              <DialogTitle className="text-base">ユーザ指定補助</DialogTitle>
+              <DialogTitle className="text-base dark:text-slate-200">ユーザ指定補助</DialogTitle>
             </div>
             <DialogDescription className="sr-only">
               ユーザーを検索して追加します
             </DialogDescription>
             <Button
               variant="link"
-              className="text-blue-500 hover:text-blue-700"
+              className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
               onClick={() => setShowUserSearchDialog(false)}
             >
               閉じる
@@ -795,25 +795,25 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
           </DialogHeader>
 
           <div className="flex-1 overflow-auto">
-            <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+            <div className="border-2 border-gray-200 rounded-lg overflow-hidden dark:bg-slate-900 dark:border-slate-700">
               <Table>
                 <TableHeader>
-                  <TableRow className="bg-gray-100">
-                    <TableHead className="w-40">ユーザID</TableHead>
-                    <TableHead>氏名</TableHead>
-                    <TableHead className="w-48">部署</TableHead>
+                  <TableRow className="bg-gray-100 dark:bg-slate-800">
+                    <TableHead className="w-40 dark:text-slate-300">ユーザID</TableHead>
+                    <TableHead className="dark:text-slate-300">氏名</TableHead>
+                    <TableHead className="w-48 dark:text-slate-300">部署</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {allUsers.map((user, index) => (
                     <TableRow
                       key={index}
-                      className="hover:bg-gray-50 cursor-pointer"
+                      className="hover:bg-gray-50 cursor-pointer dark:hover:bg-slate-800"
                       onClick={() => handleSelectUserFromDialog(user)}
                     >
-                      <TableCell>{user.userId}</TableCell>
-                      <TableCell className="text-blue-600">{user.name}</TableCell>
-                      <TableCell>{user.dept}</TableCell>
+                      <TableCell className="dark:text-slate-200">{user.userId}</TableCell>
+                      <TableCell className="text-blue-600 dark:text-blue-400">{user.name}</TableCell>
+                      <TableCell className="dark:text-slate-200">{user.dept}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -825,17 +825,17 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
 
       {/* Permission Warning Dialog */}
       <Dialog open={showPermissionWarning} onOpenChange={setShowPermissionWarning}>
-        <DialogContent className="max-w-lg border-2 border-orange-200 shadow-2xl">
-          <DialogHeader className="border-b pb-4">
+        <DialogContent className="max-w-lg border-2 border-orange-200 shadow-2xl dark:bg-slate-900 dark:border-orange-900">
+          <DialogHeader className="border-b pb-4 dark:border-slate-700">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center dark:from-orange-900/30 dark:to-yellow-900/30">
                 <AlertCircle className="w-6 h-6 text-orange-500" />
               </div>
               <div>
-                <DialogTitle className="text-lg font-bold text-gray-900">
+                <DialogTitle className="text-lg font-bold text-gray-900 dark:text-slate-200">
                   権限エラー
                 </DialogTitle>
-                <p className="text-sm text-gray-500 mt-1">
+                <p className="text-sm text-gray-500 mt-1 dark:text-slate-400">
                   操作を完了できません
                 </p>
               </div>
@@ -843,10 +843,10 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
           </DialogHeader>
 
           <div className="py-6">
-            <div className="bg-orange-50 border-l-4 border-orange-400 p-4 rounded-r-lg">
+            <div className="bg-orange-50 border-l-4 border-orange-400 p-4 rounded-r-lg dark:bg-orange-900/20 dark:border-orange-600">
               <div className="space-y-2">
                 {permissionWarningMessage.split('\n').map((line, index) => (
-                  <p key={index} className="text-gray-800 leading-relaxed">
+                  <p key={index} className="text-gray-800 leading-relaxed dark:text-slate-200">
                     {line}
                   </p>
                 ))}
@@ -854,10 +854,10 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
             </div>
           </div>
 
-          <div className="flex justify-end gap-2 pt-4 border-t">
+          <div className="flex justify-end gap-2 pt-4 border-t dark:border-slate-700">
             <Button
               onClick={() => setShowPermissionWarning(false)}
-              className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white px-8 shadow-md hover:shadow-lg transition-all"
+              className="bg-orange-500 hover:bg-orange-600 text-white px-8 shadow-md hover:shadow-lg transition-all dark:bg-orange-600 dark:hover:bg-orange-700"
             >
               OK
             </Button>
@@ -867,29 +867,29 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
 
       {/* Success Dialog */}
       <Dialog open={showSuccessDialog} onOpenChange={setShowSuccessDialog}>
-        <DialogContent className="max-w-md border-2 border-orange-200">
+        <DialogContent className="max-w-md border-2 border-orange-200 dark:bg-slate-900 dark:border-orange-900">
           <DialogHeader>
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center">
-                <Check className="w-6 h-6 text-orange-600" />
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center dark:from-orange-900/30 dark:to-yellow-900/30">
+                <Check className="w-6 h-6 text-orange-600 dark:text-orange-400" />
               </div>
               <div>
-                <DialogTitle className="text-base">タイトルを作成しました</DialogTitle>
-                <p className="text-xs text-gray-500">正常に保存されました</p>
+                <DialogTitle className="text-base dark:text-slate-200">タイトルを作成しました</DialogTitle>
+                <p className="text-xs text-gray-500 dark:text-slate-400">正常に保存されました</p>
               </div>
             </div>
           </DialogHeader>
 
           <div className="py-4">
             {createdTitleInfo && (
-              <div className="bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-200 rounded-lg p-4">
+              <div className="bg-gradient-to-r from-orange-50 to-yellow-50 border-2 border-orange-200 rounded-lg p-4 dark:from-slate-800 dark:to-slate-800 dark:border-orange-800">
                 <div className="flex items-start gap-3">
-                  <Save className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                  <Save className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5 dark:text-orange-400" />
                   <div className="flex-1">
-                    <p className="text-sm font-semibold text-gray-900 mb-1">
+                    <p className="text-sm font-semibold text-gray-900 mb-1 dark:text-slate-200">
                       {createdTitleInfo.titleName}
                     </p>
-                    <div className="flex gap-2 text-xs text-gray-600">
+                    <div className="flex gap-2 text-xs text-gray-600 dark:text-slate-400">
                       {createdTitleInfo.titleNo && (
                         <span>No: {createdTitleInfo.titleNo}</span>
                       )}
@@ -905,7 +905,7 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
             )}
           </div>
 
-          <div className="flex justify-end gap-2 pt-2 border-t">
+          <div className="flex justify-end gap-2 pt-2 border-t dark:border-slate-700">
             <Button
               onClick={() => {
                 setShowSuccessDialog(false);
@@ -922,7 +922,7 @@ export function CreateTitleForm({ onBack, onSave }: CreateTitleFormProps) {
                   onBack();
                 }
               }}
-              className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white font-semibold shadow-md"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold shadow-md dark:bg-orange-600 dark:hover:bg-orange-700"
             >
               一覧に戻る
             </Button>

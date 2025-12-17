@@ -354,33 +354,33 @@ export function PatentDetailListPage({
   const selectedPatent = patents.find(p => p.id === selectedPatentId);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-yellow-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Header */}
-      <div className="bg-white border-b shadow-sm">
+      <div className="bg-white border-b shadow-sm dark:bg-slate-900 dark:border-slate-800">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
             <Button
               variant="ghost"
               size="sm"
               onClick={onBack}
-              className="hover:bg-gray-100"
+              className="hover:bg-gray-100 dark:text-slate-200 dark:hover:bg-slate-800"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               戻る
             </Button>
             <div className="flex items-center gap-4">
-              <span className="text-sm text-gray-600">
-                タイトル: <span className="font-medium">{titleName}</span> (No: {titleNo})
+              <span className="text-sm text-gray-600 dark:text-slate-400">
+                タイトル: <span className="font-medium dark:text-slate-200">{titleName}</span> (No: {titleNo})
               </span>
-              <span className="text-sm text-gray-600">
-                出願人: <span className="font-medium">{companyName}</span>
+              <span className="text-sm text-gray-600 dark:text-slate-400">
+                出願人: <span className="font-medium dark:text-slate-200">{companyName}</span>
               </span>
               {filterInfo && filterInfo.dateColumn && (
-                <span className="text-sm text-orange-600 font-medium">
+                <span className="text-sm text-orange-600 font-medium dark:text-orange-400">
                   フィルター: {filterInfo.dateColumn}
                 </span>
               )}
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-gray-600 dark:text-slate-400">
                 全 {patents.length} 件
               </span>
             </div>
@@ -389,7 +389,7 @@ export function PatentDetailListPage({
       </div>
 
       {/* Toolbar */}
-      <div className="bg-white border-b">
+      <div className="bg-white border-b dark:bg-slate-900 dark:border-slate-800">
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 mr-2">
@@ -398,7 +398,7 @@ export function PatentDetailListPage({
                 onCheckedChange={(checked: boolean) => handleSelectAll(checked)}
                 id="select-all"
               />
-              <label htmlFor="select-all" className="text-sm text-gray-600 cursor-pointer">
+              <label htmlFor="select-all" className="text-sm text-gray-600 cursor-pointer dark:text-slate-400">
                 すべて選択
               </label>
             </div>
@@ -408,7 +408,7 @@ export function PatentDetailListPage({
               size="sm"
               className={`text-sm h-8 transition-all duration-200 ${selectedIds.size > 0
                 ? "bg-red-600 hover:bg-red-700 hover:shadow-md text-white border-transparent"
-                : "text-red-600 border-red-200 hover:bg-red-100 hover:border-red-300"
+                : "text-red-600 border-red-200 hover:bg-red-100 hover:border-red-300 dark:text-red-400 dark:border-red-800 dark:hover:bg-red-900/30"
                 }`}
               onClick={handleDelete}
               disabled={selectedIds.size === 0 || isDeleting}
@@ -422,7 +422,7 @@ export function PatentDetailListPage({
             <Button
               variant="outline"
               size="sm"
-              className="text-sm h-8 transition-all duration-200 text-green-600 border-green-200 hover:bg-green-100 hover:border-green-300"
+              className="text-sm h-8 transition-all duration-200 text-green-600 border-green-200 hover:bg-green-100 hover:border-green-300 dark:text-green-400 dark:border-green-800 dark:hover:bg-green-900/30"
               onClick={() => setIsExportDialogOpen(true)}
             >
               <Download className="w-4 h-4 mr-1" />
@@ -432,7 +432,7 @@ export function PatentDetailListPage({
             <Button
               variant="outline"
               size="sm"
-              className="text-sm h-8 transition-all duration-200 text-yellow-600 border-yellow-200 hover:bg-yellow-100 hover:border-yellow-300"
+              className="text-sm h-8 transition-all duration-200 text-yellow-600 border-yellow-200 hover:bg-yellow-100 hover:border-yellow-300 dark:text-yellow-400 dark:border-yellow-800 dark:hover:bg-yellow-900/30"
               onClick={() => setIsAssignmentDialogOpen(true)}
             >
               <Users className="w-4 h-4 mr-1" />
@@ -442,7 +442,7 @@ export function PatentDetailListPage({
             <Button
               variant="outline"
               size="sm"
-              className="text-sm h-8 transition-all duration-200 text-blue-600 border-blue-200 hover:bg-blue-100 hover:border-blue-300"
+              className="text-sm h-8 transition-all duration-200 text-blue-600 border-blue-200 hover:bg-blue-100 hover:border-blue-300 dark:text-blue-400 dark:border-blue-800 dark:hover:bg-blue-900/30"
               onClick={() => fetchPatents()}
             >
               <RefreshCw className="w-4 h-4 mr-1" />
@@ -451,7 +451,7 @@ export function PatentDetailListPage({
             <div className="w-px h-5 bg-gray-300"></div>
             <Button
               size="sm"
-              className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 hover:shadow-md text-white text-sm h-8 border-0 transition-all duration-200"
+              className="bg-orange-500 hover:bg-orange-600 hover:shadow-md text-white text-sm h-8 border-0 transition-all duration-200 dark:bg-orange-600 dark:hover:bg-orange-700"
               onClick={handleSave}
               disabled={isSaving}
             >
@@ -466,11 +466,11 @@ export function PatentDetailListPage({
       <div className="container mx-auto px-4 py-4">
         <div className="space-y-4">
           {patents.map((patent) => (
-            <div key={patent.id} className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
+            <div key={patent.id} className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 dark:bg-slate-900 dark:border-slate-700">
               <div className="flex gap-4 p-4 items-stretch h-[600px]">
                 {/* Left Panel - Patent Info - Height fits content */}
-                <div className="w-[320px] flex-shrink-0 border border-blue-100 rounded-lg bg-white flex flex-col overflow-hidden shadow-sm h-full">
-                  <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-white text-sm flex items-center gap-2 flex-shrink-0 font-medium">
+                <div className="w-[320px] flex-shrink-0 border border-blue-100 rounded-lg bg-white flex flex-col overflow-hidden shadow-sm h-full dark:bg-slate-950 dark:border-slate-800">
+                  <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 text-white text-sm flex items-center gap-2 flex-shrink-0 font-medium dark:from-blue-800 dark:to-indigo-800">
                     <Checkbox
                       checked={selectedIds.has(patent.id)}
                       onCheckedChange={(checked: boolean) => handleSelectOne(patent.id, checked)}
@@ -494,17 +494,17 @@ export function PatentDetailListPage({
                       { label: '【イベント詳細】', value: patent.eventDetail },
                     ].map((item, index) => (
                       <div key={index} className="flex border-b border-gray-100 min-h-[32px]">
-                        <div className="w-[120px] bg-gray-50 p-2 text-xs text-gray-700 font-bold border-r border-gray-100 flex items-center flex-shrink-0">
+                        <div className="w-[120px] bg-gray-50 p-2 text-xs text-gray-700 font-bold border-r border-gray-100 flex items-center flex-shrink-0 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">
                           {item.label}
                         </div>
-                        <div className={`p-2 text-gray-900 flex-1 break-all text-xs ${item.bold ? 'font-medium' : ''}`}>
+                        <div className={`p-2 text-gray-900 flex-1 break-all text-xs ${item.bold ? 'font-medium' : ''} dark:text-slate-200`}>
                           {item.value || '-'}
                         </div>
                       </div>
                     ))}
 
                     <div className="flex border-b border-gray-100">
-                      <div className="w-[120px] bg-gray-50 p-2 text-xs text-gray-700 font-bold border-r border-gray-100 flex items-start flex-shrink-0">
+                      <div className="w-[120px] bg-gray-50 p-2 text-xs text-gray-700 font-bold border-r border-gray-100 flex items-start flex-shrink-0 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">
                         【発明の名称】
                       </div>
                       <div className="p-2 flex-1">
@@ -524,7 +524,7 @@ export function PatentDetailListPage({
                     </div>
 
                     <div className="flex border-b border-gray-100">
-                      <div className="w-[120px] bg-gray-50 p-2 text-xs text-gray-700 font-bold border-r border-gray-100 flex items-start flex-shrink-0">
+                      <div className="w-[120px] bg-gray-50 p-2 text-xs text-gray-700 font-bold border-r border-gray-100 flex items-start flex-shrink-0 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">
                         【FI】
                       </div>
                       <div className="p-2 flex-1">
@@ -544,10 +544,10 @@ export function PatentDetailListPage({
                     </div>
 
                     <div className="flex min-h-[32px]">
-                      <div className="w-[120px] bg-gray-50 p-2 text-xs text-gray-700 font-bold border-r border-gray-100 flex items-center flex-shrink-0">
+                      <div className="w-[120px] bg-gray-50 p-2 text-xs text-gray-700 font-bold border-r border-gray-100 flex items-center flex-shrink-0 dark:bg-slate-900 dark:text-slate-300 dark:border-slate-800">
                         【文献URL】
                       </div>
-                      <div className="p-2 text-gray-900 flex-1 flex items-center">
+                      <div className="p-2 text-gray-900 flex-1 flex items-center dark:text-slate-200">
                         {patent.documentUrl ? (
                           <a
                             href={patent.documentUrl}
@@ -573,21 +573,21 @@ export function PatentDetailListPage({
                   {/* Two Column Section */}
                   <div className="grid grid-cols-2 gap-4 h-[300px] flex-shrink-0">
                     {/* Left Column - Applicant & Abstract */}
-                    <div className="border border-orange-200 rounded-lg p-3 bg-orange-50/50 flex flex-col h-full shadow-sm">
+                    <div className="border border-orange-200 rounded-lg p-3 bg-orange-50/50 flex flex-col h-full shadow-sm dark:bg-slate-900 dark:border-slate-700">
                       <div className="space-y-2 flex flex-col h-full">
                         <div>
-                          <div className="text-xs text-orange-700 font-semibold mb-1 flex items-center gap-1">
+                          <div className="text-xs text-orange-700 font-semibold mb-1 flex items-center gap-1 dark:text-orange-400">
                             <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
                             出願人/権利者
                           </div>
-                          <div className="text-sm font-medium text-gray-900 truncate">{patent.applicantName || '-'}</div>
+                          <div className="text-sm font-medium text-gray-900 truncate dark:text-slate-200">{patent.applicantName || '-'}</div>
                         </div>
                         <div className="flex-1 flex flex-col min-h-0">
-                          <div className="text-xs text-orange-700 font-semibold mb-1 flex items-center gap-1">
+                          <div className="text-xs text-orange-700 font-semibold mb-1 flex items-center gap-1 dark:text-orange-400">
                             <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
                             要約
                           </div>
-                          <div className="h-[220px] overflow-y-auto p-2 bg-white/80 rounded border border-orange-100 text-xs leading-relaxed custom-scrollbar relative">
+                          <div className="h-[220px] overflow-y-auto p-2 bg-white/80 rounded border border-orange-100 text-xs leading-relaxed custom-scrollbar relative dark:bg-slate-950 dark:border-slate-800 dark:text-slate-300">
                             {patent.abstract || '-'}
                           </div>
                         </div>
@@ -595,21 +595,21 @@ export function PatentDetailListPage({
                     </div>
 
                     {/* Right Column - Title & Claims */}
-                    <div className="border border-emerald-200 rounded-lg p-3 bg-emerald-50/50 flex flex-col h-full shadow-sm">
+                    <div className="border border-emerald-200 rounded-lg p-3 bg-emerald-50/50 flex flex-col h-full shadow-sm dark:bg-slate-900 dark:border-slate-700">
                       <div className="space-y-2 flex flex-col h-full">
                         <div>
-                          <div className="text-xs text-emerald-700 font-semibold mb-1 flex items-center gap-1">
+                          <div className="text-xs text-emerald-700 font-semibold mb-1 flex items-center gap-1 dark:text-emerald-400">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                             発明の名称
                           </div>
-                          <div className="text-sm font-medium text-gray-900 truncate">{patent.inventionTitle || '-'}</div>
+                          <div className="text-sm font-medium text-gray-900 truncate dark:text-slate-200">{patent.inventionTitle || '-'}</div>
                         </div>
                         <div className="flex-1 flex flex-col min-h-0">
-                          <div className="text-xs text-emerald-700 font-semibold mb-1 flex items-center gap-1">
+                          <div className="text-xs text-emerald-700 font-semibold mb-1 flex items-center gap-1 dark:text-emerald-400">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                             請求の範囲
                           </div>
-                          <div className="h-[220px] overflow-y-auto p-2 bg-white/80 rounded border border-emerald-100 text-xs leading-relaxed custom-scrollbar relative">
+                          <div className="h-[220px] overflow-y-auto p-2 bg-white/80 rounded border border-emerald-100 text-xs leading-relaxed custom-scrollbar relative dark:bg-slate-950 dark:border-slate-800 dark:text-slate-300">
                             {patent.claims || '-'}
                           </div>
                         </div>
@@ -618,8 +618,8 @@ export function PatentDetailListPage({
                   </div>
 
                   {/* Evaluation Section - flex-1 to fill remaining space */}
-                  <div className="flex-1 bg-violet-50/50 rounded-lg p-4 border border-violet-200 shadow-sm flex flex-col gap-3 min-h-0">
-                    <div className="text-sm font-bold text-violet-800 flex items-center gap-2">
+                  <div className="flex-1 bg-violet-50/50 rounded-lg p-4 border border-violet-200 shadow-sm flex flex-col gap-3 min-h-0 dark:bg-slate-900 dark:border-slate-700">
+                    <div className="text-sm font-bold text-violet-800 flex items-center gap-2 dark:text-violet-400">
                       <span className="w-2 h-6 bg-violet-600 rounded-sm"></span>
                       評価エリア
                     </div>
@@ -628,14 +628,14 @@ export function PatentDetailListPage({
                       <Button
                         variant="link"
                         size="sm"
-                        className="h-auto p-0 text-blue-600"
+                        className="h-auto p-0 text-blue-600 dark:text-blue-400"
                       >
                         評価履歴
                       </Button>
                       <Button
                         variant="link"
                         size="sm"
-                        className="h-auto p-0 text-blue-600"
+                        className="h-auto p-0 text-blue-600 dark:text-blue-400"
                         onClick={() => setIsAssignmentDialogOpen(true)}
                       >
                         担当者
@@ -652,7 +652,7 @@ export function PatentDetailListPage({
                           }
                         }}
                       >
-                        <SelectTrigger className="w-[240px]">
+                        <SelectTrigger className="w-[240px] dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
@@ -669,18 +669,18 @@ export function PatentDetailListPage({
                           checked={patentStates[patent.id].toTrash}
                           onCheckedChange={(checked: boolean | 'indeterminate') => updatePatentState(patent.id, 'toTrash', typeof checked === 'boolean' ? checked : false)}
                         />
-                        <label htmlFor={`trash-${patent.id}`} className="text-sm cursor-pointer">
+                        <label htmlFor={`trash-${patent.id}`} className="text-sm cursor-pointer dark:text-slate-300">
                           ゴミ箱へ
                         </label>
                       </div>
                     </div>
 
                     <div className="flex-1 flex flex-col">
-                      <div className="text-sm text-gray-600 mb-1">【理由入力】</div>
+                      <div className="text-sm text-gray-600 mb-1 dark:text-slate-400">【理由入力】</div>
                       <Textarea
                         value={patentStates[patent.id].reasonInput}
                         onChange={(e) => updatePatentState(patent.id, 'reasonInput', e.target.value)}
-                        className="flex-1 min-h-[80px] w-full resize-none text-sm"
+                        className="flex-1 min-h-[80px] w-full resize-none text-sm dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                         placeholder=""
                       />
                     </div>

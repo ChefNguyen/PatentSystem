@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { ThemeProvider } from 'next-themes';
 import { LoginPage } from './components/LoginPage';
 import { TitleListPage } from './components/TitleListPage';
 import { HomePage } from './components/HomePage';
@@ -54,17 +55,17 @@ export default function App() {
   // Show loading state while checking authentication
   if (isChecking) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-amber-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">読み込み中...</p>
+          <p className="text-gray-600 dark:text-gray-400">読み込み中...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <AnimatePresence mode="wait">
         {view === 'dashboard' && (
           <motion.div
@@ -110,7 +111,7 @@ export default function App() {
         )}
       </AnimatePresence>
       <Toaster />
-    </>
+    </ThemeProvider>
   );
 }
 

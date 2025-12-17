@@ -9,7 +9,7 @@ interface ColorSelectProps {
 }
 
 const colorOptions = [
-  { value: 'マークなし', color: 'bg-gray-100', textColor: 'text-gray-700', label: 'マークなし', hex: '' },
+  { value: 'マークなし', color: 'bg-gray-100 dark:bg-slate-700', textColor: 'text-gray-700 dark:text-slate-200', label: 'マークなし', hex: '' },
   { value: 'ピンク', color: 'bg-pink-500', textColor: 'text-white', label: 'ピンク', hex: '#ec4899' },
   { value: 'グリーン', color: 'bg-green-500', textColor: 'text-white', label: 'グリーン', hex: '#22c55e' },
   { value: 'ブルー', color: 'bg-blue-500', textColor: 'text-white', label: 'ブルー', hex: '#3b82f6' },

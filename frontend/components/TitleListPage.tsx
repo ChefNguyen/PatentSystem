@@ -615,7 +615,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
         : 0;
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-yellow-50">
+        <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-yellow-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
             {/* Header */}
             {/* Header */}
             {/* Header */}
@@ -623,7 +623,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
             {/* Dashboard Header - Clean White Style */}
             <div className="sticky top-4 z-50 w-full px-4 mb-8">
                 <header className="container mx-auto">
-                    <div className="bg-white rounded-2xl shadow-2xl border-b-4 border-orange-500 relative flex items-center justify-between px-8 py-6 transition-all duration-300">
+                    <div className="bg-white rounded-2xl shadow-2xl border-b-4 border-orange-500 relative flex items-center justify-between px-8 py-6 transition-all duration-300 dark:bg-slate-900 dark:border-orange-500/50">
 
                         {/* Left: Brand */}
                         <div className="flex items-center gap-4 cursor-pointer group hover:opacity-90 transition-opacity" onClick={() => setActiveTab('list')}>
@@ -631,7 +631,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                 <Lightbulb className="w-8 h-8 text-white stroke-[2.5]" />
                             </div>
                             <span
-                                className="text-3xl tracking-tight text-slate-800 drop-shadow-sm"
+                                className="text-3xl tracking-tight text-slate-800 drop-shadow-sm dark:text-slate-100"
                                 style={{ fontFamily: '"M PLUS Rounded 1c", sans-serif', fontWeight: 800 }}
                             >
                                 特許ナビ
@@ -644,7 +644,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                 variant="ghost"
                                 onClick={() => setActiveTab('create')}
                                 disabled={isViewOnly}
-                                className={`group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium ${isViewOnly ? 'opacity-50 cursor-not-allowed hover:translate-y-0 hover:shadow-none' : ''}`}
+                                className={`group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium ${isViewOnly ? 'opacity-50 cursor-not-allowed hover:translate-y-0 hover:shadow-none' : ''} dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-orange-400`}
                             >
                                 <FilePlus className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                                 作成
@@ -653,7 +653,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                 variant="ghost"
                                 onClick={() => setIsCopyDialogOpen(true)}
                                 disabled={isViewOnly}
-                                className={`group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium ${isViewOnly ? 'opacity-50 cursor-not-allowed hover:translate-y-0 hover:shadow-none' : ''}`}
+                                className={`group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium ${isViewOnly ? 'opacity-50 cursor-not-allowed hover:translate-y-0 hover:shadow-none' : ''} dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-orange-400`}
                             >
                                 <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                                 コピー
@@ -662,7 +662,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                 variant="ghost"
                                 onClick={() => setActiveTab('merge')}
                                 disabled={isViewOnly}
-                                className={`group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium ${isViewOnly ? 'opacity-50 cursor-not-allowed hover:translate-y-0 hover:shadow-none' : ''}`}
+                                className={`group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium ${isViewOnly ? 'opacity-50 cursor-not-allowed hover:translate-y-0 hover:shadow-none' : ''} dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-orange-400`}
                             >
                                 <Layers className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                                 マージ
@@ -671,7 +671,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                 variant="ghost"
                                 onClick={() => setActiveTab('search')}
                                 disabled={isViewOnly}
-                                className={`group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium ${isViewOnly ? 'opacity-50 cursor-not-allowed hover:translate-y-0 hover:shadow-none' : ''}`}
+                                className={`group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium ${isViewOnly ? 'opacity-50 cursor-not-allowed hover:translate-y-0 hover:shadow-none' : ''} dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-orange-400`}
                             >
                                 <MagnifyingGlass className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                                 検索
@@ -682,103 +682,103 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                         <div className="flex items-center">
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <button className="flex items-center gap-3 bg-white hover:bg-green-50 px-4 py-2 rounded-full border border-gray-200 hover:border-green-200 transition-all cursor-pointer shadow-sm outline-none focus:ring-2 focus:ring-green-100">
-                                        <div className="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center border border-green-200 group-hover:bg-green-200 transition-colors">
-                                            <User className="w-5 h-5 text-green-700" />
+                                    <button className="flex items-center gap-3 bg-white hover:bg-green-50 px-4 py-2 rounded-full border border-gray-200 hover:border-green-200 transition-all cursor-pointer shadow-sm outline-none focus:ring-2 focus:ring-green-100 dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:hover:border-slate-600 dark:focus:ring-slate-700">
+                                        <div className="w-9 h-9 rounded-full bg-green-100 flex items-center justify-center border border-green-200 group-hover:bg-green-200 transition-colors dark:bg-slate-700 dark:border-slate-600">
+                                            <User className="w-5 h-5 text-green-700 dark:text-green-400" />
                                         </div>
                                         <div className="flex flex-col items-start pr-2">
-                                            <span className="font-bold text-sm text-gray-800">{username}</span>
+                                            <span className="font-bold text-sm text-gray-800 dark:text-slate-200">{username}</span>
                                         </div>
-                                        <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-green-600 transition-colors" />
+                                        <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-green-600 transition-colors dark:text-slate-400" />
                                     </button>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent align="end" sideOffset={8} className="w-52 p-1.5 bg-white rounded-xl shadow-2xl border border-gray-100 !z-[9999]">
+                                <DropdownMenuContent align="end" sideOffset={8} className="w-52 p-1.5 bg-white rounded-xl shadow-2xl border border-gray-100 !z-[9999] dark:bg-slate-800 dark:border-slate-700">
                                     <div className="space-y-1">
                                         <DropdownMenuItem
-                                            className="w-full p-1.5 cursor-pointer group hover:bg-slate-50 focus:bg-slate-50 mb-0.5 transition-all duration-200 rounded-md outline-none"
+                                            className="w-full p-1.5 cursor-pointer group hover:bg-slate-50 focus:bg-slate-50 mb-0.5 transition-all duration-200 rounded-md outline-none dark:hover:bg-slate-700 dark:focus:bg-slate-700"
                                             onClick={() => {
                                                 setSettingsInitialTab('profile');
                                                 setActiveTab('settings');
                                             }}
                                         >
                                             <div className="flex items-center gap-2 w-full">
-                                                <div className="w-7 h-7 rounded-md bg-blue-50 flex items-center justify-center transition-all duration-200 group-hover:bg-blue-100">
-                                                    <User className="w-3.5 h-3.5 text-blue-600" />
+                                                <div className="w-7 h-7 rounded-md bg-blue-50 flex items-center justify-center transition-all duration-200 group-hover:bg-blue-100 dark:bg-blue-900/30 dark:group-hover:bg-blue-900/50">
+                                                    <User className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                                                 </div>
-                                                <span className="text-sm font-medium text-slate-600 group-hover:text-slate-900">プロフィール</span>
+                                                <span className="text-sm font-medium text-slate-600 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-slate-100">プロフィール</span>
                                             </div>
                                         </DropdownMenuItem>
 
                                         <DropdownMenuItem
-                                            className="w-full p-1.5 cursor-pointer group hover:bg-slate-50 focus:bg-slate-50 mb-0.5 transition-all duration-200 rounded-md outline-none"
+                                            className="w-full p-1.5 cursor-pointer group hover:bg-slate-50 focus:bg-slate-50 mb-0.5 transition-all duration-200 rounded-md outline-none dark:hover:bg-slate-700 dark:focus:bg-slate-700"
                                             onClick={() => {
                                                 setSettingsInitialTab('permissions');
                                                 setActiveTab('settings');
                                             }}
                                         >
                                             <div className="flex items-center gap-2 w-full">
-                                                <div className="w-7 h-7 rounded-md bg-yellow-50 flex items-center justify-center transition-all duration-200 group-hover:bg-yellow-100">
-                                                    <ShieldCheck className="w-3.5 h-3.5 text-yellow-600" />
+                                                <div className="w-7 h-7 rounded-md bg-yellow-50 flex items-center justify-center transition-all duration-200 group-hover:bg-yellow-100 dark:bg-yellow-900/30 dark:group-hover:bg-yellow-900/50">
+                                                    <ShieldCheck className="w-3.5 h-3.5 text-yellow-600 dark:text-yellow-400" />
                                                 </div>
-                                                <span className="text-sm font-medium text-slate-600 group-hover:text-slate-900">権限</span>
+                                                <span className="text-sm font-medium text-slate-600 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-slate-100">権限</span>
                                             </div>
                                         </DropdownMenuItem>
 
                                         <DropdownMenuItem
-                                            className="w-full p-1.5 cursor-pointer group hover:bg-slate-50 focus:bg-slate-50 mb-0.5 transition-all duration-200 rounded-md outline-none"
+                                            className="w-full p-1.5 cursor-pointer group hover:bg-slate-50 focus:bg-slate-50 mb-0.5 transition-all duration-200 rounded-md outline-none dark:hover:bg-slate-700 dark:focus:bg-slate-700"
                                             onClick={() => {
                                                 setSettingsInitialTab('appearance');
                                                 setActiveTab('settings');
                                             }}
                                         >
                                             <div className="flex items-center gap-2 w-full">
-                                                <div className="w-7 h-7 rounded-md bg-pink-50 flex items-center justify-center transition-all duration-200 group-hover:bg-pink-100">
-                                                    <Palette className="w-3.5 h-3.5 text-pink-600" />
+                                                <div className="w-7 h-7 rounded-md bg-pink-50 flex items-center justify-center transition-all duration-200 group-hover:bg-pink-100 dark:bg-pink-900/30 dark:group-hover:bg-pink-900/50">
+                                                    <Palette className="w-3.5 h-3.5 text-pink-600 dark:text-pink-400" />
                                                 </div>
-                                                <span className="text-sm font-medium text-slate-600 group-hover:text-slate-900">外観</span>
+                                                <span className="text-sm font-medium text-slate-600 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-slate-100">外観</span>
                                             </div>
                                         </DropdownMenuItem>
 
                                         <DropdownMenuItem
-                                            className="w-full p-1.5 cursor-pointer group hover:bg-slate-50 focus:bg-slate-50 mb-0.5 transition-all duration-200 rounded-md outline-none"
+                                            className="w-full p-1.5 cursor-pointer group hover:bg-slate-50 focus:bg-slate-50 mb-0.5 transition-all duration-200 rounded-md outline-none dark:hover:bg-slate-700 dark:focus:bg-slate-700"
                                             onClick={() => {
                                                 setSettingsInitialTab('language');
                                                 setActiveTab('settings');
                                             }}
                                         >
                                             <div className="flex items-center gap-2 w-full">
-                                                <div className="w-7 h-7 rounded-md bg-green-50 flex items-center justify-center transition-all duration-200 group-hover:bg-green-100">
-                                                    <Languages className="w-3.5 h-3.5 text-green-600" />
+                                                <div className="w-7 h-7 rounded-md bg-green-50 flex items-center justify-center transition-all duration-200 group-hover:bg-green-100 dark:bg-green-900/30 dark:group-hover:bg-green-900/50">
+                                                    <Languages className="w-3.5 h-3.5 text-green-600 dark:text-green-400" />
                                                 </div>
-                                                <span className="text-sm font-medium text-slate-600 group-hover:text-slate-900">言語</span>
+                                                <span className="text-sm font-medium text-slate-600 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-slate-100">言語</span>
                                             </div>
                                         </DropdownMenuItem>
 
                                         <DropdownMenuItem
-                                            className="w-full p-1.5 cursor-pointer group hover:bg-slate-50 focus:bg-slate-50 mb-0.5 transition-all duration-200 rounded-md outline-none"
+                                            className="w-full p-1.5 cursor-pointer group hover:bg-slate-50 focus:bg-slate-50 mb-0.5 transition-all duration-200 rounded-md outline-none dark:hover:bg-slate-700 dark:focus:bg-slate-700"
                                             onClick={() => {
                                                 setSettingsInitialTab('profile');
                                                 setActiveTab('settings');
                                             }}
                                         >
                                             <div className="flex items-center gap-2 w-full">
-                                                <div className="w-7 h-7 rounded-md bg-slate-100 flex items-center justify-center transition-all duration-200 group-hover:bg-slate-200">
-                                                    <Settings className="w-3.5 h-3.5 text-slate-600" />
+                                                <div className="w-7 h-7 rounded-md bg-slate-100 flex items-center justify-center transition-all duration-200 group-hover:bg-slate-200 dark:bg-slate-700 dark:group-hover:bg-slate-600">
+                                                    <Settings className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400" />
                                                 </div>
-                                                <span className="text-sm font-medium text-slate-600 group-hover:text-slate-900">設定</span>
+                                                <span className="text-sm font-medium text-slate-600 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-slate-100">設定</span>
                                             </div>
                                         </DropdownMenuItem>
                                     </div>
-                                    <DropdownMenuSeparator className="my-1 bg-gray-100" />
+                                    <DropdownMenuSeparator className="my-1 bg-gray-100 dark:bg-slate-700" />
                                     <DropdownMenuItem
-                                        className="w-full p-1.5 cursor-pointer group hover:bg-red-50 focus:bg-red-50 transition-all duration-200 rounded-md outline-none"
+                                        className="w-full p-1.5 cursor-pointer group hover:bg-red-50 focus:bg-red-50 transition-all duration-200 rounded-md outline-none dark:hover:bg-red-900/30 dark:focus:bg-red-900/30"
                                         onClick={onLogout}
                                     >
                                         <div className="flex items-center gap-2 w-full">
-                                            <div className="w-7 h-7 rounded-md bg-red-50 flex items-center justify-center transition-all duration-200 group-hover:bg-red-100">
-                                                <LogOut className="w-3.5 h-3.5 text-red-600" />
+                                            <div className="w-7 h-7 rounded-md bg-red-50 flex items-center justify-center transition-all duration-200 group-hover:bg-red-100 dark:bg-red-900/30 dark:group-hover:bg-red-900/50">
+                                                <LogOut className="w-3.5 h-3.5 text-red-600 dark:text-red-400" />
                                             </div>
-                                            <span className="text-sm font-medium text-slate-600 group-hover:text-red-700">ログアウト</span>
+                                            <span className="text-sm font-medium text-slate-600 group-hover:text-red-700 dark:text-slate-300 dark:group-hover:text-red-400">ログアウト</span>
                                         </div>
                                     </DropdownMenuItem>
                                 </DropdownMenuContent>
@@ -890,24 +890,24 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.1 }}
                                 >
-                                    <div className="relative h-full bg-white rounded-2xl p-6 shadow-lg shadow-blue-100/50 border border-blue-50 group hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-200/50 transition-all duration-300">
-                                        <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full opacity-60 -z-10"></div>
+                                    <div className="relative h-full bg-white rounded-2xl p-6 shadow-lg shadow-blue-100/50 border border-blue-50 group hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-200/50 transition-all duration-300 dark:bg-slate-900 dark:border-slate-700 dark:shadow-slate-900/50 dark:hover:shadow-slate-900/70">
+                                        <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full opacity-60 -z-10 dark:from-blue-900/20"></div>
 
                                         <div className="flex justify-between items-start mb-4">
-                                            <div className="p-3 rounded-xl bg-blue-50 text-blue-600 group-hover:scale-105 transition-transform duration-300">
+                                            <div className="p-3 rounded-xl bg-blue-50 text-blue-600 group-hover:scale-105 transition-transform duration-300 dark:bg-blue-900/30 dark:text-blue-400">
                                                 <FileText className="w-6 h-6" />
                                             </div>
-                                            <div className="flex items-center gap-1 bg-green-50 px-2 py-1 rounded-lg">
+                                            <div className="flex items-center gap-1 bg-green-50 px-2 py-1 rounded-lg dark:bg-green-900/30">
                                                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                                                <span className="text-[10px] font-bold text-green-700">アクティブ</span>
+                                                <span className="text-[10px] font-bold text-green-700 dark:text-green-400">アクティブ</span>
                                             </div>
                                         </div>
 
                                         <div className="space-y-1">
-                                            <p className="text-sm font-bold text-gray-400 tracking-wide">保存タイトル数</p>
+                                            <p className="text-sm font-bold text-gray-400 tracking-wide dark:text-slate-400">保存タイトル数</p>
                                             <div className="flex items-baseline gap-2">
-                                                <h3 className="text-4xl font-extrabold text-slate-800 tracking-tight">{totalTitles}</h3>
-                                                <span className="text-sm font-semibold text-gray-400">タイトル</span>
+                                                <h3 className="text-4xl font-extrabold text-slate-800 tracking-tight dark:text-slate-100">{totalTitles}</h3>
+                                                <span className="text-sm font-semibold text-gray-400 dark:text-slate-500">タイトル</span>
                                             </div>
                                         </div>
 
@@ -922,24 +922,24 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2 }}
                                 >
-                                    <div className="relative h-full bg-white rounded-2xl p-6 shadow-lg shadow-emerald-100/50 border border-emerald-50 group hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-200/50 transition-all duration-300">
-                                        <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-emerald-50 to-transparent rounded-bl-full opacity-60 -z-10"></div>
+                                    <div className="relative h-full bg-white rounded-2xl p-6 shadow-lg shadow-emerald-100/50 border border-emerald-50 group hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-200/50 transition-all duration-300 dark:bg-slate-900 dark:border-slate-700 dark:shadow-slate-900/50 dark:hover:shadow-slate-900/70">
+                                        <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-emerald-50 to-transparent rounded-bl-full opacity-60 -z-10 dark:from-emerald-900/20"></div>
 
                                         <div className="flex justify-between items-start mb-4">
-                                            <div className="p-3 rounded-xl bg-emerald-50 text-emerald-600 group-hover:scale-105 transition-transform duration-300">
+                                            <div className="p-3 rounded-xl bg-emerald-50 text-emerald-600 group-hover:scale-105 transition-transform duration-300 dark:bg-emerald-900/30 dark:text-emerald-400">
                                                 <Database className="w-6 h-6" />
                                             </div>
-                                            <div className="flex items-center gap-1 bg-emerald-50 px-2 py-1 rounded-lg">
+                                            <div className="flex items-center gap-1 bg-emerald-50 px-2 py-1 rounded-lg dark:bg-emerald-900/30">
                                                 <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                                                <span className="text-[10px] font-bold text-emerald-700">合計</span>
+                                                <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-400">合計</span>
                                             </div>
                                         </div>
 
                                         <div className="space-y-1">
-                                            <p className="text-sm font-bold text-gray-400 tracking-wide">総データ件数</p>
+                                            <p className="text-sm font-bold text-gray-400 tracking-wide dark:text-slate-400">総データ件数</p>
                                             <div className="flex items-baseline gap-2">
-                                                <h3 className="text-4xl font-extrabold text-slate-800 tracking-tight">{totalPatents.toLocaleString()}</h3>
-                                                <span className="text-sm font-semibold text-gray-400">アイテム</span>
+                                                <h3 className="text-4xl font-extrabold text-slate-800 tracking-tight dark:text-slate-100">{totalPatents.toLocaleString()}</h3>
+                                                <span className="text-sm font-semibold text-gray-400 dark:text-slate-500">アイテム</span>
                                             </div>
                                         </div>
 
@@ -954,22 +954,22 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.3 }}
                                 >
-                                    <div className="relative h-full bg-white rounded-2xl p-6 shadow-lg shadow-purple-100/50 border border-purple-50 group hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-200/50 transition-all duration-300">
-                                        <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-purple-50 to-transparent rounded-bl-full opacity-60 -z-10"></div>
+                                    <div className="relative h-full bg-white rounded-2xl p-6 shadow-lg shadow-purple-100/50 border border-purple-50 group hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-200/50 transition-all duration-300 dark:bg-slate-900 dark:border-slate-700 dark:shadow-slate-900/50 dark:hover:shadow-slate-900/70">
+                                        <div className="absolute right-0 top-0 w-32 h-32 bg-gradient-to-br from-purple-50 to-transparent rounded-bl-full opacity-60 -z-10 dark:from-purple-900/20"></div>
 
                                         <div className="flex justify-between items-start mb-4">
-                                            <div className="p-3 rounded-xl bg-purple-50 text-purple-600 group-hover:scale-105 transition-transform duration-300">
+                                            <div className="p-3 rounded-xl bg-purple-50 text-purple-600 group-hover:scale-105 transition-transform duration-300 dark:bg-purple-900/30 dark:text-purple-400">
                                                 <BarChart3 className="w-6 h-6" />
                                             </div>
-                                            <div className="flex items-center gap-1 bg-purple-50 px-2 py-1 rounded-lg">
-                                                <span className="text-[10px] font-bold text-purple-700">平均</span>
+                                            <div className="flex items-center gap-1 bg-purple-50 px-2 py-1 rounded-lg dark:bg-purple-900/30">
+                                                <span className="text-[10px] font-bold text-purple-700 dark:text-purple-400">平均</span>
                                             </div>
                                         </div>
 
                                         <div className="space-y-1">
-                                            <p className="text-sm font-bold text-gray-400 tracking-wide">平均進捗率</p>
+                                            <p className="text-sm font-bold text-gray-400 tracking-wide dark:text-slate-400">平均進捗率</p>
                                             <div className="flex items-baseline gap-2">
-                                                <h3 className="text-4xl font-extrabold text-slate-800 tracking-tight">{avgProgress}<span className="text-2xl ml-0.5">%</span></h3>
+                                                <h3 className="text-4xl font-extrabold text-slate-800 tracking-tight dark:text-slate-100">{avgProgress}<span className="text-2xl ml-0.5">%</span></h3>
                                             </div>
                                         </div>
 
@@ -982,7 +982,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                         </div>
                     )}
 
-                    <div className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100">
+                    <div className="bg-white rounded-2xl shadow-xl p-8 border border-orange-100 dark:bg-slate-900 dark:border-slate-700">
                         {activeTab === 'create' ? (
                             <CreateTitleForm onBack={() => setActiveTab('list')} onSave={handleSaveTitle} />
                         ) : activeTab === 'copy' ? (
@@ -1020,55 +1020,55 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                         <h2 className="text-3xl bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent mb-2">
                                             タイトル一覧
                                         </h2>
-                                        <p className="text-gray-500">検索（タイトル・部署等）</p>
+                                        <p className="text-gray-500 dark:text-slate-400">検索（タイトル・部署等）</p>
                                     </div>
                                 </div>
 
                                 {/* Search & Filters */}
                                 <div className="flex gap-4 mb-6">
                                     <div className="flex-1 relative">
-                                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-slate-500" />
                                         <Input
                                             placeholder="検索（タイトル・部署等）"
                                             value={searchQuery}
                                             onChange={(e) => setSearchQuery(e.target.value)}
-                                            className="pl-10 h-12 border-2"
+                                            className="pl-10 h-12 border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                                         />
                                     </div>
                                     <Button
                                         variant="outline"
-                                        className="h-12 border-2"
+                                        className="h-12 border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
                                         onClick={handleRefresh}
                                         disabled={isRefreshing}
                                     >
                                         <RefreshCw className={`w-4 h-4 mr-2 ${isRefreshing ? 'animate-spin' : ''}`} />
                                         {isRefreshing ? '更新中...' : '更新'}
                                     </Button>
-                                    <Button variant="outline" className="h-12 border-2" onClick={handleExportTitleList}>
+                                    <Button variant="outline" className="h-12 border-2 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700" onClick={handleExportTitleList}>
                                         <Download className="w-4 h-4 mr-2" />
                                         エクスポート
                                     </Button>
                                 </div>
 
                                 {/* Table Container with Sticky Header */}
-                                <div className="border border-gray-100 rounded-2xl overflow-hidden shadow-sm bg-white ring-1 ring-gray-50">
+                                <div className="border border-gray-100 rounded-2xl overflow-hidden shadow-sm bg-white ring-1 ring-gray-50 dark:bg-slate-950 dark:border-slate-800 dark:ring-slate-800">
                                     <div className="max-h-[70vh] overflow-y-auto relative scrollbar-thin scrollbar-thumb-gray-200 scrollbar-track-transparent">
                                         <Table>
-                                            <TableHeader className="sticky top-0 z-20 bg-gray-50/95 backdrop-blur shadow-sm">
-                                                <TableRow className="border-b border-gray-100 hover:bg-transparent">
+                                            <TableHeader className="sticky top-0 z-20 bg-gray-50/95 backdrop-blur shadow-sm dark:bg-slate-900/95">
+                                                <TableRow className="border-b border-gray-100 hover:bg-transparent dark:border-slate-800">
                                                     <TableHead className="w-[50px] text-center"></TableHead>
-                                                    <TableHead className="w-[80px] text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">No</TableHead>
-                                                    <TableHead className="text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">保存データタイトル</TableHead>
-                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">用途</TableHead>
-                                                    <TableHead className="text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">部署名</TableHead>
-                                                    <TableHead className="text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">主担当者</TableHead>
-                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">データ件数</TableHead>
-                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">評価済</TableHead>
-                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">未評価</TableHead>
-                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">ゴミ箱</TableHead>
-                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">評価進捗率</TableHead>
-                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">添付</TableHead>
-                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4">保存年月</TableHead>
+                                                    <TableHead className="w-[80px] text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">No</TableHead>
+                                                    <TableHead className="text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">保存データタイトル</TableHead>
+                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">用途</TableHead>
+                                                    <TableHead className="text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">部署名</TableHead>
+                                                    <TableHead className="text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">主担当者</TableHead>
+                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">データ件数</TableHead>
+                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">評価済</TableHead>
+                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">未評価</TableHead>
+                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">ゴミ箱</TableHead>
+                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">評価進捗率</TableHead>
+                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">添付</TableHead>
+                                                    <TableHead className="text-center text-xs font-semibold text-gray-500 uppercase tracking-wider py-4 dark:text-slate-400">保存年月</TableHead>
                                                 </TableRow>
                                             </TableHeader>
                                             <TableBody>
@@ -1106,7 +1106,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                                             animate={{ opacity: 1, x: 0 }}
                                                             exit={{ opacity: 0, x: 20 }}
                                                             transition={{ duration: 0.3, delay: index * 0.05 }}
-                                                            className="hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50 transition-all group"
+                                                            className="hover:bg-gradient-to-r hover:from-orange-50 hover:to-yellow-50 transition-all group dark:hover:from-slate-900 dark:hover:to-slate-900 border-b border-gray-100 dark:border-slate-800"
                                                         >
                                                             <TableCell className="text-center">
                                                                 <DropdownMenu>
@@ -1196,7 +1196,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                                                     </DropdownMenuContent>
                                                                 </DropdownMenu>
                                                             </TableCell>
-                                                            <TableCell>{item.no}</TableCell>
+                                                            <TableCell className="dark:text-slate-300">{item.no}</TableCell>
                                                             <TableCell>
                                                                 <button
                                                                     onClick={() => handleOpenDetailPage(item.no, item.title, item.responsible, item.responsibleId, item.id)}
@@ -1212,7 +1212,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                                                             style={{ backgroundColor: item.markColor }}
                                                                         />
                                                                     )}
-                                                                    <span className="hover:underline text-left">
+                                                                    <span className="hover:underline text-left dark:text-slate-100">
                                                                         {item.title}
                                                                     </span>
                                                                 </button>
@@ -1225,7 +1225,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                                                     {item.department}
                                                                 </Badge>
                                                             </TableCell>
-                                                            <TableCell>{item.responsible}</TableCell>
+                                                            <TableCell className="dark:text-slate-300">{item.responsible}</TableCell>
                                                             <TableCell className="text-center">
                                                                 {(item.dataCount > 0 || !item.title.includes('コピー')) && (
                                                                     <Badge className="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 border-0 group-hover:bg-orange-200 group-hover:text-orange-800">
@@ -1290,7 +1290,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                                                     )}
                                                                 </Button>
                                                             </TableCell>
-                                                            <TableCell className="text-center">{item.date}</TableCell>
+                                                            <TableCell className="text-center dark:text-slate-300">{item.date}</TableCell>
                                                         </MotionTableRow>
                                                     ))
                                                 )}
@@ -1300,7 +1300,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                                 </div>
 
                                 {/* Footer Info */}
-                                <div className="mt-6 flex items-center justify-between text-sm text-gray-500">
+                                <div className="mt-6 flex items-center justify-between text-sm text-gray-500 dark:text-slate-400">
                                     <div>
                                         {searchQuery ? (
                                             <>
@@ -1328,12 +1328,12 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
 
             {/* Attachment Upload Dialog */}
             <Dialog open={isAttachmentDialogOpen} onOpenChange={handleCloseAttachmentDialog}>
-                <DialogContent className="max-w-3xl bg-white border-0 shadow-2xl">
-                    <DialogHeader className="border-b border-gray-100 pb-4">
+                <DialogContent className="max-w-3xl bg-white border-0 shadow-2xl dark:bg-slate-900 dark:border-slate-700">
+                    <DialogHeader className="border-b border-gray-100 pb-4 dark:border-slate-700">
                         <DialogTitle className="text-xl font-bold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
                             添付資料の管理
                         </DialogTitle>
-                        <DialogDescription className="text-gray-500">
+                        <DialogDescription className="text-gray-500 dark:text-slate-400">
                             タイトルに関連する資料をアップロード・管理します
                         </DialogDescription>
                     </DialogHeader>
@@ -1341,7 +1341,7 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                     <div className="space-y-6 py-6">
                         {/* Upload Area */}
                         {/* Upload Area */}
-                        <div className="relative bg-gradient-to-br from-orange-50/50 to-white border-2 border-dashed border-orange-200 rounded-xl p-8 transition-all hover:border-orange-400 hover:shadow-md group">
+                        <div className="relative bg-gradient-to-br from-orange-50/50 to-white border-2 border-dashed border-orange-200 rounded-xl p-8 transition-all hover:border-orange-400 hover:shadow-md group dark:from-orange-900/10 dark:to-slate-800 dark:border-orange-800 dark:hover:border-orange-600">
                             {!selectedFile && (
                                 <input
                                     type="file"
@@ -1354,26 +1354,26 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
                             <div className="flex flex-col items-center justify-center gap-4">
                                 {!selectedFile ? (
                                     <>
-                                        <div className="w-20 h-20 rounded-full bg-orange-50 flex items-center justify-center mb-2 group-hover:bg-orange-100 transition-colors">
-                                            <Upload className="w-10 h-10 text-orange-500" />
+                                        <div className="w-20 h-20 rounded-full bg-orange-50 flex items-center justify-center mb-2 group-hover:bg-orange-100 transition-colors dark:bg-orange-900/30 dark:group-hover:bg-orange-900/50">
+                                            <Upload className="w-10 h-10 text-orange-500 dark:text-orange-400" />
                                         </div>
                                         <div className="text-center">
-                                            <p className="text-base font-medium text-gray-700 mb-1">
+                                            <p className="text-base font-medium text-gray-700 mb-1 dark:text-slate-300">
                                                 ファイルをドラッグ＆ドロップ
                                             </p>
                                         </div>
                                     </>
                                 ) : (
                                     <div className="w-full max-w-md">
-                                        <div className="bg-white border border-orange-200 rounded-xl p-4 shadow-sm mb-6 flex items-center gap-4">
-                                            <div className="w-12 h-12 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0">
-                                                <FileText className="w-6 h-6 text-orange-600" />
+                                        <div className="bg-white border border-orange-200 rounded-xl p-4 shadow-sm mb-6 flex items-center gap-4 dark:bg-slate-800 dark:border-orange-800">
+                                            <div className="w-12 h-12 rounded-lg bg-orange-50 flex items-center justify-center flex-shrink-0 dark:bg-orange-900/30">
+                                                <FileText className="w-6 h-6 text-orange-600 dark:text-orange-400" />
                                             </div>
                                             <div className="flex-1 min-w-0">
-                                                <p className="text-sm font-medium text-gray-900 truncate">
+                                                <p className="text-sm font-medium text-gray-900 truncate dark:text-slate-200">
                                                     {selectedFile.name}
                                                 </p>
-                                                <p className="text-xs text-gray-500">
+                                                <p className="text-xs text-gray-500 dark:text-slate-400">
                                                     {(selectedFile.size / 1024).toFixed(1)} KB
                                                 </p>
                                             </div>
@@ -1421,10 +1421,10 @@ export function TitleListPage({ username, onLogout, isViewOnly = false }: TitleL
 
                         {/* File List Area */}
                         <div>
-                            <h3 className="text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
+                            <h3 className="text-sm font-bold text-gray-700 mb-3 flex items-center gap-2 dark:text-slate-300">
                                 <Paperclip className="w-4 h-4" />
                                 添付ファイル一覧
-                                <span className="ml-2 text-xs font-normal text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
+                                <span className="ml-2 text-xs font-normal text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full dark:bg-slate-700 dark:text-slate-400">
                                     {attachments.length}件
                                 </span>
                             </h3>

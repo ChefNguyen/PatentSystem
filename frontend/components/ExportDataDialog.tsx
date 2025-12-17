@@ -192,11 +192,11 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-4xl max-h-[90vh] p-0 overflow-hidden">
-                <DialogHeader className="border-b pb-4 px-6 pt-6">
+            <DialogContent className="max-w-4xl max-h-[90vh] p-0 overflow-hidden dark:bg-slate-900 dark:border-slate-800">
+                <DialogHeader className="border-b pb-4 px-6 pt-6 dark:border-slate-700">
                     <DialogTitle className="text-xl bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
                         保存データExcel出力
-                        {titleName && <span className="text-base text-gray-600 font-normal ml-2">- {titleName}</span>}
+                        {titleName && <span className="text-base text-gray-600 font-normal ml-2 dark:text-slate-400">- {titleName}</span>}
                     </DialogTitle>
                     <DialogDescription className="sr-only">
                         保存データをExcelファイルとして出力します
@@ -206,7 +206,7 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                 <ScrollArea className="max-h-[calc(90vh-80px)]">
                     <div className="px-6 py-4 pb-6 space-y-4">
                         {/* Count */}
-                        <div className="text-center flex items-center justify-center gap-2">
+                        <div className="text-center flex items-center justify-center gap-2 dark:text-slate-200">
                             <span className="text-sm">出力対象 </span>
                             {isLoading ? (
                                 <span className="flex items-center gap-1">
@@ -223,8 +223,8 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                         <div className="grid grid-cols-[1fr_auto_1fr_auto] gap-3 items-start">
                             {/* Left column - Available fields (全書誌) */}
                             <div>
-                                <div className="text-center mb-2 text-sm font-medium text-gray-700">全書誌</div>
-                                <ScrollArea className="h-[320px] border-2 border-orange-200 rounded-lg bg-white">
+                                <div className="text-center mb-2 text-sm font-medium text-gray-700 dark:text-slate-200">全書誌</div>
+                                <ScrollArea className="h-[320px] border-2 border-orange-200 rounded-lg bg-white dark:bg-slate-900 dark:border-slate-700">
                                     <div className="p-1">
                                         {availableFields.map((field) => (
                                             <div
@@ -232,7 +232,7 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                                                 onClick={() => handleSelectAvailableField(field)}
                                                 className={`px-2 py-1.5 text-sm cursor-pointer rounded select-none ${selectedAvailableField === field
                                                     ? 'bg-orange-500 text-white'
-                                                    : 'hover:bg-orange-50'
+                                                    : 'hover:bg-orange-50 dark:text-slate-200 dark:hover:bg-slate-800'
                                                     }`}
                                             >
                                                 {field}
@@ -249,7 +249,7 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                                     variant="outline"
                                     onClick={handleAddField}
                                     disabled={!selectedAvailableField}
-                                    className="whitespace-nowrap border-orange-300 text-orange-600 hover:bg-orange-50 hover:text-orange-700"
+                                    className="whitespace-nowrap border-orange-300 text-orange-600 hover:bg-orange-50 hover:text-orange-700 dark:border-orange-700 dark:text-orange-400 dark:hover:bg-orange-900/30 dark:hover:text-orange-300"
                                 >
                                     追加→
                                 </Button>
@@ -258,7 +258,7 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                                     variant="outline"
                                     onClick={handleRemoveField}
                                     disabled={!selectedOutputField}
-                                    className="whitespace-nowrap border-orange-300 text-orange-600 hover:bg-orange-50 hover:text-orange-700"
+                                    className="whitespace-nowrap border-orange-300 text-orange-600 hover:bg-orange-50 hover:text-orange-700 dark:border-orange-700 dark:text-orange-400 dark:hover:bg-orange-900/30 dark:hover:text-orange-300"
                                 >
                                     ←削除
                                 </Button>
@@ -266,8 +266,8 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
 
                             {/* Right column - Output fields (出力書誌) */}
                             <div>
-                                <div className="text-center mb-2 text-sm font-medium text-orange-600">出力書誌</div>
-                                <ScrollArea className="h-[320px] border-2 border-orange-400 rounded-lg bg-orange-50/30">
+                                <div className="text-center mb-2 text-sm font-medium text-orange-600 dark:text-orange-400">出力書誌</div>
+                                <ScrollArea className="h-[320px] border-2 border-orange-400 rounded-lg bg-orange-50/30 dark:bg-slate-900 dark:border-orange-700">
                                     <div className="p-1">
                                         {outputFields.map((field) => (
                                             <div
@@ -275,7 +275,7 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                                                 onClick={() => handleSelectOutputField(field)}
                                                 className={`px-2 py-1.5 text-sm cursor-pointer rounded select-none ${selectedOutputField === field
                                                     ? 'bg-orange-500 text-white'
-                                                    : 'hover:bg-orange-100'
+                                                    : 'hover:bg-orange-100 dark:text-slate-200 dark:hover:bg-slate-800'
                                                     }`}
                                             >
                                                 {field}
@@ -292,7 +292,7 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                                     variant="outline"
                                     onClick={handleMoveUp}
                                     disabled={!selectedOutputField || outputFields.indexOf(selectedOutputField) === 0}
-                                    className="whitespace-nowrap border-orange-300 text-orange-600 hover:bg-orange-50 hover:text-orange-700"
+                                    className="whitespace-nowrap border-orange-300 text-orange-600 hover:bg-orange-50 hover:text-orange-700 dark:border-orange-700 dark:text-orange-400 dark:hover:bg-orange-900/30 dark:hover:text-orange-300"
                                 >
                                     ▲上に移動
                                 </Button>
@@ -301,7 +301,7 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                                     variant="outline"
                                     onClick={handleMoveDown}
                                     disabled={!selectedOutputField || outputFields.indexOf(selectedOutputField) === outputFields.length - 1}
-                                    className="whitespace-nowrap border-orange-300 text-orange-600 hover:bg-orange-50 hover:text-orange-700"
+                                    className="whitespace-nowrap border-orange-300 text-orange-600 hover:bg-orange-50 hover:text-orange-700 dark:border-orange-700 dark:text-orange-400 dark:hover:bg-orange-900/30 dark:hover:text-orange-300"
                                 >
                                     ▼下に移動
                                 </Button>
@@ -309,7 +309,7 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                         </div>
 
                         {/* Warning message */}
-                        <div className="text-xs text-red-600 leading-relaxed">
+                        <div className="text-xs text-red-600 leading-relaxed dark:text-red-400">
                             出力内容を再取り込みする場合は、
                             <br />
                             出力書誌に以下を含めてください。
@@ -325,7 +325,7 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                                     checked={exportRepresentative}
                                     onCheckedChange={(checked: boolean | 'indeterminate') => setExportRepresentative(typeof checked === 'boolean' ? checked : false)}
                                 />
-                                <label htmlFor="export-representative" className="text-sm cursor-pointer">
+                                <label htmlFor="export-representative" className="text-sm cursor-pointer dark:text-slate-200">
                                     代表図を出力する
                                 </label>
                             </div>
@@ -335,7 +335,7 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                                     checked={exportEvaluation}
                                     onCheckedChange={(checked: boolean | 'indeterminate') => setExportEvaluation(typeof checked === 'boolean' ? checked : false)}
                                 />
-                                <label htmlFor="export-evaluation" className="text-sm cursor-pointer">
+                                <label htmlFor="export-evaluation" className="text-sm cursor-pointer dark:text-slate-200">
                                     評価情報を出力する（履歴は出力しません）
                                 </label>
                             </div>
@@ -345,7 +345,7 @@ export function ExportDataDialog({ open, onOpenChange, totalCount = 0, patents =
                         <div className="flex justify-center pt-2 pb-2">
                             <Button
                                 onClick={handleExport}
-                                className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white px-12"
+                                className="bg-orange-500 hover:bg-orange-600 text-white px-12 dark:bg-orange-600 dark:hover:bg-orange-700"
                             >
                                 出力する
                             </Button>

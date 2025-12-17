@@ -37,11 +37,11 @@ const systemFields = [
   { key: 'bunkenUrl', label: '文献URL' },
 ];
 
-export function ColumnMappingDialog({ 
-  open, 
-  onClose, 
-  onSave, 
-  csvColumns 
+export function ColumnMappingDialog({
+  open,
+  onClose,
+  onSave,
+  csvColumns
 }: ColumnMappingDialogProps) {
   const [mapping, setMapping] = useState<Record<string, string>>({});
 
@@ -59,8 +59,8 @@ export function ColumnMappingDialog({
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
-        <DialogHeader className="border-b pb-4">
+      <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto dark:bg-slate-900 dark:border-slate-800">
+        <DialogHeader className="border-b pb-4 dark:border-slate-700">
           <div className="flex items-center justify-between">
             <DialogTitle className="text-lg">
               <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
@@ -71,9 +71,9 @@ export function ColumnMappingDialog({
               variant="ghost"
               size="sm"
               onClick={onClose}
-              className="h-8 w-8 p-0"
+              className="h-8 w-8 p-0 dark:hover:bg-slate-800"
             >
-              <X className="w-4 h-4" />
+              <X className="w-4 h-4 dark:text-slate-400" />
             </Button>
           </div>
           <DialogDescription>
@@ -83,12 +83,12 @@ export function ColumnMappingDialog({
 
         <div className="py-6">
           {/* Warning Message */}
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-            <p className="text-sm text-yellow-800">
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6 dark:bg-yellow-900/20 dark:border-yellow-800">
+            <p className="text-sm text-yellow-800 dark:text-yellow-300">
               <span className="mr-1">⚠️</span>
               データ項目はヘッダーと完全一致
             </p>
-            <p className="text-sm text-yellow-700 mt-1">
+            <p className="text-sm text-yellow-700 mt-1 dark:text-yellow-400">
               データ項目はヘッダーと完全一致するもののみ自動設定しています。確認にごご注意ください。
             </p>
           </div>
@@ -97,11 +97,11 @@ export function ColumnMappingDialog({
           <div className="grid grid-cols-[1fr_auto_1fr] gap-6 items-start">
             {/* System Fields Column */}
             <div className="space-y-3">
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-lg border border-blue-200">
-                <h3 className="text-sm text-center">
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-lg border border-blue-200 dark:from-blue-900/40 dark:to-purple-900/40 dark:border-blue-800">
+                <h3 className="text-sm text-center dark:text-slate-200">
                   正書式のデータ項目
                   <br />
-                  <span className="text-xs text-gray-600">
+                  <span className="text-xs text-gray-600 dark:text-slate-400">
                     ※このデータ項目はヘッダーと完全一致
                   </span>
                 </h3>
@@ -110,9 +110,9 @@ export function ColumnMappingDialog({
                 {systemFields.map((field) => (
                   <div
                     key={field.key}
-                    className="bg-gray-100 p-3 rounded border border-gray-300"
+                    className="bg-gray-100 p-3 rounded border border-gray-300 dark:bg-slate-800 dark:border-slate-700"
                   >
-                    <p className="text-sm">{field.label}</p>
+                    <p className="text-sm dark:text-slate-200">{field.label}</p>
                   </div>
                 ))}
               </div>
@@ -125,11 +125,11 @@ export function ColumnMappingDialog({
 
             {/* CSV Columns Selection */}
             <div className="space-y-3">
-              <div className="bg-gradient-to-r from-orange-50 to-yellow-50 p-3 rounded-lg border border-orange-200">
-                <h3 className="text-sm text-center">
+              <div className="bg-gradient-to-r from-orange-50 to-yellow-50 p-3 rounded-lg border border-orange-200 dark:from-orange-900/40 dark:to-yellow-900/40 dark:border-orange-800">
+                <h3 className="text-sm text-center dark:text-slate-200">
                   取込後のデータ項目
                   <br />
-                  <span className="text-xs text-gray-600">
+                  <span className="text-xs text-gray-600 dark:text-slate-400">
                     ※CSVファイルのヘッダー
                   </span>
                 </h3>
@@ -139,9 +139,9 @@ export function ColumnMappingDialog({
                   <div key={field.key}>
                     <Select
                       value={mapping[field.key] || ''}
-                      onValueChange={(value) => handleMappingChange(field.key, value)}
+                      onValueChange={(value: string) => handleMappingChange(field.key, value)}
                     >
-                      <SelectTrigger className="w-full">
+                      <SelectTrigger className="w-full dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200">
                         <SelectValue placeholder="--------  件" />
                       </SelectTrigger>
                       <SelectContent>
@@ -161,18 +161,18 @@ export function ColumnMappingDialog({
 
           {/* Additional Info */}
           <div className="mt-6 grid grid-cols-2 gap-4">
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <h4 className="text-sm mb-2 text-blue-900">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 dark:bg-blue-900/20 dark:border-blue-800">
+              <h4 className="text-sm mb-2 text-blue-900 dark:text-blue-300">
                 ◆ THE書類 / JPO・GPOファミリー情報書
               </h4>
-              <p className="text-xs text-blue-800">
+              <p className="text-xs text-blue-800 dark:text-blue-400">
                 書類番号 ⇒
                 <br />
                 発明番号又はこごこの登録
               </p>
             </div>
-            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
-              <p className="text-xs text-orange-800">
+            <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 dark:bg-orange-900/20 dark:border-orange-800">
+              <p className="text-xs text-orange-800 dark:text-orange-300">
                 発明番号又はこごこの登録
                 <br />
                 PCで保管できる文字
@@ -183,15 +183,16 @@ export function ColumnMappingDialog({
           </div>
 
           {/* Action Buttons */}
-          <div className="flex justify-end gap-3 mt-6 pt-4 border-t">
+          <div className="flex justify-end gap-3 mt-6 pt-4 border-t dark:border-slate-700">
             <Button
               variant="outline"
               onClick={onClose}
+              className="dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-700"
             >
               キャンセル
             </Button>
             <Button
-              className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white"
+              className="bg-orange-500 hover:bg-orange-600 text-white dark:bg-orange-600 dark:hover:bg-orange-700"
               onClick={handleSave}
             >
               保存

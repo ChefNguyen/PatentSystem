@@ -86,11 +86,11 @@ export function HomePage({ onNavigateToLogin, onNavigateToViewOnly }: HomePagePr
   const plans: any[] = [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50/50 to-yellow-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
       {/* Header - Same style as TitleListPage */}
       <div className="sticky top-4 z-50 w-full px-4 mb-8">
         <header className="container mx-auto">
-          <div className="bg-white rounded-2xl shadow-2xl border-b-4 border-orange-500 relative flex items-center justify-between px-8 py-6 transition-all duration-300">
+          <div className="bg-white rounded-2xl shadow-2xl border-b-4 border-orange-500 relative flex items-center justify-between px-8 py-6 transition-all duration-300 dark:bg-slate-900 dark:border-orange-500/50">
 
             {/* Left: Brand */}
             <div className="flex items-center gap-4 cursor-pointer group hover:opacity-90 transition-opacity">
@@ -98,7 +98,7 @@ export function HomePage({ onNavigateToLogin, onNavigateToViewOnly }: HomePagePr
                 <Lightbulb className="w-8 h-8 text-white stroke-[2.5]" />
               </div>
               <span
-                className="text-3xl tracking-tight text-slate-800 drop-shadow-sm"
+                className="text-3xl tracking-tight text-slate-800 drop-shadow-sm dark:text-slate-100"
                 style={{ fontFamily: '"M PLUS Rounded 1c", sans-serif', fontWeight: 800 }}
               >
                 特許ナビ
@@ -109,28 +109,28 @@ export function HomePage({ onNavigateToLogin, onNavigateToViewOnly }: HomePagePr
             <div className="hidden md:flex items-center gap-4">
               <a
                 href="#features"
-                className="group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium"
+                className="group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-orange-400"
               >
                 <FileText className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                 <span>作成</span>
               </a>
               <a
                 href="#copy"
-                className="group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium"
+                className="group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-orange-400"
               >
                 <Copy className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                 <span>コピー</span>
               </a>
               <a
                 href="#merge"
-                className="group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium"
+                className="group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-orange-400"
               >
                 <Layers className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                 <span>マージ</span>
               </a>
               <a
                 href="#search"
-                className="group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium"
+                className="group flex items-center gap-2 px-4 py-2 rounded-lg text-slate-700 hover:text-orange-600 hover:bg-orange-50 hover:-translate-y-1 hover:shadow-md transition-all duration-300 text-[15px] font-medium dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-orange-400"
               >
                 <Search className="w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
                 <span>検索</span>
@@ -142,7 +142,7 @@ export function HomePage({ onNavigateToLogin, onNavigateToViewOnly }: HomePagePr
               <Button
                 onClick={onNavigateToLogin}
                 variant="ghost"
-                className="text-slate-700 hover:text-slate-900 hover:bg-slate-100 hover:-translate-y-1 transition-all duration-300 hidden md:flex font-semibold"
+                className="text-slate-700 hover:text-slate-900 hover:bg-slate-100 hover:-translate-y-1 transition-all duration-300 hidden md:flex font-semibold dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800"
               >
                 ログイン
               </Button>
@@ -172,7 +172,7 @@ export function HomePage({ onNavigateToLogin, onNavigateToViewOnly }: HomePagePr
               </div>
 
               {/* Main Title with Highlight */}
-              <h1 className="text-6xl lg:text-7xl font-bold mb-8 text-slate-900 leading-tight tracking-tight">
+              <h1 className="text-6xl lg:text-7xl font-bold mb-8 text-slate-900 leading-tight tracking-tight dark:text-white">
                 特許データを
                 <br />
                 <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
@@ -181,7 +181,7 @@ export function HomePage({ onNavigateToLogin, onNavigateToViewOnly }: HomePagePr
               </h1>
 
               {/* Description */}
-              <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-xl">
+              <p className="text-xl text-slate-600 mb-10 leading-relaxed max-w-xl dark:text-slate-400">
                 保存タイトルの作成・コピー・マージ、担当者の分担管理、評価ステータスの追跡など、特許データ管理に必要な機能を一元化。
               </p>
 

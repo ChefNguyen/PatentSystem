@@ -392,7 +392,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
           <Button
             variant="outline"
             onClick={onBack}
-            className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 px-6"
+            className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 px-6 dark:border-orange-700 dark:text-orange-400 dark:hover:bg-orange-900/30"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             タイトル一覧へ戻る
@@ -400,7 +400,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
         )}
         <Button
           variant="outline"
-          className="border-2 border-gray-400 bg-white hover:bg-gray-50 px-6 ml-auto"
+          className="border-2 border-gray-400 bg-white hover:bg-gray-50 px-6 ml-auto dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
           onClick={() => {
             setSearchExpression('');
             setNumberInput('');
@@ -413,26 +413,26 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
       </div>
 
       {/* Section 1: 検索方法 */}
-      <Card className="border-2 border-orange-200 bg-orange-50/30">
+      <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-800">
         <div className="p-4">
           <div className="mb-4">
             <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">検索方法</span>
           </div>
           <RadioGroup value={searchMethod} onValueChange={(v: 'number' | 'condition') => setSearchMethod(v)} className="flex gap-4">
-            <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white">
-              <RadioGroupItem value="number" id="number" className="border-2 border-black" />
-              <Label htmlFor="number" className="cursor-pointer text-sm">番号を入力して検索</Label>
+            <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white dark:bg-slate-800 dark:border-slate-600">
+              <RadioGroupItem value="number" id="number" className="border-2 border-black dark:border-slate-400" />
+              <Label htmlFor="number" className="cursor-pointer text-sm dark:text-slate-200">番号を入力して検索</Label>
             </div>
-            <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white">
-              <RadioGroupItem value="condition" id="condition" className="border-2 border-black" />
-              <Label htmlFor="condition" className="cursor-pointer text-sm">条件を入力して検索</Label>
+            <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white dark:bg-slate-800 dark:border-slate-600">
+              <RadioGroupItem value="condition" id="condition" className="border-2 border-black dark:border-slate-400" />
+              <Label htmlFor="condition" className="cursor-pointer text-sm dark:text-slate-200">条件を入力して検索</Label>
             </div>
           </RadioGroup>
         </div>
       </Card>
 
       {/* Common Title Selection Section (Visible for both methods) */}
-      <Card className="border-2 border-orange-200 bg-orange-50/30">
+      <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-800">
         <div className="p-4">
           <div className="mb-4">
             <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">タイトル指定</span>
@@ -441,9 +441,9 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
           {/* Header */}
           <div className="flex items-center gap-4 mb-3">
             <div className="flex items-center gap-2">
-              <span className="text-xs">用途:</span>
+              <span className="text-xs dark:text-slate-400">用途:</span>
               <Select defaultValue="patent">
-                <SelectTrigger className="bg-white border border-gray-300 h-7 w-24 text-xs">
+                <SelectTrigger className="bg-white border border-gray-300 h-7 w-24 text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -454,10 +454,10 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
               </Select>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-xs">検索済み件数: {totalSelectedCount} 件</span>
+              <span className="text-xs dark:text-slate-400">検索済み件数: {totalSelectedCount} 件</span>
               <Button
                 size="sm"
-                className="h-7 px-3 text-xs bg-gray-600 hover:bg-gray-700"
+                className="h-7 px-3 text-xs bg-gray-600 hover:bg-gray-700 dark:bg-slate-700 dark:hover:bg-slate-600"
                 onClick={handleConfirmSelection}
               >
                 確認
@@ -465,39 +465,39 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
             </div>
           </div>
 
-          <div className="text-xs text-gray-600 mb-3">
+          <div className="text-xs text-gray-600 mb-3 dark:text-slate-400">
             ※選択されたタイトル内から検索します。
           </div>
 
           {/* Table - Only showing the selected title */}
-          <Card className="border-2 border-gray-300 bg-white overflow-hidden">
+          <Card className="border-2 border-gray-300 bg-white overflow-hidden dark:bg-slate-900 dark:border-slate-700">
             <Table>
               <TableHeader>
-                <TableRow className="bg-gray-100 hover:bg-gray-100">
-                  <TableHead className="w-[60px] border-r text-xs text-center">
+                <TableRow className="bg-gray-100 hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-800">
+                  <TableHead className="w-[60px] border-r text-xs text-center dark:border-slate-700 dark:first:rounded-tl-lg">
                     <div className="flex flex-col items-center gap-1">
                       <Checkbox checked={true} disabled />
-                      <span className="text-[9px]">選択</span>
+                      <span className="text-[9px] dark:text-slate-400">選択</span>
                     </div>
                   </TableHead>
-                  <TableHead className="w-[80px] border-r text-xs text-center">No.</TableHead>
-                  <TableHead className="border-r text-xs">保存データタイトル</TableHead>
-                  <TableHead className="w-[130px] border-r text-xs">データ件数</TableHead>
-                  <TableHead className="w-[120px] border-r text-xs">部署名</TableHead>
-                  <TableHead className="w-[130px] text-xs">主担当者</TableHead>
+                  <TableHead className="w-[80px] border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">No.</TableHead>
+                  <TableHead className="border-r text-xs dark:border-slate-700 dark:text-slate-300">保存データタイトル</TableHead>
+                  <TableHead className="w-[130px] border-r text-xs dark:border-slate-700 dark:text-slate-300">データ件数</TableHead>
+                  <TableHead className="w-[120px] border-r text-xs dark:border-slate-700 dark:text-slate-300">部署名</TableHead>
+                  <TableHead className="w-[130px] text-xs dark:text-slate-300">主担当者</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 {selectedTitle ? (
-                  <TableRow className="hover:bg-gray-50">
-                    <TableCell className="border-r text-center">
+                  <TableRow className="hover:bg-gray-50 dark:hover:bg-slate-800">
+                    <TableCell className="border-r text-center dark:border-slate-700">
                       <Checkbox checked={true} disabled />
                     </TableCell>
-                    <TableCell className="border-r text-xs text-center">{selectedTitle.no}</TableCell>
-                    <TableCell className="border-r text-xs">{selectedTitle.title}</TableCell>
-                    <TableCell className="border-r text-xs">{selectedTitle.dataCount}</TableCell>
-                    <TableCell className="border-r text-xs">{selectedTitle.department}</TableCell>
-                    <TableCell className="text-xs">{selectedTitle.responsible}</TableCell>
+                    <TableCell className="border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">{selectedTitle.no}</TableCell>
+                    <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-300">{selectedTitle.title}</TableCell>
+                    <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-300">{selectedTitle.dataCount}</TableCell>
+                    <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-300">{selectedTitle.department}</TableCell>
+                    <TableCell className="text-xs dark:text-slate-300">{selectedTitle.responsible}</TableCell>
                   </TableRow>
                 ) : (
                   <TableRow>
@@ -515,7 +515,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
         // 番号を入力して検索 UI
         <div className="space-y-4">
           {/* 番号入力 Section */}
-          <Card className="border-2 border-orange-200 bg-orange-50/30">
+          <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-800">
             <div className="p-4">
               <div className="mb-4">
                 <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">番号入力</span>
@@ -523,9 +523,9 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
               <div className="space-y-4">
                 <div className="flex gap-4">
                   <div className="w-[200px]">
-                    <Label className="text-sm mb-2 block">番号区分</Label>
+                    <Label className="text-sm mb-2 block dark:text-slate-200">番号区分</Label>
                     <Select value={numberType} onValueChange={setNumberType}>
-                      <SelectTrigger className="bg-white border-2 border-gray-300">
+                      <SelectTrigger className="bg-white border-2 border-gray-300 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -541,7 +541,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                   <div className="flex-1">
                     <Label className="text-sm mb-2 block invisible">入力</Label>
                     <Textarea
-                      className="min-h-[100px] bg-white border-2 border-gray-300 text-sm"
+                      className="min-h-[100px] bg-white border-2 border-gray-300 text-sm dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                       placeholder="特開2025-040365"
                       value={numberInput}
                       onChange={(e) => setNumberInput(e.target.value)}
@@ -549,15 +549,15 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                   </div>
 
                   <div className="w-[200px]">
-                    <Label className="text-sm mb-2 block">検索オプション</Label>
+                    <Label className="text-sm mb-2 block dark:text-slate-200">検索オプション</Label>
                     <RadioGroup value={searchOption} onValueChange={(v: 'exact' | 'partial') => setSearchOption(v)} className="space-y-2">
-                      <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white">
-                        <RadioGroupItem value="exact" id="exact" className="border-2 border-black" />
-                        <Label htmlFor="exact" className="cursor-pointer text-sm">完全一致</Label>
+                      <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white dark:bg-slate-800 dark:border-slate-600">
+                        <RadioGroupItem value="exact" id="exact" className="border-2 border-black dark:border-slate-400" />
+                        <Label htmlFor="exact" className="cursor-pointer text-sm dark:text-slate-200">完全一致</Label>
                       </div>
-                      <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white">
-                        <RadioGroupItem value="partial" id="partial" className="border-2 border-black" />
-                        <Label htmlFor="partial" className="cursor-pointer text-sm">部分一致</Label>
+                      <div className="flex items-center space-x-2 p-2 rounded border-2 border-black bg-white dark:bg-slate-800 dark:border-slate-600">
+                        <RadioGroupItem value="partial" id="partial" className="border-2 border-black dark:border-slate-400" />
+                        <Label htmlFor="partial" className="cursor-pointer text-sm dark:text-slate-200">部分一致</Label>
                       </div>
                     </RadioGroup>
                   </div>
@@ -567,7 +567,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                 <div className="flex items-center gap-3 pt-2">
                   <Button
                     onClick={handleCountCheck}
-                    className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white px-6"
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-6 dark:bg-orange-600 dark:hover:bg-orange-700"
                   >
                     件数チェック
                   </Button>
@@ -575,10 +575,10 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                     <Input
                       value={patentCount > 0 ? patentCount : ''}
                       readOnly
-                      className="w-24 text-center border-2 border-gray-300"
+                      className="w-24 text-center border-2 border-gray-300 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                       placeholder="0"
                     />
-                    <span className="text-sm">件</span>
+                    <span className="text-sm dark:text-slate-300">件</span>
                   </div>
                 </div>
               </div>
@@ -589,7 +589,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
         // 条件を入力して検索 UI
         <div className="space-y-4">
           {/* 名称かリスト Section */}
-          <Card className="border-2 border-orange-200 bg-orange-50/30">
+          <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-800">
             <div className="p-4">
               <div className="mb-4">
                 <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">名称かリスト</span>
@@ -598,10 +598,10 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
               {/* Input Row */}
               <div className="flex items-end gap-2 mb-4">
                 <div className="flex-1">
-                  <Label className="text-xs mb-1 block">検索名称</Label>
+                  <Label className="text-xs mb-1 block dark:text-slate-300">検索名称</Label>
                   <div className="flex gap-2">
                     <Select value={searchNameField} onValueChange={setSearchNameField}>
-                      <SelectTrigger className="bg-white border border-gray-300 h-8 w-[180px] text-xs">
+                      <SelectTrigger className="bg-white border border-gray-300 h-8 w-[180px] text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -614,13 +614,13 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                       </SelectContent>
                     </Select>
                     <Input
-                      className="bg-white border border-gray-300 h-8 text-xs flex-1"
+                      className="bg-white border border-gray-300 h-8 text-xs flex-1 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                       value={searchNameValue}
                       onChange={(e) => setSearchNameValue(e.target.value)}
                     />
                     <Button
                       size="sm"
-                      className="h-8 px-4 bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white"
+                      className="h-8 px-4 bg-orange-500 hover:bg-orange-600 text-white dark:bg-orange-600 dark:hover:bg-orange-700"
                       onClick={handleAddHistory}
                     >
                       追加
@@ -629,23 +629,23 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                 </div>
               </div>
 
-              <div className="text-xs text-gray-600 mb-3">
+              <div className="text-xs text-gray-600 mb-3 dark:text-slate-400">
                 ※履歴かリストでクリックして編集元に履歴を追加してください。
               </div>
 
               {/* History Table */}
-              <div className="border-2 border-gray-300 bg-white rounded overflow-hidden">
+              <div className="border-2 border-gray-300 bg-white rounded overflow-hidden dark:bg-slate-900 dark:border-slate-700">
                 <Table>
                   <TableHeader>
-                    <TableRow className="bg-gray-100 hover:bg-gray-100">
-                      <TableHead className="w-[80px] border-r text-xs text-center">選択</TableHead>
-                      <TableHead className="w-[150px] border-r text-xs">項目</TableHead>
-                      <TableHead className="border-r text-xs">条件</TableHead>
+                    <TableRow className="bg-gray-100 hover:bg-gray-100 dark:bg-slate-800 dark:hover:bg-slate-800">
+                      <TableHead className="w-[80px] border-r text-xs text-center dark:border-slate-700 dark:text-slate-300">選択</TableHead>
+                      <TableHead className="w-[150px] border-r text-xs dark:border-slate-700 dark:text-slate-300">項目</TableHead>
+                      <TableHead className="border-r text-xs dark:border-slate-700 dark:text-slate-300">条件</TableHead>
                       <TableHead className="w-[80px] text-xs text-center">
                         <Button
                           variant="link"
                           size="sm"
-                          className="h-auto p-0 text-xs text-blue-600"
+                          className="h-auto p-0 text-xs text-blue-600 dark:text-blue-400"
                           onClick={handleClearAllHistory}
                         >
                           全削除
@@ -655,24 +655,24 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                   </TableHeader>
                   <TableBody>
                     {historyItems.map((item) => (
-                      <TableRow key={item.id} className="hover:bg-gray-50">
-                        <TableCell className="border-r text-xs text-center">
+                      <TableRow key={item.id} className="hover:bg-gray-50 dark:hover:bg-slate-800">
+                        <TableCell className="border-r text-xs text-center dark:border-slate-700">
                           <Button
                             variant="link"
                             size="sm"
-                            className="h-auto p-0 text-xs text-blue-600 hover:underline"
+                            className="h-auto p-0 text-xs text-blue-600 hover:underline dark:text-blue-400"
                             onClick={() => handleHistoryClick(item.id)}
                           >
                             {item.id}
                           </Button>
                         </TableCell>
-                        <TableCell className="border-r text-xs">{item.name}</TableCell>
-                        <TableCell className="border-r text-xs">{item.value}</TableCell>
+                        <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-300">{item.name}</TableCell>
+                        <TableCell className="border-r text-xs dark:border-slate-700 dark:text-slate-300">{item.value}</TableCell>
                         <TableCell className="text-center">
                           <Button
                             variant="link"
                             size="sm"
-                            className="h-auto p-0 text-xs text-blue-600"
+                            className="h-auto p-0 text-xs text-blue-600 dark:text-blue-400"
                             onClick={() => handleDeleteHistory(item.id)}
                           >
                             削除
@@ -687,7 +687,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
           </Card>
 
           {/* 検索式 Section */}
-          <Card className="border-2 border-orange-200 bg-orange-50/30">
+          <Card className="border-2 border-orange-200 bg-orange-50/30 dark:bg-slate-900 dark:border-slate-800">
             <div className="p-4">
               <div className="mb-4">
                 <span className="bg-orange-500 text-white px-3 py-1 rounded text-sm">検索式</span>
@@ -697,14 +697,14 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                 <Input
                   value={searchExpression}
                   onChange={(e) => setSearchExpression(e.target.value)}
-                  className="bg-white border border-gray-300 h-8 text-xs"
+                  className="bg-white border border-gray-300 h-8 text-xs dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                 />
 
                 <div className="flex gap-2">
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"
                     onClick={() => setSearchExpression('')}
                   >
                     Clear
@@ -712,7 +712,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"
                     onClick={() => handleAddToExpression('[')}
                   >
                     [
@@ -720,7 +720,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"
                     onClick={() => handleAddToExpression(']')}
                   >
                     ]
@@ -728,7 +728,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"
                     onClick={() => handleAddToExpression('*')}
                   >
                     *
@@ -736,7 +736,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"
                     onClick={() => handleAddToExpression('+')}
                   >
                     +
@@ -744,7 +744,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                   <Button
                     size="sm"
                     variant="outline"
-                    className="h-8 px-4 border-gray-300 text-xs"
+                    className="h-8 px-4 border-gray-300 text-xs dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"
                     onClick={() => handleAddToExpression('Not')}
                   >
                     Not
@@ -755,7 +755,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                 <div className="flex items-center gap-3 pt-2">
                   <Button
                     onClick={handleCountCheck}
-                    className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-white px-6"
+                    className="bg-orange-500 hover:bg-orange-600 text-white px-6 dark:bg-orange-600 dark:hover:bg-orange-700"
                   >
                     件数チェック
                   </Button>
@@ -763,10 +763,10 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
                     <Input
                       value={patentCount > 0 ? patentCount : ''}
                       readOnly
-                      className="w-24 text-center border-2 border-gray-300"
+                      className="w-24 text-center border-2 border-gray-300 dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200"
                       placeholder="0"
                     />
-                    <span className="text-sm">件</span>
+                    <span className="text-sm dark:text-slate-300">件</span>
                   </div>
                 </div>
               </div>
@@ -776,11 +776,11 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
       )}
 
       {/* Bottom Action Buttons */}
-      <div className="flex gap-3 justify-center pt-4 border-t-2 border-gray-200">
+      <div className="flex gap-3 justify-center pt-4 border-t-2 border-gray-200 dark:border-slate-700">
         <Button
           variant="outline"
           onClick={() => setShowDetailDialog(true)}
-          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px]"
+          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px] dark:bg-slate-800 dark:border-orange-600 dark:text-orange-300 dark:hover:bg-slate-700"
           disabled={patentListData.length === 0}
         >
           案件詳細
@@ -788,7 +788,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
         <Button
           variant="outline"
           onClick={() => setShowListDialog(true)}
-          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px]"
+          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px] dark:bg-slate-800 dark:border-orange-600 dark:text-orange-300 dark:hover:bg-slate-700"
           disabled={patentListData.length === 0}
         >
           案件一覧
@@ -796,7 +796,7 @@ export function SavedDataSearchForm({ onBack, selectedTitle }: SavedDataSearchFo
         <Button
           variant="outline"
           onClick={handleExport}
-          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px]"
+          className="border-2 border-orange-400 bg-gradient-to-r from-orange-100 to-yellow-100 hover:from-orange-200 hover:to-yellow-200 px-12 h-10 text-sm min-w-[150px] dark:bg-slate-800 dark:border-orange-600 dark:text-orange-300 dark:hover:bg-slate-700"
           disabled={patentListData.length === 0}
         >
           出力
