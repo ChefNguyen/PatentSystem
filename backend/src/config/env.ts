@@ -1,12 +1,14 @@
+import 'dotenv/config';
 import { z } from 'zod';
 
 const envSchema = z.object({
   DATABASE_URL: z.string().min(1),
+  DIRECT_URL: z.string().min(1),
   JWT_SECRET: z.string().min(32),
   JWT_EXPIRES_IN: z.string().default('24h'),
   JWT_REFRESH_SECRET: z.string().min(32),
   JWT_REFRESH_EXPIRES_IN: z.string().default('7d'),
-  PORT: z.string().default('3000'),
+  PORT: z.string().default('4001'),
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   MAX_FILE_SIZE: z.string().default('10485760'),
   UPLOAD_DIR: z.string().default('./uploads'),
